@@ -1,0 +1,45 @@
+---
+interface MetaItem { label: string; value: string; }
+interface Cta { label: string; href: string; }
+
+interface Props {
+  eyebrow: string;
+  headlineHtml: string;
+  body: string[];
+  metaItems: MetaItem[];
+  cta: Cta;
+  image: string;
+  imageAlt: string;
+  decorativeNumber: string;
+}
+
+const { eyebrow, headlineHtml, body, metaItems, cta, image, imageAlt, decorativeNumber } = Astro.props;
+---
+
+<section class="weinstube" id="building" aria-labelledby="building-h">
+  <div class="weinstube-grid">
+    <div class="weinstube-image">
+      <img src={image} alt={imageAlt} loading="lazy" />
+    </div>
+    <div class="weinstube-content">
+      <span class="deco-num" aria-hidden="true">{decorativeNumber}</span>
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 id="building-h" class="display" set:html={headlineHtml}></h2>
+      <div class="weinstube-body">
+        {body.map((p) => <p set:html={p}></p>)}
+      </div>
+      <div class="weinstube-meta">
+        {metaItems.map((item) => (
+          <div class="weinstube-meta-item">
+            <div class="label">{item.label}</div>
+            <div class="val">{item.value}</div>
+          </div>
+        ))}
+      </div>
+      <a href={cta.href} class="btn btn-primary">
+        {cta.label}
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>

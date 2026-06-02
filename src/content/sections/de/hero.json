@@ -1,0 +1,13 @@
+{
+  "masthead": "Vol. CCXXXIII · Est. MDCCXCIII",
+  "coords": "Reichsgasse 18 · 7000 Chur · Graubünden",
+  "headlineStart": "Im Herzen",
+  "headlineEm": "der ältesten Stadt",
+  "headlineEnd": "der Schweiz. Seit 1793.",
+  "tag": "Ein familiengeführtes Hotel in der Churer Altstadt. Gastfreundschaft mit Tradition seit 1793, individuell eingerichtete Zimmer für jedes Budget und über zehn Restaurants in zwei Gehminuten Entfernung.",
+  "primaryCta": { "label": "Online buchen", "href": "https://www.dreikoenige.ch/wbe4/index.html" },
+  "secondaryCta": { "label": "Unsere Geschichte", "href": "#heritage" },
+  "image": "https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=2400&q=80",
+  "imageAlt": "Kopfsteinpflastergasse in der Churer Altstadt",
+  "scrollLabel": "Scrollen"
+}

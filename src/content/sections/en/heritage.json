@@ -1,0 +1,23 @@
+{
+  "yearLabel": "1793",
+  "yearMetaLabel": "The Founding Year",
+  "yearMetaText": "When Zunftmeister Conrad Bavier opened the inherited family house \"in the German style as an inn, with the shield of the three kings.\"",
+  "eyebrow": "A Living Chronicle",
+  "headlineHtml": "A <em>living part</em> of Chur's history.",
+  "bodyParagraphs": [
+    {
+      "text": "The hotel has existed in this building since 1793. Recorded in the National Archives in the provincial news of that year: \"Mr. Zunftmeister Conrad Bavier is hereby announcing that he has established the inherited house from his blessed father in the German style to an inn, and gave it the shield with the three kings which was previously associated.\"",
+      "lede": true
+    },
+    {
+      "text": "The Schällibaum family then ran the house for over three generations, until 2005. Today the hotel continues under DC Gastronomie GmbH, in the same building, in the same old town, with the same name above the door.",
+      "lede": false
+    },
+    {
+      "text": "Inside the walls there are details most guests never notice: the oldest preserved hotel room in Chur, a banquet hall that has been alternately part of an abbey and part of the seat of government, and — according to local legend — an underground passage that once connected the bishop's seat to our basement.",
+      "lede": false
+    }
+  ],
+  "quote": "\"Established the inherited house in the German style as an inn, and gave it the shield with the three kings.\"",
+  "quoteCite": "— Zunftmeister Conrad Bavier, founding announcement, 1793"
+}

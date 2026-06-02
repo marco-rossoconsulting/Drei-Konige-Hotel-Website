@@ -1,0 +1,20 @@
+# Netlify build & deploy configuration — Hotel Drei Könige Chur
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Identity widget is enabled in the Netlify dashboard, not here.
+# Enable it via: Site settings → Identity → Enable Identity.
+# Then under Identity → Services → Git Gateway → Enable Git Gateway.
+# Editors are invited from Identity → Invite users.
+
+# Preview deploys on pull requests (free, automatic)
+[context.deploy-preview]
+  command = "npm run build"
+
+[context.branch-deploy]
+  command = "npm run build"

@@ -1,0 +1,19 @@
+{
+  "name": "dreikoenige-website",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Hotel Drei Könige Chur — Astro + Sveltia CMS website (Netlify)",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.4.2"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}

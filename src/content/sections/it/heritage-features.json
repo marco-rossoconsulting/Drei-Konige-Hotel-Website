@@ -1,0 +1,17 @@
+{
+  "eyebrow": "All'interno dell'edificio",
+  "headlineHtml": "Stanze con la <em>propria storia</em>.",
+  "body": [
+    "Molto prima del nostro tempo, le stanze di questa casa avevano altre vite. La «Weinstube» fu un tempo stazione di posta per il cambio cavalli e in seguito set cinematografico del film <em>Jürg Jenatsch</em>. La sala da banchetti «Drei König» fu, in tempi diversi, parte di un monastero e parte della sede del governo.",
+    "Il primo sistema di assicurazione sanitaria per i boscaioli dei Grigioni fu redatto sotto questo tetto. E da qualche parte nell'edificio — a seconda del corridoio che si percorre — si trova quella che è documentata come la più antica camera d'hotel conservata di Coira."
+  ],
+  "metaItems": [
+    { "label": "La Weinstube",       "value": "Sala protetta come monumento" },
+    { "label": "Sala Drei König",    "value": "Un tempo abbazia, un tempo parlamento" },
+    { "label": "Camera più antica",  "value": "Conservata · La più antica di Coira" }
+  ],
+  "cta": { "label": "Leggi tutta la storia", "href": "#heritage" },
+  "image": "https://images.unsplash.com/photo-1568733873715-f9b8aab90c5f?w=1400&q=80",
+  "imageAlt": "Interno tradizionale rivestito di legno di un edificio storico svizzero",
+  "decorativeNumber": "1793"
+}

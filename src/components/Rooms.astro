@@ -1,0 +1,52 @@
+---
+interface Room {
+  order: number;
+  number: string;
+  name: string;
+  tag: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+}
+
+interface Props {
+  headlineStartRooms: string;
+  headlineEmRooms: string;
+  headlineEndRooms: string;
+  meta: string;
+  rooms: Room[];
+  eyebrowText: string;
+}
+
+const { headlineStartRooms, headlineEmRooms, headlineEndRooms, meta, rooms, eyebrowText } = Astro.props;
+---
+
+<section class="rooms" id="rooms" aria-labelledby="rooms-h">
+  <div class="container">
+    <div class="rooms-head">
+      <div class="reveal">
+        <span class="eyebrow" style="margin-bottom: 28px; display: inline-flex;">{eyebrowText}</span>
+        <h2 id="rooms-h" class="display" style="margin-top: 20px;">
+          {headlineStartRooms} <em>{headlineEmRooms}</em> {headlineEndRooms}
+        </h2>
+      </div>
+      <p class="meta reveal">{meta}</p>
+    </div>
+
+    <div class="rooms-grid">
+      {rooms.map((room) => (
+        <article class="room reveal" aria-labelledby={`room-${room.number}`}>
+          <div class="room-image">
+            <span class="room-num">N° {room.number}</span>
+            <span class="room-tag">{room.tag}</span>
+            <img src={room.image} alt={room.imageAlt} loading="lazy" />
+          </div>
+          <div class="room-info">
+            <span id={`room-${room.number}`} class="room-name">{room.name}</span>
+          </div>
+          <p class="room-desc">{room.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

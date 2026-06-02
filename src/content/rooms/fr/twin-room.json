@@ -1,0 +1,9 @@
+{
+  "order": 5,
+  "number": "V",
+  "name": "Chambre Twin",
+  "tag": "Deux lits simples",
+  "description": "Deux lits simples pour des amis ou collègues voyageant ensemble.",
+  "image": "https://images.unsplash.com/photo-1551776235-dde6d482980b?w=800&q=80",
+  "imageAlt": "Chambre twin avec deux lits simples"
+}

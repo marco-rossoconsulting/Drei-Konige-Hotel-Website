@@ -1,0 +1,8 @@
+{
+  "stats": [
+    { "value": "230", "unit": "J.", "label": "ununterbrochene Gastfreundschaft seit 1793" },
+    { "value": "9",   "unit": "",   "label": "individuell eingerichtete Zimmerkategorien" },
+    { "value": "7",   "unit": "Min","label": "zu Fuss vom Bahnhof Chur bis zu unserer Tür" },
+    { "value": "10",  "unit": "+",  "label": "Restaurants in zwei Gehminuten Entfernung" }
+  ]
+}

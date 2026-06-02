@@ -1,0 +1,37 @@
+{
+  "brandTagline": "Ein unabhängiges, familiäres Hotel im Herzen der ältesten Stadt der Schweiz. Geführt als Garni-Haus: ein warmer Empfang, ein reichhaltiges Frühstück und zehn Restaurants vor der Tür.",
+  "columns": [
+    {
+      "heading": "Das Hotel",
+      "links": [
+        { "label": "Geschichte", "href": "#heritage" },
+        { "label": "Zimmer & Preise", "href": "#rooms" },
+        { "label": "Frühstück", "href": "#visit" },
+        { "label": "Allgemeine Informationen", "href": "#visit" },
+        { "label": "Buchungsbedingungen", "href": "#" }
+      ]
+    },
+    {
+      "heading": "Besuchen Sie uns",
+      "links": [
+        { "label": "Lage", "href": "#chur" },
+        { "label": "Parkplätze", "href": "#visit" },
+        { "label": "Chur Gästekarte", "href": "https://www.chur.graubuenden.ch/de/gaestekarte" },
+        { "label": "Lokale Informationen", "href": "#chur" },
+        { "label": "Galerie", "href": "#" }
+      ]
+    },
+    {
+      "heading": "Kontakt",
+      "lines": [
+        "Hotel Drei Könige\nReichsgasse 18\nCH-7000 Chur, Schweiz",
+        "+41 81 354 90 90\ninfo@dreikoenige.ch"
+      ]
+    }
+  ],
+  "copyright": "© 1793 – 2026 Hotel Drei Könige · DC Gastronomie GmbH",
+  "legalLinks": [
+    { "label": "Impressum", "href": "#" },
+    { "label": "Datenschutz", "href": "#" }
+  ]
+}

@@ -1,0 +1,363 @@
+# Sveltia CMS configuration — Hotel Drei Könige Chur
+# Sveltia is config-compatible with Decap/Netlify CMS, so this same YAML
+# works on either CMS. Sveltia adds a modern editor UI on top.
+#
+# Editor sign-in: Netlify Identity (managed by Netlify, no app config needed).
+# Content saves: commit straight to GitHub via the git-gateway service.
+
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'Content: create {{collection}} "{{slug}}"'
+    update: 'Content: update {{collection}} "{{slug}}"'
+    delete: 'Content: delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Content: upload {{path}}'
+    deleteMedia: 'Content: delete {{path}}'
+
+media_folder: "public/images"
+public_folder: "/images"
+
+# Modern UI: instant publish (no draft workflow) — fits a small editor team
+publish_mode: simple
+
+# Hotel brand: when an editor is logged in, the admin shows this name
+site_url: https://www.dreikoenige.ch
+display_url: https://www.dreikoenige.ch
+logo_url: /favicon.svg
+
+# === Internationalization ===
+# Each locale lives in its own folder under the content tree.
+# Editors see locale tabs in the editor for any field marked i18n: true.
+i18n:
+  structure: multiple_folders
+  locales: [en, de, fr, it]
+  default_locale: en
+
+# ============================================================
+# COLLECTIONS
+# ============================================================
+collections:
+
+  # ------------------------------------------------------------
+  # SITE SETTINGS (singletons grouped under "Site Settings")
+  # ------------------------------------------------------------
+  - name: settings
+    label: "Site Settings"
+    label_singular: "Setting"
+    icon: settings
+    i18n: true
+    files:
+
+      - name: site
+        label: "Site & SEO"
+        i18n: true
+        file: "src/content/settings/{{locale}}/site.json"
+        format: json
+        fields:
+          - { label: "Browser tab & search title", name: title, widget: string, i18n: true }
+          - { label: "Meta description (~160 chars)", name: description, widget: text, i18n: true }
+          - { label: "Social share image URL (1200×630)", name: ogImage, widget: string, i18n: duplicate, hint: "Full URL or /images/your-photo.jpg" }
+          - { label: "Social share image — alt text", name: ogImageAlt, widget: string, i18n: true }
+          - { label: "Favicon path", name: favicon, widget: string, i18n: duplicate, default: "/favicon.svg" }
+
+      - name: nav
+        label: "Navigation & Book Now"
+        i18n: true
+        file: "src/content/settings/{{locale}}/nav.json"
+        format: json
+        fields:
+          - { label: "Logo — first word", name: logoMain, widget: string, i18n: duplicate, default: "Drei" }
+          - { label: "Logo — italic word", name: logoEm, widget: string, i18n: duplicate, default: "Könige" }
+          - { label: "Logo — sub-line", name: logoSub, widget: string, i18n: true }
+          - label: "Menu items"
+            name: menu
+            widget: list
+            i18n: true
+            fields:
+              - { label: "Label", name: label, widget: string, i18n: true }
+              - { label: "Anchor (e.g. #rooms)", name: href, widget: string, i18n: duplicate }
+          - label: "Book Now button (top right)"
+            name: reserveCta
+            widget: object
+            i18n: true
+            fields:
+              - { label: "Button label", name: label, widget: string, i18n: true }
+              - { label: "Link", name: href, widget: string, i18n: duplicate }
+
+      - name: footer
+        label: "Footer"
+        i18n: true
+        file: "src/content/settings/{{locale}}/footer.json"
+        format: json
+        fields:
+          - { label: "Brand tagline paragraph", name: brandTagline, widget: text, i18n: true }
+          - label: "Columns"
+            name: columns
+            widget: list
+            i18n: true
+            fields:
+              - { label: "Column heading", name: heading, widget: string, i18n: true }
+              - label: "Links"
+                name: links
+                widget: list
+                required: false
+                fields:
+                  - { label: "Label", name: label, widget: string }
+                  - { label: "Href", name: href, widget: string }
+              - label: "Lines"
+                name: lines
+                widget: list
+                required: false
+                field: { label: "Line", name: line, widget: string }
+          - { label: "Copyright line", name: copyright, widget: string, i18n: true }
+          - label: "Legal links (bottom-right)"
+            name: legalLinks
+            widget: list
+            i18n: true
+            fields:
+              - { label: "Label", name: label, widget: string, i18n: true }
+              - { label: "Href", name: href, widget: string, i18n: duplicate }
+
+  # ------------------------------------------------------------
+  # PAGE SECTIONS (singletons grouped under "Page Sections")
+  # ------------------------------------------------------------
+  - name: sections
+    label: "Page Sections"
+    label_singular: "Section"
+    icon: layout
+    i18n: true
+    files:
+
+      - name: hero
+        label: "Hero"
+        i18n: true
+        file: "src/content/sections/{{locale}}/hero.json"
+        format: json
+        fields:
+          - { label: "Masthead (small, top right)", name: masthead, widget: string, i18n: true }
+          - { label: "Address strip (left edge)", name: coords, widget: string, i18n: duplicate }
+          - { label: "Headline — opening words", name: headlineStart, widget: string, i18n: true }
+          - { label: "Headline — italic accent", name: headlineEm, widget: string, i18n: true }
+          - { label: "Headline — closing words", name: headlineEnd, widget: string, i18n: true }
+          - { label: "Hero paragraph", name: tag, widget: text, i18n: true }
+          - label: "Primary CTA"
+            name: primaryCta
+            widget: object
+            fields:
+              - { label: "Button label", name: label, widget: string, i18n: true }
+              - { label: "Link", name: href, widget: string, i18n: duplicate }
+          - label: "Secondary CTA"
+            name: secondaryCta
+            widget: object
+            fields:
+              - { label: "Button label", name: label, widget: string, i18n: true }
+              - { label: "Link (#anchor or external)", name: href, widget: string, i18n: duplicate }
+          - { label: "Hero background image URL", name: image, widget: string, i18n: duplicate }
+          - { label: "Hero image alt text", name: imageAlt, widget: string, i18n: true }
+          - { label: "Scroll indicator label", name: scrollLabel, widget: string, i18n: true }
+
+      - name: heritage
+        label: "Heritage / Story"
+        i18n: true
+        file: "src/content/sections/{{locale}}/heritage.json"
+        format: json
+        fields:
+          - { label: "Big year (e.g. 1793)", name: yearLabel, widget: string, i18n: duplicate, default: "1793" }
+          - { label: "Year — small label above", name: yearMetaLabel, widget: string, i18n: true }
+          - { label: "Year — short context", name: yearMetaText, widget: text, i18n: true }
+          - { label: "Eyebrow", name: eyebrow, widget: string, i18n: true }
+          - { label: "Headline (HTML — use <em>...</em> for italic)", name: headlineHtml, widget: text, i18n: true }
+          - label: "Body paragraphs"
+            name: bodyParagraphs
+            widget: list
+            i18n: true
+            fields:
+              - { label: "Paragraph text", name: text, widget: text, i18n: true }
+              - { label: "Drop-cap (first paragraph only)", name: lede, widget: boolean, default: false, required: false }
+          - { label: "Pull quote", name: quote, widget: text, i18n: true }
+          - { label: "Quote attribution", name: quoteCite, widget: string, i18n: true }
+
+      - name: stats
+        label: "Stats Strip"
+        i18n: true
+        file: "src/content/sections/{{locale}}/stats.json"
+        format: json
+        fields:
+          - label: "Stats (4 recommended)"
+            name: stats
+            widget: list
+            i18n: true
+            fields:
+              - { label: "Number", name: value, widget: string, i18n: duplicate }
+              - { label: "Unit (yrs, min, etc.)", name: unit, widget: string, i18n: true }
+              - { label: "Description", name: label, widget: string, i18n: true }
+
+      - name: rooms-section
+        label: "Rooms — section header"
+        i18n: true
+        file: "src/content/sections/{{locale}}/rooms-section.json"
+        format: json
+        fields:
+          - { label: "Headline — opening words", name: headlineStartRooms, widget: string, i18n: true }
+          - { label: "Headline — italic words", name: headlineEmRooms, widget: string, i18n: true }
+          - { label: "Headline — closing words", name: headlineEndRooms, widget: string, i18n: true }
+          - { label: "Intro paragraph", name: meta, widget: text, i18n: true }
+
+      - name: heritage-features
+        label: "Inside the Building"
+        i18n: true
+        file: "src/content/sections/{{locale}}/heritage-features.json"
+        format: json
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string, i18n: true }
+          - { label: "Headline (HTML)", name: headlineHtml, widget: text, i18n: true }
+          - label: "Body paragraphs"
+            name: body
+            widget: list
+            i18n: true
+            field: { label: "Paragraph", name: paragraph, widget: text, i18n: true }
+          - label: "Heritage features (Weinstube · Hall · etc.)"
+            name: metaItems
+            widget: list
+            i18n: true
+            fields:
+              - { label: "Label", name: label, widget: string, i18n: true }
+              - { label: "Short description", name: value, widget: string, i18n: true }
+          - label: "CTA button"
+            name: cta
+            widget: object
+            fields:
+              - { label: "Label", name: label, widget: string, i18n: true }
+              - { label: "Href", name: href, widget: string, i18n: duplicate }
+          - { label: "Image URL", name: image, widget: string, i18n: duplicate }
+          - { label: "Image alt text", name: imageAlt, widget: string, i18n: true }
+          - { label: "Big decorative number", name: decorativeNumber, widget: string, i18n: duplicate }
+
+      - name: experience
+        label: "Around the Hotel — section header"
+        i18n: true
+        file: "src/content/sections/{{locale}}/experience.json"
+        format: json
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string, i18n: true }
+          - { label: "Headline (HTML)", name: headlineHtml, widget: text, i18n: true }
+
+      - name: details
+        label: "Practical — section header"
+        i18n: true
+        file: "src/content/sections/{{locale}}/details.json"
+        format: json
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string, i18n: true }
+          - { label: "Headline (HTML)", name: headlineHtml, widget: text, i18n: true }
+          - { label: "Intro paragraph", name: practicalIntro, widget: text, i18n: true }
+          - { label: "Map marker characters", name: mapMarker, widget: string, i18n: duplicate, default: "18" }
+          - { label: "Map address line", name: mapCoords, widget: string, i18n: true }
+
+      - name: cta
+        label: "CTA Strip"
+        i18n: true
+        file: "src/content/sections/{{locale}}/cta.json"
+        format: json
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string, i18n: true }
+          - { label: "Headline (HTML)", name: headlineHtml, widget: text, i18n: true }
+          - { label: "Sub-text", name: subtext, widget: text, i18n: true }
+          - label: "Primary button"
+            name: primaryCta
+            widget: object
+            fields:
+              - { label: "Label", name: label, widget: string, i18n: true }
+              - { label: "Link", name: href, widget: string, i18n: duplicate }
+          - label: "Phone button"
+            name: phone
+            widget: object
+            fields:
+              - { label: "Phone label", name: label, widget: string, i18n: duplicate }
+              - { label: "Phone href (tel:+...)", name: href, widget: string, i18n: duplicate }
+
+  # ------------------------------------------------------------
+  # ROOMS (collection — one file per room)
+  # ------------------------------------------------------------
+  - name: rooms
+    label: "Rooms"
+    label_singular: "Room"
+    icon: hotel
+    folder: "src/content/rooms/{{locale}}"
+    format: json
+    create: true
+    slug: "{{slug}}"
+    i18n: true
+    summary: "{{number}} — {{name}}"
+    fields:
+      - { label: "Display order (1, 2, 3…)", name: order, widget: number, i18n: duplicate, value_type: int }
+      - { label: "Room number (Roman: I, II, III…)", name: number, widget: string, i18n: duplicate }
+      - { label: "Room name", name: name, widget: string, i18n: true }
+      - { label: "Tag (Private bathroom, etc.)", name: tag, widget: string, i18n: true }
+      - { label: "Description", name: description, widget: text, i18n: true }
+      - { label: "Image URL", name: image, widget: string, i18n: duplicate }
+      - { label: "Image alt text", name: imageAlt, widget: string, i18n: true }
+
+  # ------------------------------------------------------------
+  # EXPERIENCES (collection)
+  # ------------------------------------------------------------
+  - name: experiences
+    label: "Experiences (around the hotel)"
+    label_singular: "Experience"
+    icon: map
+    folder: "src/content/experiences/{{locale}}"
+    format: json
+    create: true
+    slug: "{{slug}}"
+    i18n: true
+    summary: "{{number}} — {{title}}"
+    fields:
+      - { label: "Display order", name: order, widget: number, i18n: duplicate, value_type: int }
+      - { label: "Number label (e.g. 01)", name: number, widget: string, i18n: duplicate }
+      - { label: "Card title", name: title, widget: string, i18n: true }
+      - { label: "Description", name: description, widget: text, i18n: true }
+      - label: "Card style"
+        name: style
+        widget: select
+        i18n: duplicate
+        options: ["image", "minimal"]
+        default: "image"
+      - { label: "Background image URL (image-style)", name: image, widget: string, required: false, i18n: duplicate }
+      - { label: "Image alt", name: imageAlt, widget: string, required: false, i18n: true }
+      - { label: "Eyebrow (minimal-style)", name: eyebrow, widget: string, required: false, i18n: true }
+      - { label: "Pull-quote (minimal-style)", name: quote, widget: text, required: false, i18n: true }
+      - { label: "Link label (minimal-style)", name: linkLabel, widget: string, required: false, i18n: true }
+      - { label: "Link href (minimal-style)", name: linkHref, widget: string, required: false, i18n: duplicate }
+
+  # ------------------------------------------------------------
+  # PRACTICAL INFO (collection)
+  # ------------------------------------------------------------
+  - name: practical
+    label: "Practical Info"
+    label_singular: "Practical Item"
+    icon: info
+    folder: "src/content/practical/{{locale}}"
+    format: json
+    create: true
+    slug: "{{slug}}"
+    i18n: true
+    summary: "{{order}}. {{label}}"
+    fields:
+      - { label: "Display order", name: order, widget: number, i18n: duplicate, value_type: int }
+      - label: "Icon"
+        name: icon
+        widget: select
+        i18n: duplicate
+        options:
+          - { label: "Clock", value: clock }
+          - { label: "Breakfast", value: breakfast }
+          - { label: "Bike", value: bike }
+          - { label: "Wi-Fi", value: wifi }
+          - { label: "Parking", value: parking }
+          - { label: "Pet", value: pet }
+          - { label: "Building", value: building }
+          - { label: "Pin", value: pin }
+        default: "pin"
+      - { label: "Title", name: label, widget: string, i18n: true }
+      - { label: "Short description", name: description, widget: text, i18n: true }

@@ -1,0 +1,23 @@
+{
+  "yearLabel": "1793",
+  "yearMetaLabel": "Das Gründungsjahr",
+  "yearMetaText": "Als Zunftmeister Conrad Bavier das von seinem Vater geerbte Haus „auf deutsche Art als Gasthof mit dem Schild der drei Könige\" einrichtete.",
+  "eyebrow": "Eine lebendige Chronik",
+  "headlineHtml": "Ein <em>lebendiger Teil</em> der Geschichte Churs.",
+  "bodyParagraphs": [
+    {
+      "text": "Seit 1793 besteht das Hotel in diesem Gebäude. In den Bündner Landesarchiven jenes Jahres heisst es: „Herr Zunftmeister Conrad Bavier zeigt hiermit an, dass er das von seinem selig verstorbenen Vater geerbte Haus auf deutsche Art zu einem Gasthof eingerichtet und mit dem Schild der drei Könige versehen hat, welches diesem Haus zuvor bereits zugehörig war.\"",
+      "lede": true
+    },
+    {
+      "text": "Über drei Generationen hinweg führte die Familie Schällibaum das Haus, bis 2005. Heute wird das Hotel von der DC Gastronomie GmbH weitergeführt — im selben Gebäude, in derselben Altstadt, unter demselben Namen.",
+      "lede": false
+    },
+    {
+      "text": "Hinter den Mauern verbergen sich Details, die die meisten Gäste nie bemerken: das älteste erhaltene Hotelzimmer von Chur, ein Bankettsaal, der einst zum Kloster und einst zum Regierungssitz gehörte, und — der Legende nach — ein unterirdischer Gang, der einst vom Bischofssitz in unseren Keller führte.",
+      "lede": false
+    }
+  ],
+  "quote": "„Das geerbte Haus auf deutsche Art zu einem Gasthof eingerichtet und mit dem Schild der drei Könige versehen.\"",
+  "quoteCite": "— Zunftmeister Conrad Bavier, Gründungsanzeige, 1793"
+}

@@ -1,0 +1,8 @@
+{
+  "stats": [
+    { "value": "230", "unit": "anni","label": "di ospitalità ininterrotta, dal 1793" },
+    { "value": "9",   "unit": "",    "label": "categorie di camere arredate individualmente" },
+    { "value": "7",   "unit": "min", "label": "a piedi dalla stazione di Coira alla nostra porta" },
+    { "value": "10",  "unit": "+",   "label": "ristoranti a due minuti a piedi" }
+  ]
+}

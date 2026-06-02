@@ -1,0 +1,13 @@
+{
+  "masthead": "Vol. CCXXXIII · Est. MDCCXCIII",
+  "coords": "Reichsgasse 18 · 7000 Coira · Grigioni",
+  "headlineStart": "Nel cuore",
+  "headlineEm": "della città più antica",
+  "headlineEnd": "della Svizzera. Dal 1793.",
+  "tag": "Un hotel a conduzione familiare nel centro storico di Coira. Ospitalità con tradizione dal 1793, camere arredate individualmente per ogni budget, e oltre dieci ristoranti a due minuti a piedi.",
+  "primaryCta": { "label": "Prenota online", "href": "https://www.dreikoenige.ch/wbe4/index.html" },
+  "secondaryCta": { "label": "La nostra storia", "href": "#heritage" },
+  "image": "https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=2400&q=80",
+  "imageAlt": "Vicolo selciato nel centro storico di Coira",
+  "scrollLabel": "Scorri"
+}

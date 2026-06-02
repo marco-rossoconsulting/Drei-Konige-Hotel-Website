@@ -1,0 +1,17 @@
+{
+  "eyebrow": "Inside the Building",
+  "headlineHtml": "Rooms with their <em>own histories</em>.",
+  "body": [
+    "Long before our time, the rooms of this house carried other lives. The \"Weinstube\" was once a relay station for the postal service, and later a set used in the filming of <em>Jürg Jenatsch</em>. The \"Drei König\" banquet hall has been, by turns, part of a monastery and part of the seat of government.",
+    "The first health insurance scheme for the forestry workers of Grisons was drafted under this roof. And somewhere in the building — depending on which corridor you take — sits what is recorded as the oldest preserved hotel room in Chur."
+  ],
+  "metaItems": [
+    { "label": "The Weinstube",      "value": "Heritage-protected room" },
+    { "label": "Drei König Hall",    "value": "Once abbey, once parliament" },
+    { "label": "Oldest hotel room",  "value": "Preserved · The oldest in Chur" }
+  ],
+  "cta": { "label": "Read the Full History", "href": "#heritage" },
+  "image": "https://images.unsplash.com/photo-1568733873715-f9b8aab90c5f?w=1400&q=80",
+  "imageAlt": "Traditional wood-panelled interior of a historic Swiss building",
+  "decorativeNumber": "1793"
+}

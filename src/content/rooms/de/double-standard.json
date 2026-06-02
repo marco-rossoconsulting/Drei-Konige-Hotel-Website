@@ -1,0 +1,9 @@
+{
+  "order": 3,
+  "number": "III",
+  "name": "Doppelzimmer Standard",
+  "tag": "Standard",
+  "description": "Unser alltägliches Doppelzimmer mit privatem Bad.",
+  "image": "https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&q=80",
+  "imageAlt": "Standard-Doppelzimmer"
+}

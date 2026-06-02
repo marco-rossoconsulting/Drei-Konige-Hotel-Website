@@ -1,0 +1,100 @@
+---
+interface ExperienceItem {
+  order: number;
+  number: string;
+  title: string;
+  description: string;
+  style: 'image' | 'minimal';
+  image?: string | null;
+  imageAlt?: string | null;
+  eyebrow?: string | null;
+  quote?: string | null;
+  linkLabel?: string | null;
+  linkHref?: string | null;
+}
+
+interface Props {
+  eyebrow: string;
+  headlineHtml: string;
+  experiences: ExperienceItem[];
+}
+
+const { eyebrow, headlineHtml, experiences } = Astro.props;
+
+// Split: first 3 → top grid (1 large + 2), next → bottom grid
+const top = experiences.slice(0, 3);
+const bottom = experiences.slice(3);
+---
+
+<section class="experience" id="chur" aria-labelledby="chur-h">
+  <div class="container">
+    <div class="exp-head reveal">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 id="chur-h" class="display" set:html={headlineHtml} style="margin-top: 28px;"></h2>
+    </div>
+
+    <div class="exp-grid">
+      {top.map((exp) => (
+        <div class={`exp-card reveal${exp.style === 'minimal' ? ' minimal' : ''}`}>
+          {exp.style === 'image' && exp.image && (
+            <div class="exp-card-bg">
+              <img src={exp.image} alt={exp.imageAlt || ''} loading="lazy" />
+            </div>
+          )}
+          <div class="exp-card-text">
+            {exp.style === 'minimal' && exp.eyebrow && (
+              <span class="eyebrow">{exp.eyebrow}</span>
+            )}
+            {exp.style === 'image' && (
+              <div class="exp-card-num">{exp.number} / {exp.title.split(' ')[0]}</div>
+            )}
+            {exp.style === 'minimal' ? (
+              <p class="quote">{exp.quote}</p>
+            ) : (
+              <>
+                <div class="exp-card-title">{exp.title}</div>
+                <p class="exp-card-desc">{exp.description}</p>
+              </>
+            )}
+            {exp.style === 'minimal' && exp.linkLabel && exp.linkHref && (
+              <a href={exp.linkHref} class="minimal-link">{exp.linkLabel} →</a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {bottom.length > 0 && (
+      <div class="exp-grid-2">
+        {bottom.map((exp) => (
+          <div class={`exp-card reveal${exp.style === 'minimal' ? ' minimal' : ''}`}>
+            {exp.style === 'image' && exp.image && (
+              <div class="exp-card-bg">
+                <img src={exp.image} alt={exp.imageAlt || ''} loading="lazy" />
+              </div>
+            )}
+            <div class="exp-card-text">
+              {exp.style === 'minimal' && exp.eyebrow && (
+                <span class="eyebrow">{exp.eyebrow}</span>
+              )}
+              {exp.style === 'image' && (
+                <div class="exp-card-num">{exp.number} / {exp.title.split(' ')[0]}</div>
+              )}
+              {exp.style === 'minimal' ? (
+                <p class="quote">{exp.quote}</p>
+              ) : (
+                <>
+                  <div class="exp-card-title">{exp.title}</div>
+                  <p class="exp-card-desc">{exp.description}</p>
+                </>
+              )}
+              {exp.style === 'minimal' && exp.linkLabel && exp.linkHref && (
+                <a href={exp.linkHref} class="minimal-link">{exp.linkLabel} →</a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>

@@ -1,0 +1,46 @@
+---
+interface BodyParagraph { text: string; lede?: boolean; }
+
+interface Props {
+  yearLabel: string;
+  yearMetaLabel: string;
+  yearMetaText: string;
+  eyebrow: string;
+  headlineHtml: string;
+  bodyParagraphs: BodyParagraph[];
+  quote: string;
+  quoteCite: string;
+}
+
+const {
+  yearLabel, yearMetaLabel, yearMetaText, eyebrow,
+  headlineHtml, bodyParagraphs, quote, quoteCite
+} = Astro.props;
+---
+
+<section class="heritage" id="heritage" aria-labelledby="heritage-h">
+  <div class="container">
+    <div class="heritage-inner">
+      <div class="heritage-left reveal">
+        <div class="heritage-year">{yearLabel}</div>
+        <div class="heritage-year-meta">
+          <span class="label">{yearMetaLabel}</span>
+          <span class="text">{yearMetaText}</span>
+        </div>
+      </div>
+      <div class="heritage-right reveal">
+        <span class="eyebrow">{eyebrow}</span>
+        <h2 id="heritage-h" class="display heritage-headline" set:html={headlineHtml}></h2>
+        <div class="heritage-body">
+          {bodyParagraphs.map((p) => (
+            <p class={p.lede ? 'lede' : ''}>{p.text}</p>
+          ))}
+        </div>
+        <blockquote class="heritage-quote">
+          {quote}
+          <cite class="heritage-quote-cite">{quoteCite}</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>

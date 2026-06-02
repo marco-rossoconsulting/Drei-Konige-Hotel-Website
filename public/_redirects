@@ -1,0 +1,9 @@
+# Netlify redirects — same syntax as Cloudflare.
+# Sveltia CMS admin lives at /admin/. The /keystatic alias is a backwards
+# convenience in case any old bookmarks point there.
+
+/keystatic    /admin/    302
+/keystatic/*  /admin/    302
+
+# SPA fallback for the admin (so refreshing /admin/whatever returns the SPA)
+/admin/*      /admin/index.html    200

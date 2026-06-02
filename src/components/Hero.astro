@@ -1,0 +1,51 @@
+---
+interface Cta { label: string; href: string; }
+
+interface Props {
+  masthead: string;
+  coords: string;
+  headlineStart: string;
+  headlineEm: string;
+  headlineEnd: string;
+  tag: string;
+  primaryCta: Cta;
+  secondaryCta: Cta;
+  image: string;
+  imageAlt: string;
+  scrollLabel: string;
+}
+
+const {
+  masthead, coords, headlineStart, headlineEm, headlineEnd,
+  tag, primaryCta, secondaryCta, image, imageAlt, scrollLabel
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero-image" style={`background-image: url('${image}');`} role="img" aria-label={imageAlt}></div>
+  <div class="hero-grain"></div>
+
+  <div class="hero-corner-meta">
+    <div class="hero-coords">{coords}</div>
+  </div>
+
+  <div class="hero-meta-top">{masthead}</div>
+
+  <div class="hero-content">
+    <h1 class="display hero-headline">
+      {headlineStart} <em>{headlineEm}</em> {headlineEnd}
+    </h1>
+    <div class="hero-row">
+      <p class="hero-tag">{tag}</p>
+      <div class="hero-cta-group">
+        <a href={primaryCta.href} class="btn btn-primary">
+          {primaryCta.label}
+          <span class="arrow">→</span>
+        </a>
+        <a href={secondaryCta.href} class="btn btn-ghost">{secondaryCta.label}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">{scrollLabel}</div>
+</section>

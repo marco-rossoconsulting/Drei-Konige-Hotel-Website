@@ -1,0 +1,264 @@
+---
+import '../styles/global.css';
+
+type Locale = 'en' | 'de' | 'fr' | 'it';
+
+interface Room {
+  number: string;
+  name: string;
+  tag: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  favicon?: string;
+  htmlLang?: string;
+  locale?: Locale;
+  /* Optional: enriches JSON-LD with HotelRoom entries */
+  rooms?: Room[];
+  /* Optional: hero image URL for LCP preload */
+  heroImage?: string;
+}
+
+const {
+  title, description, ogImage, ogImageAlt, favicon,
+  htmlLang = 'en', locale = 'en',
+  rooms = [],
+  heroImage
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageAbs = ogImage ? new URL(ogImage, Astro.site).toString() : undefined;
+
+// Hreflang alternates: every page exists at /, /de/, /fr/, /it/
+const alternates: Array<{ hreflang: string; href: string }> = [
+  { hreflang: 'en',    href: new URL('/',    Astro.site).toString() },
+  { hreflang: 'de-CH', href: new URL('/de/', Astro.site).toString() },
+  { hreflang: 'fr-CH', href: new URL('/fr/', Astro.site).toString() },
+  { hreflang: 'it-CH', href: new URL('/it/', Astro.site).toString() },
+  { hreflang: 'x-default', href: new URL('/', Astro.site).toString() }
+];
+
+const ogLocale: Record<Locale, string> = {
+  en: 'en_GB',
+  de: 'de_CH',
+  fr: 'fr_CH',
+  it: 'it_CH'
+};
+
+/* ----- JSON-LD schema graph -----
+ * Three connected entities:
+ *   1. WebSite (top-level identity, supports sitelinks)
+ *   2. Hotel (the main business, with amenities, check-in times, rooms)
+ *   3. BreadcrumbList (helps Google render breadcrumb in SERPs)
+ * Linking them via @id lets Google understand they describe the same place.
+ */
+const HOTEL_ID = 'https://www.dreikoenige.ch/#hotel';
+const WEBSITE_ID = 'https://www.dreikoenige.ch/#website';
+
+const hotelRoomEntries = rooms.map((r) => ({
+  '@type': 'HotelRoom',
+  'name': r.name,
+  'description': r.description,
+  'image': r.image,
+  'bed': r.name.toLowerCase().includes('twin') ? 'TwinBed'
+       : r.name.toLowerCase().includes('triple') ? 'MultipleBeds'
+       : r.name.toLowerCase().includes('single') ? 'SingleBed'
+       : 'DoubleBed',
+  'occupancy': {
+    '@type': 'QuantitativeValue',
+    'value': r.name.toLowerCase().includes('triple') ? 3
+           : r.name.toLowerCase().includes('single') ? 1
+           : 2
+  }
+}));
+
+const jsonLdGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': WEBSITE_ID,
+      'url': 'https://www.dreikoenige.ch/',
+      'name': 'Hotel Drei Könige Chur',
+      'inLanguage': htmlLang,
+      'publisher': { '@id': HOTEL_ID }
+    },
+    {
+      '@type': 'Hotel',
+      '@id': HOTEL_ID,
+      'name': 'Hotel Drei Könige',
+      'description': description,
+      'image': ogImageAbs,
+      'url': canonicalURL.toString(),
+      'telephone': '+41 81 354 90 90',
+      'email': 'info@dreikoenige.ch',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'Reichsgasse 18',
+        'addressLocality': 'Chur',
+        'postalCode': '7000',
+        'addressRegion': 'Graubünden',
+        'addressCountry': 'CH'
+      },
+      'geo': {
+        '@type': 'GeoCoordinates',
+        'latitude': 46.8499,
+        'longitude': 9.5329
+      },
+      'priceRange': 'CHF',
+      'starRating': { '@type': 'Rating', 'ratingValue': '3' },
+      'checkinTime': '15:00',
+      'checkoutTime': '11:00',
+      'petsAllowed': true,
+      'numberOfRooms': rooms.length || undefined,
+      'amenityFeature': [
+        { '@type': 'LocationFeatureSpecification', 'name': 'Free WiFi', 'value': true },
+        { '@type': 'LocationFeatureSpecification', 'name': 'Free bike storage', 'value': true },
+        { '@type': 'LocationFeatureSpecification', 'name': 'Breakfast available', 'value': true },
+        { '@type': 'LocationFeatureSpecification', 'name': 'Pet-friendly', 'value': true }
+      ],
+      'containsPlace': hotelRoomEntries.length > 0 ? hotelRoomEntries : undefined,
+      'foundingDate': '1793-01-01',
+      'slogan': 'Hospitality since 1793'
+    },
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'name': 'Hotel Drei Könige Chur',
+          'item': canonicalURL.toString()
+        }
+      ]
+    }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang={htmlLang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="theme-color" content="#2A3D2E" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+
+  {/* Primary SEO */}
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  {/* Geo meta — Chur, Graubünden */}
+  <meta name="geo.region" content="CH-GR" />
+  <meta name="geo.placename" content="Chur" />
+  <meta name="geo.position" content="46.8499;9.5329" />
+  <meta name="ICBM" content="46.8499, 9.5329" />
+
+  {/* Hreflang for multi-language */}
+  {alternates.map((alt) => (
+    <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+  ))}
+
+  {/* Favicon */}
+  {favicon && <link rel="icon" type="image/svg+xml" href={favicon} />}
+  <link rel="apple-touch-icon" href={favicon || '/favicon.svg'} />
+
+  {/* LCP optimization: preload the hero image */}
+  {heroImage && (
+    <link
+      rel="preload"
+      as="image"
+      href={heroImage}
+      fetchpriority="high"
+    />
+  )}
+
+  {/* Open Graph */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  {ogImageAbs && (
+    <>
+      <meta property="og:image" content={ogImageAbs} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+    </>
+  )}
+  {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
+  <meta property="og:site_name" content="Hotel Drei Könige Chur" />
+  <meta property="og:locale" content={ogLocale[locale]} />
+  {(['en','de','fr','it'] as const).filter((l) => l !== locale).map((l) => (
+    <meta property="og:locale:alternate" content={ogLocale[l]} />
+  ))}
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  {ogImageAbs && <meta name="twitter:image" content={ogImageAbs} />}
+  {ogImageAlt && <meta name="twitter:image:alt" content={ogImageAlt} />}
+
+  {/* Fonts — preconnect + display:swap for fast render */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+
+  {/* JSON-LD schema graph */}
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
+
+  {/* Netlify Identity widget — handles editor sign-in for the /admin/ CMS.
+      Adds a tiny script; only kicks in when user visits /admin/. */}
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
+</head>
+<body>
+  <main id="main">
+    <slot />
+  </main>
+
+  <script>
+    // Sticky nav background-on-scroll
+    const nav = document.getElementById('nav');
+    if (nav) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      }, { passive: true });
+    }
+
+    // Reveal-on-scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // If a logged-in editor lands on the home page, redirect to /admin/
+    // (Netlify Identity convention from the Sveltia/Decap days)
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', (user) => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

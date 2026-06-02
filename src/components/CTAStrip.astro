@@ -1,0 +1,28 @@
+---
+interface Cta { label: string; href: string; }
+
+interface Props {
+  eyebrow: string;
+  headlineHtml: string;
+  subtext: string;
+  primaryCta: Cta;
+  phone: { label: string; href: string };
+}
+
+const { eyebrow, headlineHtml, subtext, primaryCta, phone } = Astro.props;
+---
+
+<section class="cta-strip" aria-labelledby="cta-h">
+  <div class="container">
+    <span class="eyebrow" style="justify-content: center; display: inline-flex; margin-bottom: 24px;">{eyebrow}</span>
+    <h2 class="display" set:html={headlineHtml}></h2>
+    <p>{subtext}</p>
+    <div class="btn-group">
+      <a href={primaryCta.href} class="btn btn-primary">
+        {primaryCta.label}
+        <span class="arrow">→</span>
+      </a>
+      <a href={phone.href} class="btn btn-ghost">{phone.label}</a>
+    </div>
+  </div>
+</section>

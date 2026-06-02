@@ -1,0 +1,13 @@
+{
+  "logoMain": "Drei",
+  "logoEm": "Könige",
+  "logoSub": "Anno 1793",
+  "menu": [
+    { "label": "Histoire", "href": "#heritage" },
+    { "label": "Chambres", "href": "#rooms" },
+    { "label": "La Maison", "href": "#building" },
+    { "label": "Coire", "href": "#chur" },
+    { "label": "Accès", "href": "#visit" }
+  ],
+  "reserveCta": { "label": "Réserver", "href": "https://www.dreikoenige.ch/wbe4/index.html" }
+}

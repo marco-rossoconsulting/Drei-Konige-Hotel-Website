@@ -1,0 +1,11 @@
+{
+  "order": 4,
+  "number": "04",
+  "title": "Chur Gästekarte",
+  "description": "Bei der Anreise kostenlos.",
+  "style": "minimal",
+  "eyebrow": "Chur Gästekarte",
+  "quote": "„Gratis öffentlicher Nahverkehr, dazu Ermässigungen in vielen Museen, Sehenswürdigkeiten und Bergbahnen der Region — beim Check-in für jeden Gast.\"",
+  "linkLabel": "Über die Gästekarte",
+  "linkHref": "https://www.chur.graubuenden.ch/de/gaestekarte"
+}

@@ -1,0 +1,19 @@
+# Build outputs
+dist/
+.astro/
+.wrangler/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.production
+.dev.vars
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
+*.log

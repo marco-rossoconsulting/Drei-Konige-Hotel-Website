@@ -1,0 +1,17 @@
+{
+  "eyebrow": "À l'intérieur de la maison",
+  "headlineHtml": "Des pièces avec <em>leur propre histoire</em>.",
+  "body": [
+    "Bien avant nous, ces pièces ont eu d'autres vies. La « Weinstube » fut autrefois un relais de poste, puis un décor du film <em>Jürg Jenatsch</em>. La salle de banquet « Drei König » fut tour à tour partie d'un monastère et partie du siège du gouvernement.",
+    "Le premier régime d'assurance maladie pour les bûcherons des Grisons fut rédigé sous ce toit. Et quelque part dans le bâtiment — selon le couloir que vous prenez — se trouve ce qui est documenté comme la plus ancienne chambre d'hôtel préservée de Coire."
+  ],
+  "metaItems": [
+    { "label": "La Weinstube",       "value": "Salle protégée monument historique" },
+    { "label": "Salle Drei König",   "value": "Jadis abbaye, jadis parlement" },
+    { "label": "La plus ancienne chambre","value": "Préservée · La plus ancienne de Coire" }
+  ],
+  "cta": { "label": "Lire toute l'histoire", "href": "#heritage" },
+  "image": "https://images.unsplash.com/photo-1568733873715-f9b8aab90c5f?w=1400&q=80",
+  "imageAlt": "Intérieur traditionnel lambrissé d'un bâtiment historique suisse",
+  "decorativeNumber": "1793"
+}

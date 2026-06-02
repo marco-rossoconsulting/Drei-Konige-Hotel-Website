@@ -1,0 +1,37 @@
+{
+  "brandTagline": "Un hôtel indépendant et familial au cœur de la plus ancienne ville de Suisse. Tenu en formule chambres et petit-déjeuner : un accueil chaleureux, un buffet généreux, et dix restaurants à deux pas.",
+  "columns": [
+    {
+      "heading": "L'hôtel",
+      "links": [
+        { "label": "Histoire", "href": "#heritage" },
+        { "label": "Chambres & tarifs", "href": "#rooms" },
+        { "label": "Petit-déjeuner", "href": "#visit" },
+        { "label": "Informations générales", "href": "#visit" },
+        { "label": "Conditions de réservation", "href": "#" }
+      ]
+    },
+    {
+      "heading": "Nous rendre visite",
+      "links": [
+        { "label": "Situation", "href": "#chur" },
+        { "label": "Parking", "href": "#visit" },
+        { "label": "Carte d'hôte de Coire", "href": "https://www.chur.graubuenden.ch/en/guestcard" },
+        { "label": "Informations locales", "href": "#chur" },
+        { "label": "Galerie", "href": "#" }
+      ]
+    },
+    {
+      "heading": "Contact",
+      "lines": [
+        "Hotel Drei Könige\nReichsgasse 18\nCH-7000 Coire, Suisse",
+        "+41 81 354 90 90\ninfo@dreikoenige.ch"
+      ]
+    }
+  ],
+  "copyright": "© 1793 – 2026 Hotel Drei Könige · DC Gastronomie GmbH",
+  "legalLinks": [
+    { "label": "Mentions légales", "href": "#" },
+    { "label": "Confidentialité", "href": "#" }
+  ]
+}

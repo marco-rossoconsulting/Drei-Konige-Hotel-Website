@@ -1,0 +1,55 @@
+---
+interface Link { label: string; href: string; }
+interface Column {
+  heading: string;
+  links?: Link[];
+  lines?: string[];
+}
+
+interface Props {
+  logoMain: string;
+  logoEm: string;
+  logoSub: string;
+  brandTagline: string;
+  columns: Column[];
+  copyright: string;
+  legalLinks: Link[];
+}
+
+const { logoMain, logoEm, logoSub, brandTagline, columns, copyright, legalLinks } = Astro.props;
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo-mark">{logoMain}<em>{logoEm}</em></div>
+        <span class="nav-logo-sub">{logoSub}</span>
+        <p>{brandTagline}</p>
+      </div>
+      {columns.map((col) => (
+        <div class="footer-col">
+          <h4>{col.heading}</h4>
+          {col.links && col.links.length > 0 && (
+            <ul>
+              {col.links.map((link) => (
+                <li><a href={link.href}>{link.label}</a></li>
+              ))}
+            </ul>
+          )}
+          {col.lines && col.lines.map((line, i) => (
+            <p style={i === 0 ? '' : 'margin-top: 16px;'} set:html={line.replace(/\n/g, '<br/>')}></p>
+          ))}
+        </div>
+      ))}
+    </div>
+    <div class="footer-bottom">
+      <span>{copyright}</span>
+      <div class="footer-bottom-right">
+        {legalLinks.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

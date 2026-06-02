@@ -1,0 +1,62 @@
+---
+interface PracticalItem {
+  order: number;
+  icon: 'clock' | 'breakfast' | 'bike' | 'wifi' | 'parking' | 'pet' | 'building' | 'pin';
+  label: string;
+  description: string;
+}
+
+interface Props {
+  eyebrow: string;
+  headlineHtml: string;
+  practicalIntro: string;
+  mapMarker: string;
+  mapCoords: string;
+  practical: PracticalItem[];
+}
+
+const { eyebrow, headlineHtml, practicalIntro, mapMarker, mapCoords, practical } = Astro.props;
+
+// Icon paths (SVG d-paths and circles), keyed by icon name in CMS enum
+const icons: Record<string, string> = {
+  clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  breakfast: '<path d="M3 18h18"/><path d="M5 18V8l7-4 7 4v10"/><path d="M9 18v-6h6v6"/>',
+  bike: '<path d="M5 12h14"/><path d="M5 12l-2 6h18l-2-6"/><circle cx="7" cy="6" r="2"/><circle cx="17" cy="6" r="2"/>',
+  wifi: '<circle cx="12" cy="12" r="3"/><path d="M3 12h2"/><path d="M19 12h2"/><path d="M12 3v2"/><path d="M12 19v2"/>',
+  parking: '<path d="M4 11l1-7h14l1 7"/><path d="M4 11v7h16v-7"/><path d="M8 18v2"/><path d="M16 18v2"/>',
+  pet: '<path d="M10 14c-3 0-5-2-5-5s2-5 5-5"/><path d="M14 4c3 0 5 2 5 5s-2 5-5 5"/><path d="M12 14v6"/><path d="M9 20h6"/>',
+  building: '<path d="M3 9l9-6 9 6v12H3z"/><path d="M9 21v-9h6v9"/>',
+  pin: '<path d="M12 22s8-7 8-13a8 8 0 1 0-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="3"/>'
+};
+---
+
+<section class="details" id="visit" aria-labelledby="visit-h">
+  <div class="container">
+    <div class="details-inner">
+      <div class="details-left reveal">
+        <span class="eyebrow" style="margin-bottom: 28px; display: inline-flex;">{eyebrow}</span>
+        <h2 id="visit-h" class="display" set:html={headlineHtml} style="margin-top: 24px;"></h2>
+        <p>{practicalIntro}</p>
+
+        <div class="details-map">
+          <div class="map-marker">{mapMarker}</div>
+          <div class="map-coords">{mapCoords}</div>
+        </div>
+      </div>
+
+      <div class="details-list">
+        {practical.map((item) => (
+          <div class="detail-item reveal">
+            <div class="detail-icon">
+              <svg viewBox="0 0 24 24" set:html={icons[item.icon] || icons.pin}></svg>
+            </div>
+            <div class="detail-text">
+              <div class="label">{item.label}</div>
+              <div class="desc">{item.description}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

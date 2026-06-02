@@ -1,0 +1,8 @@
+{
+  "stats": [
+    { "value": "230", "unit": "ans","label": "d'hospitalité continue, depuis 1793" },
+    { "value": "9",   "unit": "",   "label": "catégories de chambres personnalisées" },
+    { "value": "7",   "unit": "min","label": "à pied de la gare de Coire jusqu'à notre porte" },
+    { "value": "10",  "unit": "+",  "label": "restaurants à deux minutes à pied" }
+  ]
+}

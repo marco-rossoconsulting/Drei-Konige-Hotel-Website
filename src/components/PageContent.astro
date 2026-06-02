@@ -1,0 +1,181 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import Heritage from './Heritage.astro';
+import Stats from './Stats.astro';
+import Rooms from './Rooms.astro';
+import HeritageFeatures from './HeritageFeatures.astro';
+import Experience from './Experience.astro';
+import Details from './Details.astro';
+import CTAStrip from './CTAStrip.astro';
+import Footer from './Footer.astro';
+
+type Locale = 'en' | 'de' | 'fr' | 'it';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+
+const eyebrows: Record<Locale, { rooms: string }> = {
+  en: { rooms: 'The Rooms' },
+  de: { rooms: 'Die Zimmer' },
+  fr: { rooms: 'Les Chambres' },
+  it: { rooms: 'Le Camere' }
+};
+
+const htmlLang: Record<Locale, string> = {
+  en: 'en', de: 'de-CH', fr: 'fr-CH', it: 'it-CH'
+};
+
+/* ===============================================================
+ * Content loading via Vite's import.meta.glob
+ * Files are written by the Sveltia CMS admin (at /admin/) and read
+ * here as plain JSON at build time. The site has zero runtime CMS
+ * dependency — content is just data in Git.
+ * =============================================================== */
+
+// Singletons: `src/content/{settings|sections}/{locale}/{name}.json`
+const allSingletons = import.meta.glob(
+  '../content/{settings,sections}/*/*.json',
+  { eager: true }
+) as Record<string, { default: any }>;
+
+// Collections: `src/content/{rooms|experiences|practical}/{locale}/{slug}.json`
+const allCollections = import.meta.glob(
+  '../content/{rooms,experiences,practical}/*/*.json',
+  { eager: true }
+) as Record<string, { default: any }>;
+
+function getSingleton(group: 'settings' | 'sections', name: string): any {
+  const key = Object.keys(allSingletons).find((k) =>
+    k.endsWith(`/${group}/${locale}/${name}.json`)
+  );
+  if (!key) throw new Error(`Missing singleton: ${group}/${locale}/${name}`);
+  return allSingletons[key].default;
+}
+
+function getCollection(name: 'rooms' | 'experiences' | 'practical'): any[] {
+  const items = Object.entries(allCollections)
+    .filter(([k]) => k.includes(`/${name}/${locale}/`))
+    .map(([, mod]) => mod.default);
+  return items.sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+}
+
+// ----- Singletons -----
+const site = getSingleton('settings', 'site');
+const nav = getSingleton('settings', 'nav');
+const footer = getSingleton('settings', 'footer');
+const hero = getSingleton('sections', 'hero');
+const heritage = getSingleton('sections', 'heritage');
+const stats = getSingleton('sections', 'stats');
+const roomsSection = getSingleton('sections', 'rooms-section');
+const heritageFeatures = getSingleton('sections', 'heritage-features');
+const experience = getSingleton('sections', 'experience');
+const details = getSingleton('sections', 'details');
+const cta = getSingleton('sections', 'cta');
+
+// ----- Collections -----
+const rooms = getCollection('rooms');
+const experiences = getCollection('experiences');
+const practical = getCollection('practical');
+---
+
+<Layout
+  title={site.title}
+  description={site.description}
+  ogImage={site.ogImage}
+  ogImageAlt={site.ogImageAlt}
+  favicon={site.favicon}
+  htmlLang={htmlLang[locale]}
+  locale={locale}
+  rooms={rooms}
+  heroImage={hero.image}
+>
+  <Nav
+    logoMain={nav.logoMain}
+    logoEm={nav.logoEm}
+    logoSub={nav.logoSub}
+    menu={nav.menu}
+    reserveCta={nav.reserveCta}
+    locale={locale}
+  />
+
+  <Hero
+    masthead={hero.masthead}
+    coords={hero.coords}
+    headlineStart={hero.headlineStart}
+    headlineEm={hero.headlineEm}
+    headlineEnd={hero.headlineEnd}
+    tag={hero.tag}
+    primaryCta={hero.primaryCta}
+    secondaryCta={hero.secondaryCta}
+    image={hero.image}
+    imageAlt={hero.imageAlt}
+    scrollLabel={hero.scrollLabel}
+  />
+
+  <Heritage
+    yearLabel={heritage.yearLabel}
+    yearMetaLabel={heritage.yearMetaLabel}
+    yearMetaText={heritage.yearMetaText}
+    eyebrow={heritage.eyebrow}
+    headlineHtml={heritage.headlineHtml}
+    bodyParagraphs={heritage.bodyParagraphs}
+    quote={heritage.quote}
+    quoteCite={heritage.quoteCite}
+  />
+
+  <Stats stats={stats.stats} />
+
+  <Rooms
+    headlineStartRooms={roomsSection.headlineStartRooms}
+    headlineEmRooms={roomsSection.headlineEmRooms}
+    headlineEndRooms={roomsSection.headlineEndRooms}
+    meta={roomsSection.meta}
+    rooms={rooms}
+    eyebrowText={eyebrows[locale].rooms}
+  />
+
+  <HeritageFeatures
+    eyebrow={heritageFeatures.eyebrow}
+    headlineHtml={heritageFeatures.headlineHtml}
+    body={heritageFeatures.body}
+    metaItems={heritageFeatures.metaItems}
+    cta={heritageFeatures.cta}
+    image={heritageFeatures.image}
+    imageAlt={heritageFeatures.imageAlt}
+    decorativeNumber={heritageFeatures.decorativeNumber}
+  />
+
+  <Experience
+    eyebrow={experience.eyebrow}
+    headlineHtml={experience.headlineHtml}
+    experiences={experiences}
+  />
+
+  <Details
+    eyebrow={details.eyebrow}
+    headlineHtml={details.headlineHtml}
+    practicalIntro={details.practicalIntro}
+    mapMarker={details.mapMarker}
+    mapCoords={details.mapCoords}
+    practical={practical}
+  />
+
+  <CTAStrip
+    eyebrow={cta.eyebrow}
+    headlineHtml={cta.headlineHtml}
+    subtext={cta.subtext}
+    primaryCta={cta.primaryCta}
+    phone={cta.phone}
+  />
+
+  <Footer
+    logoMain={nav.logoMain}
+    logoEm={nav.logoEm}
+    logoSub={nav.logoSub}
+    brandTagline={footer.brandTagline}
+    columns={footer.columns}
+    copyright={footer.copyright}
+    legalLinks={footer.legalLinks}
+  />
+</Layout>

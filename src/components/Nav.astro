@@ -1,0 +1,52 @@
+---
+interface MenuItem { label: string; href: string; }
+interface Cta { label: string; href: string; }
+
+interface Props {
+  logoMain: string;
+  logoEm: string;
+  logoSub: string;
+  menu: MenuItem[];
+  reserveCta: Cta;
+  locale: 'en' | 'de' | 'fr' | 'it';
+}
+
+const { logoMain, logoEm, logoSub, menu, reserveCta, locale } = Astro.props;
+
+// All 4 locales — Reichsgasse 18 stays the same; ID anchors stay the same; only URL prefix changes.
+const langs: Array<{ code: 'en' | 'de' | 'fr' | 'it'; label: string; href: string }> = [
+  { code: 'en', label: 'EN', href: '/'    },
+  { code: 'de', label: 'DE', href: '/de/' },
+  { code: 'fr', label: 'FR', href: '/fr/' },
+  { code: 'it', label: 'IT', href: '/it/' }
+];
+---
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href={locale === 'en' ? '/' : `/${locale}/`} class="nav-logo">
+      <span class="nav-logo-mark">{logoMain}<em>{logoEm}</em></span>
+      <span class="nav-logo-sub">{logoSub}</span>
+    </a>
+    <ul class="nav-menu">
+      {menu.map((item) => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switch">
+        {langs.map((lang, i) => (
+          <>
+            <a
+              href={lang.href}
+              class={lang.code === locale ? 'active' : ''}
+              aria-label={`Switch to ${lang.label}`}
+            >{lang.label}</a>
+            {i < langs.length - 1 && <span class="divider">/</span>}
+          </>
+        ))}
+      </div>
+      <a href={reserveCta.href} class="btn nav-book-btn" target="_blank" rel="noopener">{reserveCta.label}</a>
+    </div>
+  </div>
+</nav>
