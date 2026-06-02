@@ -6,8 +6,10 @@
 # Content saves: commit straight to GitHub via the git-gateway service.
 
 backend:
-  name: git-gateway
+  name: github
+  repo: marco-rossoconsulting/Drei-Konige-Hotel-Website
   branch: main
+  auth_type: implicit
   commit_messages:
     create: 'Content: create {{collection}} "{{slug}}"'
     update: 'Content: update {{collection}} "{{slug}}"'
