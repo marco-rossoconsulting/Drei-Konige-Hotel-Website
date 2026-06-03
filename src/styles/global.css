@@ -741,8 +741,8 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
   .booking-field:nth-child(2) { border-right: none; }
   .booking-bar .btn-primary { grid-column: 1 / -1; padding: 18px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
-}
-@media (max-width: 900px) {
+
+  /* Nav collapse at 1024px to prevent menu wrapping */
   .nav-inner { grid-template-columns: 1fr auto; }
   .nav-menu { display: none; }
   .nav-right .lang-switch { display: none; }
