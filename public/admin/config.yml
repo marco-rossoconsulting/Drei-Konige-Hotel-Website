@@ -2,12 +2,15 @@
 # Sveltia is config-compatible with Decap/Netlify CMS, so this same YAML
 # works on either CMS. Sveltia adds a modern editor UI on top.
 #
-# Editor sign-in: Netlify Identity (email/password or external provider).
-# Content saves: Git Gateway proxies commits to GitHub server-side.
+# Editor sign-in: GitHub OAuth via Netlify OAuth proxy (secure, no secrets exposed).
+# Content saves: commit straight to GitHub via the GitHub API.
 #
 backend:
-  name: git-gateway
+  name: github
+  repo: marco-rossoconsulting/Drei-Konige-Hotel-Website
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
   commit_messages:
     create: 'Content: create {{collection}} "{{slug}}"'
     update: 'Content: update {{collection}} "{{slug}}"'
