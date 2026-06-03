@@ -5,9 +5,15 @@
   "headlineEm": "the oldest city",
   "headlineEnd": "in Switzerland. Since 1793.",
   "tag": "A family-run hotel in Chur's old town. Hospitality with tradition since 1793, individually furnished rooms for every budget, and over ten restaurants within a two-minute walk.",
-  "primaryCta": { "label": "Book Online", "href": "https://www.dreikoenige.ch/wbe4/index.html" },
-  "secondaryCta": { "label": "Our Story", "href": "#heritage" },
-  "image": "https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=2400&q=80",
-  "imageAlt": "Cobblestone alley in the old town of Chur",
+  "primaryCta": {
+    "label": "Book Online",
+    "href": "https://www.dreikoenige.ch/wbe4/index.html"
+  },
+  "secondaryCta": {
+    "label": "Our Story",
+    "href": "#heritage"
+  },
+  "image": "/images/chur-switzerland-alpine-dusk-panorama.jpg",
+  "imageAlt": "Panoramic view of the historic old town of Chur, Switzerland, during the blue hour at dusk.",
   "scrollLabel": "Scroll"
 }

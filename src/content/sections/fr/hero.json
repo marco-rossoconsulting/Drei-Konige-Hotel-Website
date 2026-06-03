@@ -1,13 +1,19 @@
 {
   "masthead": "Vol. CCXXXIII · Est. MDCCXCIII",
-  "coords": "Reichsgasse 18 · 7000 Coire · Grisons",
+  "coords": "Reichsgasse 18 · 7000 Chur · Graubünden",
   "headlineStart": "Au cœur de",
   "headlineEm": "la plus ancienne ville",
   "headlineEnd": "de Suisse. Depuis 1793.",
   "tag": "Un hôtel familial dans la vieille ville de Coire. Une tradition d'hospitalité depuis 1793, des chambres personnalisées pour tous les budgets, et plus de dix restaurants à deux minutes à pied.",
-  "primaryCta": { "label": "Réserver en ligne", "href": "https://www.dreikoenige.ch/wbe4/index.html" },
-  "secondaryCta": { "label": "Notre histoire", "href": "#heritage" },
-  "image": "https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=2400&q=80",
+  "primaryCta": {
+    "label": "Réserver en ligne",
+    "href": "https://www.dreikoenige.ch/wbe4/index.html"
+  },
+  "secondaryCta": {
+    "label": "Notre histoire",
+    "href": "#heritage"
+  },
+  "image": "/images/chur-switzerland-alpine-dusk-panorama.jpg",
   "imageAlt": "Ruelle pavée dans la vieille ville de Coire",
   "scrollLabel": "Défiler"
 }
