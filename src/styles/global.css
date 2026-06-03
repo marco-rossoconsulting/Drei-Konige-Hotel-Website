@@ -746,9 +746,10 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
   .nav-inner { grid-template-columns: 1fr auto; }
   .nav-menu { display: none; }
   .nav-right .lang-switch { display: none; }
-  .nav-right .btn { display: none; }
   .nav-hamburger { display: flex; color: var(--cream); }
   .nav.scrolled .nav-hamburger { color: var(--ink); }
+  .nav-right { gap: 14px; }
+  .nav .btn { flex-shrink: 0; }
 }
 @media (max-width: 640px) {
   .container { padding: 0 20px; }
