@@ -12,6 +12,28 @@ interface Room {
   imageAlt: string;
 }
 
+interface Hotel {
+  name: string;
+  fullName: string;
+  slogan: string;
+  foundingDate: string;
+  telephone: string;
+  email: string;
+  priceRange: string;
+  starRating: string;
+  checkinTime: string;
+  checkoutTime: string;
+  petsAllowed: boolean;
+  streetAddress: string;
+  addressLocality: string;
+  postalCode: string;
+  addressRegion: string;
+  addressCountry: string;
+  latitude: number;
+  longitude: number;
+  amenities: Array<{ name: string; value: boolean }>;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -24,13 +46,16 @@ interface Props {
   rooms?: Room[];
   /* Optional: hero image URL for LCP preload */
   heroImage?: string;
+  /* Hotel business data for JSON-LD */
+  hotel?: Hotel;
 }
 
 const {
   title, description, ogImage, ogImageAlt, favicon,
   htmlLang = 'en', locale = 'en',
   rooms = [],
-  heroImage
+  heroImage,
+  hotel
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -79,54 +104,53 @@ const hotelRoomEntries = rooms.map((r) => ({
   }
 }));
 
-const jsonLdGraph = {
+const jsonLdGraph = hotel ? {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'WebSite',
       '@id': WEBSITE_ID,
       'url': 'https://www.dreikoenige.ch/',
-      'name': 'Hotel Drei Könige Chur',
+      'name': hotel.fullName,
       'inLanguage': htmlLang,
       'publisher': { '@id': HOTEL_ID }
     },
     {
       '@type': 'Hotel',
       '@id': HOTEL_ID,
-      'name': 'Hotel Drei Könige',
+      'name': hotel.name,
       'description': description,
       'image': ogImageAbs,
       'url': canonicalURL.toString(),
-      'telephone': '+41 81 354 90 90',
-      'email': 'info@dreikoenige.ch',
+      'telephone': hotel.telephone,
+      'email': hotel.email,
       'address': {
         '@type': 'PostalAddress',
-        'streetAddress': 'Reichsgasse 18',
-        'addressLocality': 'Chur',
-        'postalCode': '7000',
-        'addressRegion': 'Graubünden',
-        'addressCountry': 'CH'
+        'streetAddress': hotel.streetAddress,
+        'addressLocality': hotel.addressLocality,
+        'postalCode': hotel.postalCode,
+        'addressRegion': hotel.addressRegion,
+        'addressCountry': hotel.addressCountry
       },
       'geo': {
         '@type': 'GeoCoordinates',
-        'latitude': 46.8499,
-        'longitude': 9.5329
+        'latitude': hotel.latitude,
+        'longitude': hotel.longitude
       },
-      'priceRange': 'CHF',
-      'starRating': { '@type': 'Rating', 'ratingValue': '3' },
-      'checkinTime': '15:00',
-      'checkoutTime': '11:00',
-      'petsAllowed': true,
+      'priceRange': hotel.priceRange,
+      'starRating': { '@type': 'Rating', 'ratingValue': hotel.starRating },
+      'checkinTime': hotel.checkinTime,
+      'checkoutTime': hotel.checkoutTime,
+      'petsAllowed': hotel.petsAllowed,
       'numberOfRooms': rooms.length || undefined,
-      'amenityFeature': [
-        { '@type': 'LocationFeatureSpecification', 'name': 'Free WiFi', 'value': true },
-        { '@type': 'LocationFeatureSpecification', 'name': 'Free bike storage', 'value': true },
-        { '@type': 'LocationFeatureSpecification', 'name': 'Breakfast available', 'value': true },
-        { '@type': 'LocationFeatureSpecification', 'name': 'Pet-friendly', 'value': true }
-      ],
-      'containsPlace': hotelRoomEntries.length > 0 ? hotelRoomEntries : undefined,
-      'foundingDate': '1793-01-01',
-      'slogan': 'Hospitality since 1793'
+      'amenityFeature': hotel.amenities?.map((a) => ({
+        '@type': 'LocationFeatureSpecification',
+        'name': a.name,
+        'value': a.value
+      })),
+      'foundingDate': hotel.foundingDate,
+      'slogan': hotel.slogan,
+      'containsPlace': hotelRoomEntries.length > 0 ? hotelRoomEntries : undefined
     },
     {
       '@type': 'BreadcrumbList',
@@ -134,13 +158,13 @@ const jsonLdGraph = {
         {
           '@type': 'ListItem',
           'position': 1,
-          'name': 'Hotel Drei Könige Chur',
+          'name': hotel.fullName,
           'item': canonicalURL.toString()
         }
       ]
     }
   ]
-};
+} : null;
 ---
 
 <!DOCTYPE html>
@@ -196,7 +220,7 @@ const jsonLdGraph = {
     </>
   )}
   {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
-  <meta property="og:site_name" content="Hotel Drei Könige Chur" />
+  <meta property="og:site_name" content={hotel?.fullName ?? 'Hotel Drei Könige Chur'} />
   <meta property="og:locale" content={ogLocale[locale]} />
   {(['en','de','fr','it'] as const).filter((l) => l !== locale).map((l) => (
     <meta property="og:locale:alternate" content={ogLocale[l]} />
@@ -215,7 +239,9 @@ const jsonLdGraph = {
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
 
   {/* JSON-LD schema graph */}
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
+  {jsonLdGraph && (
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
+  )}
 
   {/* Netlify Identity widget — handles editor sign-in for the /admin/ CMS.
       Adds a tiny script; only kicks in when user visits /admin/. */}

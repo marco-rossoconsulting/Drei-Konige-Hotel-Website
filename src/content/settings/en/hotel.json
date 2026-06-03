@@ -1,0 +1,26 @@
+{
+  "name": "Hotel Drei Könige",
+  "fullName": "Hotel Drei Könige Chur",
+  "slogan": "Hospitality since 1793",
+  "foundingDate": "1793-01-01",
+  "telephone": "+41 81 354 90 90",
+  "email": "info@dreikoenige.ch",
+  "priceRange": "CHF",
+  "starRating": "3",
+  "checkinTime": "15:00",
+  "checkoutTime": "11:00",
+  "petsAllowed": true,
+  "streetAddress": "Reichsgasse 18",
+  "addressLocality": "Chur",
+  "postalCode": "7000",
+  "addressRegion": "Graubünden",
+  "addressCountry": "CH",
+  "latitude": 46.8499,
+  "longitude": 9.5329,
+  "amenities": [
+    { "name": "Free WiFi", "value": true },
+    { "name": "Free bike storage", "value": true },
+    { "name": "Breakfast available", "value": true },
+    { "name": "Pet-friendly", "value": true }
+  ]
+}

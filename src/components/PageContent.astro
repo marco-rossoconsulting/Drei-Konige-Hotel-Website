@@ -64,6 +64,7 @@ function getCollection(name: 'rooms' | 'experiences' | 'practical'): any[] {
 const site = getSingleton('settings', 'site');
 const nav = getSingleton('settings', 'nav');
 const footer = getSingleton('settings', 'footer');
+const hotel = getSingleton('settings', 'hotel');
 const hero = getSingleton('sections', 'hero');
 const heritage = getSingleton('sections', 'heritage');
 const stats = getSingleton('sections', 'stats');
@@ -89,6 +90,7 @@ const practical = getCollection('practical');
   locale={locale}
   rooms={rooms}
   heroImage={hero.image}
+  hotel={hotel}
 >
   <Nav
     logoMain={nav.logoMain}

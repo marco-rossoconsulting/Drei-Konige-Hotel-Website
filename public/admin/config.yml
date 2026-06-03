@@ -60,7 +60,7 @@ collections:
         fields:
           - { label: "Browser tab & search title", name: title, widget: string, i18n: true }
           - { label: "Meta description (~160 chars)", name: description, widget: text, i18n: true }
-          - { label: "Social share image URL (1200×630)", name: ogImage, widget: string, i18n: duplicate, hint: "Full URL or /images/your-photo.jpg" }
+          - { label: "Social share image (1200×630)", name: ogImage, widget: image, i18n: duplicate, hint: "Upload or select an image" }
           - { label: "Social share image — alt text", name: ogImageAlt, widget: string, i18n: true }
           - { label: "Favicon path", name: favicon, widget: string, i18n: duplicate, default: "/favicon.svg" }
 
@@ -122,6 +122,38 @@ collections:
               - { label: "Label", name: label, widget: string, i18n: true }
               - { label: "Href", name: href, widget: string, i18n: duplicate }
 
+      - name: hotel
+        label: "Hotel Info (JSON-LD)"
+        i18n: true
+        file: "src/content/settings/{{locale}}/hotel.json"
+        format: json
+        fields:
+          - { label: "Hotel short name", name: name, widget: string, i18n: true }
+          - { label: "Hotel full name", name: fullName, widget: string, i18n: true }
+          - { label: "Slogan", name: slogan, widget: string, i18n: true }
+          - { label: "Founding date (YYYY-MM-DD)", name: foundingDate, widget: string, i18n: duplicate }
+          - { label: "Telephone", name: telephone, widget: string, i18n: duplicate }
+          - { label: "Email", name: email, widget: string, i18n: duplicate }
+          - { label: "Price range", name: priceRange, widget: string, i18n: duplicate, default: "CHF" }
+          - { label: "Star rating", name: starRating, widget: string, i18n: duplicate, default: "3" }
+          - { label: "Check-in time", name: checkinTime, widget: string, i18n: duplicate, default: "15:00" }
+          - { label: "Check-out time", name: checkoutTime, widget: string, i18n: duplicate, default: "11:00" }
+          - { label: "Pets allowed", name: petsAllowed, widget: boolean, i18n: duplicate, default: true }
+          - { label: "Street address", name: streetAddress, widget: string, i18n: duplicate }
+          - { label: "City", name: addressLocality, widget: string, i18n: true }
+          - { label: "Postal code", name: postalCode, widget: string, i18n: duplicate }
+          - { label: "Region / canton", name: addressRegion, widget: string, i18n: true }
+          - { label: "Country code", name: addressCountry, widget: string, i18n: duplicate, default: "CH" }
+          - { label: "Latitude", name: latitude, widget: number, i18n: duplicate, value_type: float }
+          - { label: "Longitude", name: longitude, widget: number, i18n: duplicate, value_type: float }
+          - label: "Amenities"
+            name: amenities
+            widget: list
+            i18n: true
+            fields:
+              - { label: "Amenity name", name: name, widget: string, i18n: true }
+              - { label: "Available", name: value, widget: boolean, default: true }
+
   # ------------------------------------------------------------
   # PAGE SECTIONS (singletons grouped under "Page Sections")
   # ------------------------------------------------------------
@@ -156,7 +188,7 @@ collections:
             fields:
               - { label: "Button label", name: label, widget: string, i18n: true }
               - { label: "Link (#anchor or external)", name: href, widget: string, i18n: duplicate }
-          - { label: "Hero background image URL", name: image, widget: string, i18n: duplicate }
+          - { label: "Hero background image", name: image, widget: image, i18n: duplicate }
           - { label: "Hero image alt text", name: imageAlt, widget: string, i18n: true }
           - { label: "Scroll indicator label", name: scrollLabel, widget: string, i18n: true }
 
@@ -233,7 +265,7 @@ collections:
             fields:
               - { label: "Label", name: label, widget: string, i18n: true }
               - { label: "Href", name: href, widget: string, i18n: duplicate }
-          - { label: "Image URL", name: image, widget: string, i18n: duplicate }
+          - { label: "Image", name: image, widget: image, i18n: duplicate }
           - { label: "Image alt text", name: imageAlt, widget: string, i18n: true }
           - { label: "Big decorative number", name: decorativeNumber, widget: string, i18n: duplicate }
 
@@ -287,7 +319,7 @@ collections:
     label: "Rooms"
     label_singular: "Room"
     icon: hotel
-    folder: "src/content/rooms/{{locale}}"
+    folder: "src/content/rooms"
     format: json
     create: true
     slug: "{{slug}}"
@@ -299,7 +331,7 @@ collections:
       - { label: "Room name", name: name, widget: string, i18n: true }
       - { label: "Tag (Private bathroom, etc.)", name: tag, widget: string, i18n: true }
       - { label: "Description", name: description, widget: text, i18n: true }
-      - { label: "Image URL", name: image, widget: string, i18n: duplicate }
+      - { label: "Image", name: image, widget: image, i18n: duplicate }
       - { label: "Image alt text", name: imageAlt, widget: string, i18n: true }
 
   # ------------------------------------------------------------
@@ -309,7 +341,7 @@ collections:
     label: "Experiences (around the hotel)"
     label_singular: "Experience"
     icon: map
-    folder: "src/content/experiences/{{locale}}"
+    folder: "src/content/experiences"
     format: json
     create: true
     slug: "{{slug}}"
@@ -326,7 +358,7 @@ collections:
         i18n: duplicate
         options: ["image", "minimal"]
         default: "image"
-      - { label: "Background image URL (image-style)", name: image, widget: string, required: false, i18n: duplicate }
+      - { label: "Background image (image-style)", name: image, widget: image, required: false, i18n: duplicate }
       - { label: "Image alt", name: imageAlt, widget: string, required: false, i18n: true }
       - { label: "Eyebrow (minimal-style)", name: eyebrow, widget: string, required: false, i18n: true }
       - { label: "Pull-quote (minimal-style)", name: quote, widget: text, required: false, i18n: true }
@@ -340,7 +372,7 @@ collections:
     label: "Practical Info"
     label_singular: "Practical Item"
     icon: info
-    folder: "src/content/practical/{{locale}}"
+    folder: "src/content/practical"
     format: json
     create: true
     slug: "{{slug}}"
