@@ -1,7 +1,7 @@
 {
   "title": "Hotel Drei Könige · Chur · Hospitality since 1793",
   "description": "A family-feeling hotel in the heart of Chur — Switzerland's oldest city — offering individually furnished rooms in a building with over 230 years of history. Seven minutes from the station, surrounded by the old town.",
-  "ogImage": "https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1200&q=80",
-  "ogImageAlt": "Cobblestone alley in the old town of Chur, Switzerland",
+  "ogImage": "/images/chur-switzerland-alpine-dusk-panorama.jpg",
+  "ogImageAlt": "Panoramic view of the historic old town of Chur, Switzerland, during the blue hour at dusk.",
   "favicon": "/favicon.svg"
 }
