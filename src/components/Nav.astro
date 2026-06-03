@@ -28,11 +28,14 @@ const langs: Array<{ code: 'en' | 'de' | 'fr' | 'it'; label: string; href: strin
       <span class="nav-logo-mark">{logoMain}<em>{logoEm}</em></span>
       <span class="nav-logo-sub">{logoSub}</span>
     </a>
+
+    {/* Desktop menu */}
     <ul class="nav-menu">
       {menu.map((item) => (
         <li><a href={item.href}>{item.label}</a></li>
       ))}
     </ul>
+
     <div class="nav-right">
       <div class="lang-switch">
         {langs.map((lang, i) => (
@@ -47,6 +50,83 @@ const langs: Array<{ code: 'en' | 'de' | 'fr' | 'it'; label: string; href: strin
         ))}
       </div>
       <a href={reserveCta.href} class="btn nav-book-btn" target="_blank" rel="noopener">{reserveCta.label}</a>
+
+      {/* Mobile hamburger */}
+      <button
+        class="nav-hamburger"
+        id="nav-toggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="nav-mobile"
+      >
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile menu panel */}
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <div class="nav-mobile-inner">
+      <ul class="nav-mobile-menu">
+        {menu.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+      <div class="nav-mobile-footer">
+        <div class="lang-switch">
+          {langs.map((lang, i) => (
+            <>
+              <a
+                href={lang.href}
+                class={lang.code === locale ? 'active' : ''}
+                aria-label={`Switch to ${lang.label}`}
+              >{lang.label}</a>
+              {i < langs.length - 1 && <span class="divider">/</span>}
+            </>
+          ))}
+        </div>
+        <a href={reserveCta.href} class="btn nav-book-btn" target="_blank" rel="noopener">{reserveCta.label}</a>
+      </div>
     </div>
   </div>
 </nav>
+
+<script>
+  (function () {
+    const toggle = document.getElementById('nav-toggle');
+    const mobile = document.getElementById('nav-mobile');
+    const body = document.body;
+    if (!toggle || !mobile) return;
+
+    function openMenu() {
+      toggle.setAttribute('aria-expanded', 'true');
+      mobile.setAttribute('aria-hidden', 'false');
+      body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      toggle.setAttribute('aria-expanded', 'false');
+      mobile.setAttribute('aria-hidden', 'true');
+      body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    // Close on link click
+    mobile.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+  })();
+</script>
