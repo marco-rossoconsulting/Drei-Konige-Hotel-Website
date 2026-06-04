@@ -1,9 +1,9 @@
 {
   "order": 6,
   "number": "VI",
-  "name": "Double — Classic",
+  "name": "Double Room Classic",
   "tag": "Classic",
   "description": "A classic double, individually furnished.",
-  "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80",
-  "imageAlt": "Classic double room"
+  "image": "/images/classic-double-room-hotel-drei-koenige.jpg",
+  "imageAlt": "Modern classic double room at Hotel Drei Könige in Chur, with a neatly made bed, white linens, a grey throw runner, a wooden study desk, and warm ambient headboard lighting."
 }
