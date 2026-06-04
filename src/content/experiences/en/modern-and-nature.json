@@ -3,7 +3,7 @@
   "number": "06",
   "title": "Modern shops & unspoiled nature",
   "description": "Chur is one of the rare places where a modern shopping street and an unspoiled mountainside are a short walk apart. Beautiful alleys one way, the alps the other.",
-  "image": "https://images.unsplash.com/photo-1610465299993-e6675c9f9efa?w=1200&q=80",
-  "imageAlt": "Alpine valley scenery near Chur",
-  "style": "image"
+  "style": "image",
+  "image": "/images/chur-shopping-street-mountain-view.jpg",
+  "imageAlt": "A modern pedestrian shopping street in Chur, Switzerland, with people walking and carrying shopping bags, contrasted against towering, snow-capped Swiss Alpine mountains rising directly behind the city buildings."
 }
