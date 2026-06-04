@@ -1,9 +1,9 @@
 {
   "order": 8,
   "number": "VIII",
-  "name": "Double — Superior",
-  "tag": "Superior",
-  "description": "Our most generously appointed double room.",
-  "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80",
-  "imageAlt": "Superior double room"
+  "name": "Double - Mountain View",
+  "tag": "Mountain View",
+  "description": "A bright and beautifully appointed double room offering stunning views of the surrounding Swiss Alps.",
+  "image": "/images/double-mountainview-room-chur-hotel-switzerland.jpg",
+  "imageAlt": "Modern double room with mountain view at Hotel Drei Könige in Chur, showcasing a plush bed with a grey throw runner, an open wooden wardrobe layout, an integrated vanity sink vanity, and light parquet flooring."
 }

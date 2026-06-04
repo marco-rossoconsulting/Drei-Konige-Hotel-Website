@@ -1,9 +1,9 @@
 {
   "order": 8,
   "number": "VIII",
-  "name": "Doppelzimmer Superior",
-  "tag": "Superior",
-  "description": "Unser grosszügigstes Doppelzimmer.",
-  "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80",
-  "imageAlt": "Doppelzimmer Superior"
+  "name": "Doppelzimmer - Bergblick",
+  "tag": "Bergblick",
+  "description": "Ein helles und wunderschön eingerichtetes Doppelzimmer mit herrlichem Blick auf die umliegenden Schweizer Alpen.",
+  "image": "/images/double-mountainview-room-chur-hotel-switzerland.jpg",
+  "imageAlt": "Modernes Doppelzimmer mit Bergblick im Hotel Drei Könige in Chur, mit einem komfortablen Bett mit grauem Bettläufer, einem offenen Kleiderschranksystem aus Holz, einem integrierten Waschtisch und hellem Parkettboden."
 }

@@ -1,9 +1,9 @@
 {
   "order": 8,
   "number": "VIII",
-  "name": "Doppia — Superior",
-  "tag": "Superior",
-  "description": "La nostra camera doppia arredata in modo più generoso.",
-  "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80",
-  "imageAlt": "Camera doppia Superior"
+  "name": "Camera Doppia - Vista Montagna",
+  "tag": "Vista montagna",
+  "description": "Una camera doppia luminosa e splendidamente arredata che offre una vista mozzafiato sulle circostanti Alpi svizzere.",
+  "image": "/images/double-mountainview-room-chur-hotel-switzerland.jpg",
+  "imageAlt": "Moderna camera doppia con vista montagna all'Hotel Drei Könige di Coira, che mostra un letto accogliente con un runner grigio, un guardaroba a giorno in legno, un lavabo integrato e un pavimento in parquet chiaro."
 }
