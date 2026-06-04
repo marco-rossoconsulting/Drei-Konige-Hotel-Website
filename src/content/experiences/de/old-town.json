@@ -3,7 +3,8 @@
   "number": "01",
   "title": "Gassen aus Kopfstein & die Altstadt",
   "description": "Vor der Tür beginnt die Churer Altstadt — das Herz der ältesten durchgehend bewohnten Stadt der Schweiz. Fünftausend Jahre Geschichte, die man an einem Nachmittag durchwandern kann.",
-  "image": "https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1200&q=80",
-  "imageAlt": "Kopfsteinpflasterstrasse in der Churer Altstadt",
-  "style": "image"
+  "style": "image",
+  "image": "/images/chur-old-town-cobblestone-alley.jpg",
+  "imageAlt": "Blick durch einen historischen Holzbogen auf eine schmale Kopfsteinpflastergasse in der Churer Altstadt, mit Fußgängern, traditionellen Gebäuden, Blumenkübeln, einer antiken Wandlaterne und einem hängenden Holzschild mit der Aufschrift „Zum Stern Cobblestone Alley“.",
+  "linkHref": ""
 }

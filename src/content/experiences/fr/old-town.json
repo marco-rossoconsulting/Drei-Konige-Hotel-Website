@@ -3,7 +3,8 @@
   "number": "01",
   "title": "Ruelles pavées & vieille ville",
   "description": "Dès la sortie, vous êtes au cœur de la vieille ville de Coire — la plus ancienne ville continuellement habitée de Suisse. Cinq mille ans d'histoire, parcourables en un après-midi.",
-  "image": "https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1200&q=80",
-  "imageAlt": "Rue pavée dans la vieille ville de Coire",
-  "style": "image"
+  "style": "image",
+  "image": "/images/chur-old-town-cobblestone-alley.jpg",
+  "imageAlt": "Vue à travers une arche en bois historique donnant sur une ruelle pavée étroite dans la vieille ville de Coire, avec des piétons se promenant devant des bâtiments traditionnels, des fleurs en pot, une lanterne murale vintage et une enseigne en bois suspendue indiquant « Zum Stern Cobblestone Alley ».",
+  "linkHref": ""
 }

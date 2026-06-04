@@ -3,7 +3,11 @@
   "number": "01",
   "title": "Cobblestone alleys & the old town",
   "description": "Step out of the door and you are immediately inside Chur's old town — the heart of Switzerland's oldest continuously inhabited city. Five thousand years of habitation, and you can walk most of it in an afternoon.",
-  "image": "https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1200&q=80",
-  "imageAlt": "Cobblestone street in the old town of Chur",
-  "style": "image"
+  "style": "image",
+  "image": "/images/chur-old-town-cobblestone-alley.jpg",
+  "imageAlt": "View through a historic wooden archway looking onto a narrow cobblestone alley in Chur's old town, featuring pedestrians walking past traditional buildings, potted flowers, a vintage wall lantern, and a hanging wooden sign reading \"Zum Stern Cobblestone Alley\".",
+  "eyebrow": "",
+  "quote": "",
+  "linkLabel": "",
+  "linkHref": ""
 }
