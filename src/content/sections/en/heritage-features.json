@@ -6,12 +6,24 @@
     "The first health insurance scheme for the forestry workers of Grisons was drafted under this roof. And somewhere in the building — depending on which corridor you take — sits what is recorded as the oldest preserved hotel room in Chur."
   ],
   "metaItems": [
-    { "label": "The Weinstube",      "value": "Heritage-protected room" },
-    { "label": "Drei König Hall",    "value": "Once abbey, once parliament" },
-    { "label": "Oldest hotel room",  "value": "Preserved · The oldest in Chur" }
+    {
+      "label": "The Weinstube",
+      "value": "Heritage-protected room"
+    },
+    {
+      "label": "Drei König Hall",
+      "value": "Once abbey, once parliament"
+    },
+    {
+      "label": "Oldest hotel room",
+      "value": "Preserved · The oldest in Chur"
+    }
   ],
-  "cta": { "label": "Read the Full History", "href": "#heritage" },
-  "image": "https://images.unsplash.com/photo-1568733873715-f9b8aab90c5f?w=1400&q=80",
-  "imageAlt": "Traditional wood-panelled interior of a historic Swiss building",
+  "cta": {
+    "label": "Read the Full History",
+    "href": "#heritage"
+  },
+  "image": "/images/historic-weinstube-restaurant-hotel-drei-koenige.jpg",
+  "imageAlt": "The traditional \"Weinstube\" dining room at Hotel Drei Könige in Chur, featuring historic dark wood-panelled walls, an antique coffered ceiling with vintage chandeliers, and neatly set restaurant tables with white tablecloths.",
   "decorativeNumber": "1793"
 }

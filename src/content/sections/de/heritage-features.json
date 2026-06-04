@@ -6,12 +6,24 @@
     "Die erste Krankenversicherung für die Bündner Forstarbeiter wurde unter diesem Dach gegründet. Und irgendwo im Haus — je nachdem, welchen Korridor man nimmt — befindet sich das, was als das älteste erhaltene Hotelzimmer von Chur überliefert ist."
   ],
   "metaItems": [
-    { "label": "Die Weinstube",      "value": "Denkmalgeschützter Raum" },
-    { "label": "Drei-König-Saal",   "value": "Einst Kloster, einst Parlament" },
-    { "label": "Ältestes Hotelzimmer","value": "Erhalten · Das älteste in Chur" }
+    {
+      "label": "Die Weinstube",
+      "value": "Denkmalgeschützter Raum"
+    },
+    {
+      "label": "Drei-König-Saal",
+      "value": "Einst Kloster, einst Parlament"
+    },
+    {
+      "label": "Ältestes Hotelzimmer",
+      "value": "Erhalten · Das älteste in Chur"
+    }
   ],
-  "cta": { "label": "Die ganze Geschichte", "href": "#heritage" },
-  "image": "https://images.unsplash.com/photo-1568733873715-f9b8aab90c5f?w=1400&q=80",
-  "imageAlt": "Traditionelles holzgetäfeltes Interieur eines historischen Schweizer Gebäudes",
+  "cta": {
+    "label": "Die ganze Geschichte",
+    "href": "#heritage"
+  },
+  "image": "/images/historic-weinstube-restaurant-hotel-drei-koenige.jpg",
+  "imageAlt": "Die traditionelle historische „Weinstube“ im Hotel Drei Könige in Chur, mit dunklen holzgetäfelten Wänden, einer antiken Kassettendecke mit klassischen Kronleuchtern und einladend gedeckten Restauranttischen mit weißen Tischdecken.",
   "decorativeNumber": "1793"
 }

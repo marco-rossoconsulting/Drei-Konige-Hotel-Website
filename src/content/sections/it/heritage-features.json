@@ -6,12 +6,24 @@
     "Il primo sistema di assicurazione sanitaria per i boscaioli dei Grigioni fu redatto sotto questo tetto. E da qualche parte nell'edificio — a seconda del corridoio che si percorre — si trova quella che è documentata come la più antica camera d'hotel conservata di Coira."
   ],
   "metaItems": [
-    { "label": "La Weinstube",       "value": "Sala protetta come monumento" },
-    { "label": "Sala Drei König",    "value": "Un tempo abbazia, un tempo parlamento" },
-    { "label": "Camera più antica",  "value": "Conservata · La più antica di Coira" }
+    {
+      "label": "La Weinstube",
+      "value": "Sala protetta come monumento"
+    },
+    {
+      "label": "Sala Drei König",
+      "value": "Un tempo abbazia, un tempo parlamento"
+    },
+    {
+      "label": "Camera più antica",
+      "value": "Conservata · La più antica di Coira"
+    }
   ],
-  "cta": { "label": "Leggi tutta la storia", "href": "#heritage" },
-  "image": "https://images.unsplash.com/photo-1568733873715-f9b8aab90c5f?w=1400&q=80",
-  "imageAlt": "Interno tradizionale rivestito di legno di un edificio storico svizzero",
+  "cta": {
+    "label": "Leggi tutta la storia",
+    "href": "#heritage"
+  },
+  "image": "/images/historic-weinstube-restaurant-hotel-drei-koenige.jpg",
+  "imageAlt": "La tradizionale sala da pranzo \"Weinstube\" dell'Hotel Drei Könige di Coira, caratterizzata da storiche pareti rivestite in legno scuro, un soffitto a cassettoni d'epoca con lampadari vintage e tavoli da ristorante apparecchiati con tovaglie bianche.",
   "decorativeNumber": "1793"
 }

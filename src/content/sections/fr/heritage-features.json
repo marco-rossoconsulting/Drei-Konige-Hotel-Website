@@ -6,12 +6,24 @@
     "Le premier régime d'assurance maladie pour les bûcherons des Grisons fut rédigé sous ce toit. Et quelque part dans le bâtiment — selon le couloir que vous prenez — se trouve ce qui est documenté comme la plus ancienne chambre d'hôtel préservée de Coire."
   ],
   "metaItems": [
-    { "label": "La Weinstube",       "value": "Salle protégée monument historique" },
-    { "label": "Salle Drei König",   "value": "Jadis abbaye, jadis parlement" },
-    { "label": "La plus ancienne chambre","value": "Préservée · La plus ancienne de Coire" }
+    {
+      "label": "La Weinstube",
+      "value": "Salle protégée monument historique"
+    },
+    {
+      "label": "Salle Drei König",
+      "value": "Jadis abbaye, jadis parlement"
+    },
+    {
+      "label": "La plus ancienne chambre",
+      "value": "Préservée · La plus ancienne de Coire"
+    }
   ],
-  "cta": { "label": "Lire toute l'histoire", "href": "#heritage" },
-  "image": "https://images.unsplash.com/photo-1568733873715-f9b8aab90c5f?w=1400&q=80",
-  "imageAlt": "Intérieur traditionnel lambrissé d'un bâtiment historique suisse",
+  "cta": {
+    "label": "Lire toute l'histoire",
+    "href": "#heritage"
+  },
+  "image": "/images/historic-weinstube-restaurant-hotel-drei-koenige.jpg",
+  "imageAlt": "La salle à manger traditionnelle « Weinstube » de l'Hôtel Drei Könige à Coire, dotée de murs lambrissés de bois sombre historique, d'un plafond à caissons d'époque avec des lustres vintage et de tables de restaurant dressées de nappes blanches.",
   "decorativeNumber": "1793"
 }
