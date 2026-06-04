@@ -1,9 +1,9 @@
 {
-  "order": 5,
-  "number": "V",
-  "name": "Twin Room",
-  "tag": "Twin beds",
-  "description": "Two single beds for friends or colleagues sharing.",
-  "image": "https://images.unsplash.com/photo-1551776235-dde6d482980b?w=800&q=80",
-  "imageAlt": "Twin bedroom"
+  "order": 4,
+  "number": "IV",
+  "name": "Superior Double Room",
+  "tag": "King size bed",
+  "description": "A spacious and elegant premium double room.",
+  "image": "/images/superior-double-room-hotel-drei-koenige..jpg",
+  "imageAlt": "Premium superior double room at Hotel Drei Könige in Chur, showing a plush bed with a grey runner, a custom open-concept wooden wardrobe, an integrated vanity sink vanity, and a work desk by the window."
 }

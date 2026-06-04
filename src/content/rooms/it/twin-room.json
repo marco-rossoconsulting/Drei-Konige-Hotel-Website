@@ -1,9 +1,9 @@
 {
-  "order": 5,
-  "number": "V",
-  "name": "Camera Twin",
-  "tag": "Due letti singoli",
-  "description": "Due letti singoli per amici o colleghi che viaggiano insieme.",
-  "image": "https://images.unsplash.com/photo-1551776235-dde6d482980b?w=800&q=80",
-  "imageAlt": "Camera twin con due letti singoli"
+  "order": 4,
+  "number": "IV",
+  "name": "Camera Doppia Superior",
+  "tag": "Letto king size",
+  "description": "Una camera doppia superior spaziosa ed elegante.",
+  "image": "/images/superior-double-room-hotel-drei-koenige..jpg",
+  "imageAlt": "Camera doppia superior premium all'Hotel Drei Könige di Coira, che mostra un letto accogliente con un runner grigio, un guardaroba a giorno in legno su misura, un lavabo integrato e una scrivania accanto alla finestra."
 }

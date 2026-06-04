@@ -1,9 +1,9 @@
 {
-  "order": 5,
-  "number": "V",
-  "name": "Chambre Twin",
-  "tag": "Deux lits simples",
-  "description": "Deux lits simples pour des amis ou collègues voyageant ensemble.",
-  "image": "https://images.unsplash.com/photo-1551776235-dde6d482980b?w=800&q=80",
-  "imageAlt": "Chambre twin avec deux lits simples"
+  "order": 4,
+  "number": "IV",
+  "name": "Chambre Double Supérieure",
+  "tag": "Lit king size",
+  "description": "Une chambre double supérieure spacieuse et élégante.",
+  "image": "/images/superior-double-room-hotel-drei-koenige..jpg",
+  "imageAlt": "Chambre double supérieure haut de gamme à l'Hôtel Drei Könige à Coire, présentant un lit douillet avec un chemin de lit gris, un dressing ouvert en bois sur mesure, un meuble vasque intégré et un bureau près de la fenêtre."
 }

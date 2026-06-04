@@ -1,9 +1,9 @@
 {
-  "order": 5,
-  "number": "V",
-  "name": "Twinzimmer",
-  "tag": "Zwei Einzelbetten",
-  "description": "Zwei Einzelbetten für Freunde oder Kollegen auf gemeinsamer Reise.",
-  "image": "https://images.unsplash.com/photo-1551776235-dde6d482980b?w=800&q=80",
-  "imageAlt": "Twinzimmer mit zwei Einzelbetten"
+  "order": 4,
+  "number": "IV",
+  "name": "Superior-Doppelzimmer",
+  "tag": "Kingsize-Bett",
+  "description": "Ein geräumiges und elegantes Premium-Doppelzimmer.",
+  "image": "/images/superior-double-room-hotel-drei-koenige..jpg",
+  "imageAlt": "Premium-Superior-Doppelzimmer im Hotel Drei Könige in Chur, mit einem komfortablen Bett mit grauem Läufer, einem maßgefertigten, offenen Holzschrank, einem integrierten Waschtisch und einem Schreibtisch am Fenster."
 }
