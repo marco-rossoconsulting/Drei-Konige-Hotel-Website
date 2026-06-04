@@ -4,6 +4,6 @@
   "name": "Einzelzimmer",
   "tag": "Privates Bad",
   "description": "Einzelzimmer mit privatem Bad. Eine einfache, komfortable Basis für Alleinreisende.",
-  "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80",
-  "imageAlt": "Einzelzimmer mit privatem Bad im Hotel Drei Könige"
+  "image": "/images/standard-single-room-chur-hotel.jpg",
+  "imageAlt": "Modernes Standard-Einzelzimmer im Hotel Drei Könige in Chur, ausgestattet mit einem Einzelbett mit grauem Läufer, einem wandmontierten Fernseher, einem langen Holzschreibtisch und warmer LED-Hintergrundbeleuchtung."
 }

@@ -4,6 +4,6 @@
   "name": "Single Room",
   "tag": "Private bathroom",
   "description": "Single room with private bathroom. A simple, comfortable base for solo travellers.",
-  "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80",
-  "imageAlt": "Single room with private bathroom at Hotel Drei Könige"
+  "image": "/images/standard-single-room-chur-hotel.jpg",
+  "imageAlt": "Modern single standard hotel room featuring a single bed with a grey runner, a wall-mounted TV, a long wooden desk with a chair, and warm, indirect LED backlighting."
 }
