@@ -160,7 +160,6 @@ collections:
   - name: sections
     label: "Page Sections"
     label_singular: "Section"
-    icon: layout
     i18n: true
     files:
 
