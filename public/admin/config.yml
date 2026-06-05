@@ -70,9 +70,7 @@ collections:
         file: "src/content/settings/{{locale}}/nav.json"
         format: json
         fields:
-          - { label: "Logo — first word", name: logoMain, widget: string, i18n: duplicate, default: "Drei" }
-          - { label: "Logo — italic word", name: logoEm, widget: string, i18n: duplicate, default: "Könige" }
-          - { label: "Logo — sub-line", name: logoSub, widget: string, i18n: true }
+          - { label: "Logo image", name: logoImage, widget: image, i18n: duplicate, hint: "Upload a logo image (SVG, PNG, or JPG). Replaces the text logo." }
           - label: "Menu items"
             name: menu
             widget: list
@@ -86,7 +84,7 @@ collections:
             i18n: true
             fields:
               - { label: "Button label", name: label, widget: string, i18n: true }
-              - { label: "Link", name: href, widget: string, i18n: duplicate }
+              - { label: "Link", name: href, widget: string, i18n: true }
 
       - name: footer
         label: "Footer"
@@ -180,7 +178,7 @@ collections:
             widget: object
             fields:
               - { label: "Button label", name: label, widget: string, i18n: true }
-              - { label: "Link", name: href, widget: string, i18n: duplicate }
+              - { label: "Link", name: href, widget: string, i18n: true }
           - label: "Secondary CTA"
             name: secondaryCta
             widget: object
@@ -303,7 +301,7 @@ collections:
             widget: object
             fields:
               - { label: "Label", name: label, widget: string, i18n: true }
-              - { label: "Link", name: href, widget: string, i18n: duplicate }
+              - { label: "Link", name: href, widget: string, i18n: true }
           - label: "Phone button"
             name: phone
             widget: object

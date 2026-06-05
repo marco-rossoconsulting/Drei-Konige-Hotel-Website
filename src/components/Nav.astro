@@ -3,15 +3,13 @@ interface MenuItem { label: string; href: string; }
 interface Cta { label: string; href: string; }
 
 interface Props {
-  logoMain: string;
-  logoEm: string;
-  logoSub: string;
+  logoImage: string;
   menu: MenuItem[];
   reserveCta: Cta;
   locale: 'en' | 'de' | 'fr' | 'it';
 }
 
-const { logoMain, logoEm, logoSub, menu, reserveCta, locale } = Astro.props;
+const { logoImage, menu, reserveCta, locale } = Astro.props;
 
 // All 4 locales — Reichsgasse 18 stays the same; ID anchors stay the same; only URL prefix changes.
 const langs: Array<{ code: 'en' | 'de' | 'fr' | 'it'; label: string; href: string }> = [
@@ -25,8 +23,14 @@ const langs: Array<{ code: 'en' | 'de' | 'fr' | 'it'; label: string; href: strin
 <nav class="nav" id="nav">
   <div class="container nav-inner">
     <a href={locale === 'en' ? '/' : `/${locale}/`} class="nav-logo">
-      <span class="nav-logo-mark">{logoMain}<em>{logoEm}</em></span>
-      <span class="nav-logo-sub">{logoSub}</span>
+      {logoImage ? (
+        <img src={logoImage} alt="Hotel Drei Könige" class="nav-logo-img" />
+      ) : (
+        <>
+          <span class="nav-logo-mark">Drei<em>Könige</em></span>
+          <span class="nav-logo-sub">Anno 1793</span>
+        </>
+      )}
     </a>
 
     {/* Desktop menu */}
