@@ -3,11 +3,29 @@
   "logoEm": "Könige",
   "logoSub": "Anno 1793",
   "menu": [
-    { "label": "Heritage", "href": "#heritage" },
-    { "label": "Rooms", "href": "#rooms" },
-    { "label": "The Building", "href": "#building" },
-    { "label": "Chur", "href": "#chur" },
-    { "label": "Visit", "href": "#visit" }
+    {
+      "label": "Heritage",
+      "href": "#heritage"
+    },
+    {
+      "label": "Rooms",
+      "href": "#rooms"
+    },
+    {
+      "label": "The Building",
+      "href": "#building"
+    },
+    {
+      "label": "Chur",
+      "href": "#chur"
+    },
+    {
+      "label": "Visit",
+      "href": "#visit"
+    }
   ],
-  "reserveCta": { "label": "Book Now", "href": "https://www.dreikoenige.ch/wbe4/index.html" }
+  "reserveCta": {
+    "label": "Book Now",
+    "href": "http://www.simplebooking.it/ibe2/hotel/11642?lang=EN&cur=CHF"
+  }
 }

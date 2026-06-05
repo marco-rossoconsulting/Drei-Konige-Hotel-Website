@@ -3,11 +3,29 @@
   "logoEm": "Könige",
   "logoSub": "Anno 1793",
   "menu": [
-    { "label": "Storia", "href": "#heritage" },
-    { "label": "Camere", "href": "#rooms" },
-    { "label": "La Casa", "href": "#building" },
-    { "label": "Coira", "href": "#chur" },
-    { "label": "Come arrivare", "href": "#visit" }
+    {
+      "label": "Storia",
+      "href": "#heritage"
+    },
+    {
+      "label": "Camere",
+      "href": "#rooms"
+    },
+    {
+      "label": "La Casa",
+      "href": "#building"
+    },
+    {
+      "label": "Coira",
+      "href": "#chur"
+    },
+    {
+      "label": "Come arrivare",
+      "href": "#visit"
+    }
   ],
-  "reserveCta": { "label": "Prenota ora", "href": "https://www.dreikoenige.ch/wbe4/index.html" }
+  "reserveCta": {
+    "label": "Prenota ora",
+    "href": "http://www.simplebooking.it/ibe2/hotel/11642?lang=EN&cur=CHF"
+  }
 }
