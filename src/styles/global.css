@@ -150,10 +150,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-left: 1px solid currentColor;
 }
 .nav-logo-img {
-  height: 120px;
+  height: 56px;
   width: auto;
   display: block;
-  margin: -22px 0;
+  margin: 0;
   filter: brightness(0) invert(1);
   transition: filter 0.4s var(--ease);
 }
@@ -161,7 +161,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   filter: none;
 }
 @media (max-width: 768px) {
-  .nav-logo-img { height: 84px; margin: -15px 0; }
+  .nav-logo-img { height: 48px; margin: 0; }
 }
 .nav-menu { display: flex; gap: 36px; list-style: none; }
 .nav-menu a {
