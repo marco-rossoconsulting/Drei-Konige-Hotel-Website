@@ -176,12 +176,14 @@ collections:
           - label: "Primary CTA"
             name: primaryCta
             widget: object
+            i18n: true
             fields:
               - { label: "Button label", name: label, widget: string, i18n: true }
               - { label: "Link", name: href, widget: string, i18n: true }
           - label: "Secondary CTA"
             name: secondaryCta
             widget: object
+            i18n: true
             fields:
               - { label: "Button label", name: label, widget: string, i18n: true }
               - { label: "Link (#anchor or external)", name: href, widget: string, i18n: duplicate }
@@ -299,12 +301,14 @@ collections:
           - label: "Primary button"
             name: primaryCta
             widget: object
+            i18n: true
             fields:
               - { label: "Label", name: label, widget: string, i18n: true }
               - { label: "Link", name: href, widget: string, i18n: true }
           - label: "Phone button"
             name: phone
             widget: object
+            i18n: true
             fields:
               - { label: "Phone label", name: label, widget: string, i18n: duplicate }
               - { label: "Phone href (tel:+...)", name: href, widget: string, i18n: duplicate }
