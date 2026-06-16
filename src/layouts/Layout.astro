@@ -63,8 +63,8 @@ const ogImageAbs = ogImage ? new URL(ogImage, Astro.site).toString() : undefined
 
 // Hreflang alternates: every page exists at /, /de/, /fr/, /it/
 const alternates: Array<{ hreflang: string; href: string }> = [
-  { hreflang: 'en',    href: new URL('/',    Astro.site).toString() },
-  { hreflang: 'de-CH', href: new URL('/de/', Astro.site).toString() },
+  { hreflang: 'de-CH', href: new URL('/',    Astro.site).toString() },
+  { hreflang: 'en',    href: new URL('/en/', Astro.site).toString() },
   { hreflang: 'fr-CH', href: new URL('/fr/', Astro.site).toString() },
   { hreflang: 'it-CH', href: new URL('/it/', Astro.site).toString() },
   { hreflang: 'x-default', href: new URL('/', Astro.site).toString() }

@@ -9,8 +9,8 @@ const SITE = 'https://www.dreikoenige.ch';
 type Locale = 'en' | 'de' | 'fr' | 'it';
 
 const locales: Array<{ code: Locale; path: string; hreflang: string }> = [
-  { code: 'en', path: '/',    hreflang: 'en'    },
-  { code: 'de', path: '/de/', hreflang: 'de-CH' },
+  { code: 'de', path: '/',    hreflang: 'de-CH' },
+  { code: 'en', path: '/en/', hreflang: 'en'    },
   { code: 'fr', path: '/fr/', hreflang: 'fr-CH' },
   { code: 'it', path: '/it/', hreflang: 'it-CH' }
 ];

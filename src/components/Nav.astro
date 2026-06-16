@@ -13,8 +13,8 @@ const { logoImage, menu, reserveCta, locale } = Astro.props;
 
 // All 4 locales — Reichsgasse 18 stays the same; ID anchors stay the same; only URL prefix changes.
 const langs: Array<{ code: 'en' | 'de' | 'fr' | 'it'; label: string; href: string }> = [
-  { code: 'en', label: 'EN', href: '/'    },
-  { code: 'de', label: 'DE', href: '/de/' },
+  { code: 'de', label: 'DE', href: '/'    },
+  { code: 'en', label: 'EN', href: '/en/' },
   { code: 'fr', label: 'FR', href: '/fr/' },
   { code: 'it', label: 'IT', href: '/it/' }
 ];
@@ -22,7 +22,7 @@ const langs: Array<{ code: 'en' | 'de' | 'fr' | 'it'; label: string; href: strin
 
 <nav class="nav" id="nav">
   <div class="container nav-inner">
-    <a href={locale === 'en' ? '/' : `/${locale}/`} class="nav-logo">
+    <a href={locale === 'de' ? '/' : `/${locale}/`} class="nav-logo">
       {logoImage ? (
         <img src={logoImage} alt="Hotel Drei Könige" class="nav-logo-img" />
       ) : (

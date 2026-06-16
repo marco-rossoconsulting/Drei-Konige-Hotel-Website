@@ -3,13 +3,13 @@ import PageContent from '../../components/PageContent.astro';
 
 export async function getStaticPaths() {
   return [
-    { params: { lang: 'de' } },
+    { params: { lang: 'en' } },
     { params: { lang: 'fr' } },
     { params: { lang: 'it' } }
   ];
 }
 
-type Locale = 'de' | 'fr' | 'it';
+type Locale = 'en' | 'fr' | 'it';
 const { lang } = Astro.params as { lang: Locale };
 ---
 
