@@ -2,8 +2,8 @@
   "order": 2,
   "number": "02",
   "title": "Zehn Restaurants vor der Tür",
-  "description": "Über zehn Restaurants liegen in zwei Gehminuten vom Hotel — von traditioneller Bündner Küche bis zu internationalen Häusern. Unsere Réception empfiehlt gerne das richtige für den Abend.",
+  "description": "Über zehn Restaurants liegen in zwei Gehminuten vom Hotel — von traditioneller Bündner Küche bis zu internationalen Häusern.",
+  "style": "image",
   "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80",
-  "imageAlt": "Warm beleuchtetes traditionelles Schweizer Restaurant am Abend",
-  "style": "image"
+  "imageAlt": "Warm beleuchtetes traditionelles Schweizer Restaurant am Abend"
 }
