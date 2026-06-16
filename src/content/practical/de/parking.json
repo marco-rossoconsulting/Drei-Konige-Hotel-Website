@@ -1,1 +1,6 @@
-{ "order": 5, "icon": "parking", "label": "Parkplätze", "description": "Öffentliche Parkplätze eine Gehminute vom Hotel entfernt." }
+{
+  "order": 5,
+  "icon": "parking",
+  "label": "Parkplätze",
+  "description": "Parkplätze stehen im Quader Center für CHF 18 zur Verfügung, nur eine Gehminute vom Hotel entfernt."
+}

@@ -1,1 +1,6 @@
-{ "order": 5, "icon": "parking", "label": "Parcheggio", "description": "Parcheggio pubblico a un minuto a piedi dall'hotel." }
+{
+  "order": 5,
+  "icon": "parking",
+  "label": "Parcheggio",
+  "description": "Il parcheggio è disponibile presso il Quader Center per CHF 18, a solo un minuto a piedi dall'hotel."
+}
