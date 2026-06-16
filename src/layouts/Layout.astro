@@ -253,15 +253,6 @@ const jsonLdGraph = hotel ? {
   </main>
 
   <script>
-    // Sticky nav background-on-scroll
-    const nav = document.getElementById('nav');
-    if (nav) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 80) nav.classList.add('scrolled');
-        else nav.classList.remove('scrolled');
-      }, { passive: true });
-    }
-
     // Reveal-on-scroll animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
