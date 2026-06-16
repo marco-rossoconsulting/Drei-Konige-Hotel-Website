@@ -2,7 +2,7 @@
   "eyebrow": "À l'intérieur de la maison",
   "headlineHtml": "Des pièces avec <em>leur propre histoire</em>.",
   "body": [
-    "Bien avant nous, ces pièces ont eu d'autres vies. La « Weinstube » fut autrefois un relais de poste, puis un décor du film <em>Jürg Jenatsch</em>. La salle de banquet « Drei König » fut tour à tour partie d'un monastère et partie du siège du gouvernement.",
+    "Bien avant nous, ces pièces ont eu d'autres vies. Ce bâtiment fut autrefois un relais de poste, puis un décor du film <em>Jürg Jenatsch</em>. La salle de banquet « Drei König » fut tour à tour partie d'un monastère et partie du siège du gouvernement.",
     "Le premier régime d'assurance maladie pour les bûcherons des Grisons fut rédigé sous ce toit. Et quelque part dans le bâtiment — selon le couloir que vous prenez — se trouve ce qui est documenté comme la plus ancienne chambre d'hôtel préservée de Coire."
   ],
   "metaItems": [
@@ -12,14 +12,16 @@
     },
     {
       "label": "La plus ancienne chambre",
-      "value": "La plus ancienne chambre d'hôtel conservée de Coire"
+      "value": "La plus ancienne chambre d'hôtel préservée de Coire"
+    },
+    {
+      "label": "Lieu de tournage",
+      "value": "Jürg Jenatsch (1937)"
     }
   ],
   "cta": {
     "label": "Lire toute l'histoire",
     "href": "#heritage"
   },
-  "image": "/images/historic-weinstube-restaurant-hotel-drei-koenige.jpg",
-  "imageAlt": "La salle à manger traditionnelle « Weinstube » de l'Hôtel Drei Könige à Coire, dotée de murs lambrissés de bois sombre historique, d'un plafond à caissons d'époque avec des lustres vintage et de tables de restaurant dressées de nappes blanches.",
   "decorativeNumber": "1793"
 }

@@ -251,7 +251,7 @@ collections:
             widget: list
             i18n: true
             field: { label: "Paragraph", name: paragraph, widget: text, i18n: true }
-          - label: "Heritage features (Weinstube · Hall · etc.)"
+          - label: "Heritage features (Hall · Room history · etc.)"
             name: metaItems
             widget: list
             i18n: true
@@ -264,8 +264,6 @@ collections:
             fields:
               - { label: "Label", name: label, widget: string, i18n: true }
               - { label: "Href", name: href, widget: string, i18n: duplicate }
-          - { label: "Image", name: image, widget: image, i18n: duplicate }
-          - { label: "Image alt text", name: imageAlt, widget: string, i18n: true }
           - { label: "Big decorative number", name: decorativeNumber, widget: string, i18n: duplicate }
 
       - name: experience

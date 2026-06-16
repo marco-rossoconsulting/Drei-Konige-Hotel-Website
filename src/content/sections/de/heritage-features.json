@@ -2,7 +2,7 @@
   "eyebrow": "Im Inneren des Hauses",
   "headlineHtml": "Zimmer mit <em>eigener Geschichte</em>.",
   "body": [
-    "Lange vor unserer Zeit hatten die Räume dieses Hauses andere Funktionen. Die „Weinstube\" diente einst als Pferdewechsel-Station der Post und später als Drehort des Films <em>Jürg Jenatsch</em>. Der Bankettsaal „Drei König\" war abwechselnd Teil eines Klosters und Teil des Regierungssitzes.",
+    "Lange vor unserer Zeit hatten die Räume dieses Hauses andere Funktionen. Dieses Gebäude diente einst als Pferdewechsel-Station der Post und später als Drehort des Films <em>Jürg Jenatsch</em>. Der Bankettsaal „Drei König\" war abwechselnd Teil eines Klosters und Teil des Regierungssitzes.",
     "Die erste Krankenversicherung für die Bündner Forstarbeiter wurde unter diesem Dach gegründet. Und irgendwo im Haus — je nachdem, welchen Korridor man nimmt — befindet sich das, was als das älteste erhaltene Hotelzimmer von Chur überliefert ist."
   ],
   "metaItems": [
@@ -12,14 +12,16 @@
     },
     {
       "label": "Ältestes Hotelzimmer",
-      "value": "Das älteste in Chur erhaltene Hotelzimmer"
+      "value": "Das älteste erhaltene Hotelzimmer in Chur"
+    },
+    {
+      "label": "Filmdrehort",
+      "value": "Jürg Jenatsch (1937)"
     }
   ],
   "cta": {
     "label": "Die ganze Geschichte",
     "href": "#heritage"
   },
-  "image": "/images/historic-weinstube-restaurant-hotel-drei-koenige.jpg",
-  "imageAlt": "Die traditionelle historische „Weinstube“ im Hotel Drei Könige in Chur, mit dunklen holzgetäfelten Wänden, einer antiken Kassettendecke mit klassischen Kronleuchtern und einladend gedeckten Restauranttischen mit weißen Tischdecken.",
   "decorativeNumber": "1793"
 }

@@ -2,7 +2,7 @@
   "eyebrow": "Inside the Building",
   "headlineHtml": "Rooms with their <em>own histories</em>.",
   "body": [
-    "Long before our time, the rooms of this house carried other lives. The \"Weinstube\" was once a relay station for the postal service, and later a set used in the filming of <em>Jürg Jenatsch</em>. The \"Drei König\" banquet hall has been, by turns, part of a monastery and part of the seat of government.",
+    "Long before our time, the rooms of this house carried other lives. This building once served as a relay station for the postal service, and later as a set used in the filming of <em>Jürg Jenatsch</em>. The \"Drei König\" banquet hall has been, by turns, part of a monastery and part of the seat of government.",
     "The first health insurance scheme for the forestry workers of Grisons was drafted under this roof. And somewhere in the building — depending on which corridor you take — sits what is recorded as the oldest preserved hotel room in Chur."
   ],
   "metaItems": [
@@ -13,13 +13,15 @@
     {
       "label": "Oldest hotel room",
       "value": "The oldest preserved hotel room in Chur"
+    },
+    {
+      "label": "Film location",
+      "value": "Jürg Jenatsch (1937)"
     }
   ],
   "cta": {
     "label": "Read the Full History",
     "href": "#heritage"
   },
-  "image": "/images/historic-weinstube-restaurant-hotel-drei-koenige.jpg",
-  "imageAlt": "The traditional \"Weinstube\" dining room at Hotel Drei Könige in Chur, featuring historic dark wood-panelled walls, an antique coffered ceiling with vintage chandeliers, and neatly set restaurant tables with white tablecloths.",
   "decorativeNumber": "1793"
 }

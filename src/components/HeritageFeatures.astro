@@ -8,23 +8,19 @@ interface Props {
   body: string[];
   metaItems: MetaItem[];
   cta: Cta;
-  image: string;
-  imageAlt: string;
   decorativeNumber: string;
 }
 
-const { eyebrow, headlineHtml, body, metaItems, cta, image, imageAlt, decorativeNumber } = Astro.props;
+const { eyebrow, headlineHtml, body, metaItems, cta, decorativeNumber } = Astro.props;
 ---
 
 <section class="weinstube" id="building" aria-labelledby="building-h">
   <div class="weinstube-grid">
-    <div class="weinstube-image">
-      <img src={image} alt={imageAlt} loading="lazy" />
-    </div>
     <div class="weinstube-content">
       <span class="deco-num" aria-hidden="true">{decorativeNumber}</span>
       <span class="eyebrow">{eyebrow}</span>
       <h2 id="building-h" class="display" set:html={headlineHtml}></h2>
+      <div class="weinstube-ornament" aria-hidden="true"></div>
       <div class="weinstube-body">
         {body.map((p) => <p set:html={p}></p>)}
       </div>

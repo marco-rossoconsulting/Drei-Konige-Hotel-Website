@@ -610,32 +610,50 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ============ WEINSTUBE ============ */
 .weinstube { background: var(--wine-deep); color: var(--cream); overflow: hidden; position: relative; }
-.weinstube-grid { display: grid; grid-template-columns: 1.05fr 1fr; min-height: 760px; }
-.weinstube-image { position: relative; overflow: hidden; }
-.weinstube-image img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85) contrast(1.05) saturate(0.85); }
-.weinstube-content { padding: 120px 80px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+.weinstube-grid { display: flex; justify-content: center; min-height: 760px; }
+.weinstube-content {
+  padding: 140px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+}
 .weinstube-content .deco-num {
   position: absolute;
-  top: 48px;
-  right: 48px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-family: var(--serif);
   font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
   font-style: italic;
-  font-size: 200px;
-  color: rgba(161, 132, 88, 0.12);
+  font-size: 320px;
+  color: rgba(161, 132, 88, 0.08);
   line-height: 1;
   pointer-events: none;
+  white-space: nowrap;
 }
 .weinstube .eyebrow { color: var(--brass-light); margin-bottom: 32px; }
 .weinstube .eyebrow::before { background: var(--brass-light); }
 .weinstube h2 { font-size: clamp(44px, 5vw, 76px); margin-bottom: 36px; color: var(--cream); }
 .weinstube h2 em { color: var(--brass-light); }
-.weinstube-body { font-size: 16px; line-height: 1.7; color: rgba(245, 240, 230, 0.78); max-width: 48ch; margin-bottom: 40px; }
+.weinstube-ornament {
+  width: 64px;
+  height: 1px;
+  background: var(--brass-light);
+  margin-bottom: 36px;
+  opacity: 0.5;
+}
+.weinstube-body { font-size: 16px; line-height: 1.7; color: rgba(245, 240, 230, 0.78); max-width: 56ch; margin-bottom: 40px; }
 .weinstube-body p + p { margin-top: 18px; }
-.weinstube-meta { display: flex; flex-wrap: wrap; gap: 40px; padding-top: 32px; border-top: 1px solid rgba(245, 240, 230, 0.18); margin-bottom: 40px; }
+.weinstube-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; padding-top: 32px; border-top: 1px solid rgba(245, 240, 230, 0.18); margin-bottom: 40px; }
+.weinstube-meta-item { text-align: center; }
 .weinstube-meta-item .label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--brass-light); margin-bottom: 6px; }
 .weinstube-meta-item .val { font-family: var(--serif); font-variation-settings: "opsz" 24, "SOFT" 50; font-size: 18px; color: var(--cream); }
-.weinstube .btn-primary { background: var(--brass); color: var(--ink); align-self: flex-start; }
+.weinstube .btn-primary { background: var(--brass); color: var(--ink); }
 .weinstube .btn-primary:hover { background: var(--cream); }
 
 /* ============ EXPERIENCE ============ */
@@ -754,9 +772,8 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
   .heritage-left { position: relative; top: 0; }
   .heritage-year { font-size: 180px; }
   .rooms-grid { grid-template-columns: repeat(2, 1fr); }
-  .weinstube-grid { grid-template-columns: 1fr; }
-  .weinstube-image { min-height: 400px; }
-  .weinstube-content { padding: 80px 40px; }
+  .weinstube-content { padding: 100px 40px; }
+  .weinstube-content .deco-num { font-size: 240px; }
   .exp-grid, .exp-grid-2 { grid-template-columns: repeat(2, 1fr); }
   .details-inner { grid-template-columns: 1fr; gap: 60px; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -788,8 +805,8 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
   .details-list { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
   .section-pad, .heritage, .rooms, .experience, .details { padding: 80px 0; }
-  .weinstube-content { padding: 60px 24px; }
-  .weinstube-content .deco-num { font-size: 120px; top: 24px; right: 24px; }
+  .weinstube-content { padding: 80px 24px; }
+  .weinstube-content .deco-num { font-size: 160px; }
   .booking-form { grid-template-columns: 1fr; }
   .booking-field { border-right: none; border-bottom: 1px solid rgba(245, 240, 230, 0.18); }
   .stats-grid { grid-template-columns: 1fr; }

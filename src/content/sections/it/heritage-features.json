@@ -2,7 +2,7 @@
   "eyebrow": "All'interno dell'edificio",
   "headlineHtml": "Stanze con la <em>propria storia</em>.",
   "body": [
-    "Molto prima del nostro tempo, le stanze di questa casa avevano altre vite. La «Weinstube» fu un tempo stazione di posta per il cambio cavalli e in seguito set cinematografico del film <em>Jürg Jenatsch</em>. La sala da banchetti «Drei König» fu, in tempi diversi, parte di un monastero e parte della sede del governo.",
+    "Molto prima del nostro tempo, le stanze di questa casa avevano altre vite. Questo edificio fu un tempo stazione di posta per il cambio cavalli e in seguito set cinematografico del film <em>Jürg Jenatsch</em>. La sala da banchetti « Drei König » fu, in tempi diversi, parte di un monastero e parte della sede del governo.",
     "Il primo sistema di assicurazione sanitaria per i boscaioli dei Grigioni fu redatto sotto questo tetto. E da qualche parte nell'edificio — a seconda del corridoio che si percorre — si trova quella che è documentata come la più antica camera d'hotel conservata di Coira."
   ],
   "metaItems": [
@@ -13,13 +13,15 @@
     {
       "label": "Camera più antica",
       "value": "La più antica camera d'hotel conservata di Coira"
+    },
+    {
+      "label": "Location cinematografica",
+      "value": "Jürg Jenatsch (1937)"
     }
   ],
   "cta": {
     "label": "Leggi tutta la storia",
     "href": "#heritage"
   },
-  "image": "/images/historic-weinstube-restaurant-hotel-drei-koenige.jpg",
-  "imageAlt": "La tradizionale sala da pranzo \"Weinstube\" dell'Hotel Drei Könige di Coira, caratterizzata da storiche pareti rivestite in legno scuro, un soffitto a cassettoni d'epoca con lampadari vintage e tavoli da ristorante apparecchiati con tovaglie bianche.",
   "decorativeNumber": "1793"
 }
