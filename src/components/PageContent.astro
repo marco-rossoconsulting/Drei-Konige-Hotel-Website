@@ -10,7 +10,6 @@ import Experience from './Experience.astro';
 import Details from './Details.astro';
 import CTAStrip from './CTAStrip.astro';
 import Footer from './Footer.astro';
-import TrustBar from './TrustBar.astro';
 
 type Locale = 'en' | 'de' | 'fr' | 'it';
 interface Props { locale: Locale; }
@@ -74,7 +73,6 @@ const heritageFeatures = getSingleton('sections', 'heritage-features');
 const experience = getSingleton('sections', 'experience');
 const details = getSingleton('sections', 'details');
 const cta = getSingleton('sections', 'cta');
-const trustBar = getSingleton('sections', 'trust-bar');
 
 // ----- Collections -----
 const rooms = getCollection('rooms');
@@ -115,7 +113,6 @@ const practical = getCollection('practical');
     scrollLabel={hero.scrollLabel}
   />
 
-  <TrustBar badges={trustBar.badges} />
 
   <Heritage
     yearLabel={heritage.yearLabel}
@@ -173,7 +170,6 @@ const practical = getCollection('practical');
   />
 
   <Footer
-    logoImage={nav.logoImage}
     brandTagline={footer.brandTagline}
     columns={footer.columns}
     copyright={footer.copyright}

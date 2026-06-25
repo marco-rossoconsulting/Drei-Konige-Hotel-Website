@@ -7,28 +7,19 @@ interface Column {
 }
 
 interface Props {
-  logoImage: string;
   brandTagline: string;
   columns: Column[];
   copyright: string;
   legalLinks: Link[];
 }
 
-const { logoImage, brandTagline, columns, copyright, legalLinks } = Astro.props;
+const { brandTagline, columns, copyright, legalLinks } = Astro.props;
 ---
 
 <footer>
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        {logoImage ? (
-          <img src={logoImage} alt="Hotel Drei Könige" class="footer-logo-img" />
-        ) : (
-          <>
-            <div class="nav-logo-mark">Drei<em>Könige</em></div>
-            <span class="nav-logo-sub">Anno 1793</span>
-          </>
-        )}
         <p>{brandTagline}</p>
       </div>
       {columns.map((col) => (

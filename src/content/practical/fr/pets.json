@@ -1,1 +1,6 @@
-{ "order": 6, "icon": "pet", "label": "Animaux", "description": "Admis. CHF 15 par animal et par nuit." }
+{
+  "order": 6,
+  "icon": "pet",
+  "label": "Animaux",
+  "description": "CHF 15 par animal et par nuit."
+}
