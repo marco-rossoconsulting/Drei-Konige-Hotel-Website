@@ -21,9 +21,9 @@ interface Props {
 
 const { eyebrow, headlineHtml, experiences } = Astro.props;
 
-// Split: first 3 → top grid (1 large + 2), next → bottom grid
-const top = experiences.slice(0, 3);
-const bottom = experiences.slice(3);
+// Split: first 4 → top grid, next → bottom grid
+const top = experiences.slice(0, 4);
+const bottom = experiences.slice(4);
 ---
 
 <section class="experience" id="chur" aria-labelledby="chur-h">
