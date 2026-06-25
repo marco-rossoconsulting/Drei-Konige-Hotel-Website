@@ -1,0 +1,34 @@
+{
+  "badges": [
+    {
+      "icon": "star",
+      "label": "Hotel 3 Stelle",
+      "sublabel": "Comfort e carattere dal 1793"
+    },
+    {
+      "icon": "family",
+      "label": "Gestione Familiare",
+      "sublabel": "Accoglienza personale, ogni ospite"
+    },
+    {
+      "icon": "location",
+      "label": "Centro Storico di Coira",
+      "sublabel": "A 7 min a piedi dalla stazione"
+    },
+    {
+      "icon": "breakfast",
+      "label": "Colazione Inclusa",
+      "sublabel": "Buffet generoso ogni mattina"
+    },
+    {
+      "icon": "wifi",
+      "label": "Wi-Fi Gratuito",
+      "sublabel": "In tutto l'edificio"
+    },
+    {
+      "icon": "bike",
+      "label": "Deposito Bici",
+      "sublabel": "Bloccabile, gratuito"
+    }
+  ]
+}

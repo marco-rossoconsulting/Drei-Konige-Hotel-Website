@@ -1,0 +1,34 @@
+{
+  "badges": [
+    {
+      "icon": "star",
+      "label": "3-Star Hotel",
+      "sublabel": "Comfort & character since 1793"
+    },
+    {
+      "icon": "family",
+      "label": "Family-Run",
+      "sublabel": "Personal welcome, every guest"
+    },
+    {
+      "icon": "location",
+      "label": "Old Town Chur",
+      "sublabel": "7 min walk from the station"
+    },
+    {
+      "icon": "breakfast",
+      "label": "Breakfast Included",
+      "sublabel": "Generous buffet each morning"
+    },
+    {
+      "icon": "wifi",
+      "label": "Free Wi-Fi",
+      "sublabel": "Throughout the building"
+    },
+    {
+      "icon": "bike",
+      "label": "Bike Storage",
+      "sublabel": "Lockable room, free of charge"
+    }
+  ]
+}

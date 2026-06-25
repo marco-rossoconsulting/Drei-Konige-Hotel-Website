@@ -1,18 +1,18 @@
 {
-  "eyebrow": "All'interno dell'edificio",
-  "headlineHtml": "Stanze con la <em>propria storia</em>.",
+  "eyebrow": "All'interno dell'Edificio",
+  "headlineHtml": "Camere con la loro <em>propria storia</em>.",
   "body": [
-    "Molto prima del nostro tempo, le stanze di questa casa avevano altre vite. Questo edificio fu un tempo stazione di posta per il cambio cavalli e in seguito set cinematografico del film <em>Jürg Jenatsch</em>. La sala da banchetti « Drei König » fu, in tempi diversi, parte di un monastero e parte della sede del governo.",
-    "Il primo sistema di assicurazione sanitaria per i boscaioli dei Grigioni fu redatto sotto questo tetto. E da qualche parte nell'edificio — a seconda del corridoio che si percorre — si trova quella che è documentata come la più antica camera d'hotel conservata di Coira."
+    "Molto prima del nostro tempo, le stanze di questa casa portavano altre vite. Questo edificio è stato una volta stazione di relay per le poste, e poi set per le riprese del film <em>Jürg Jenatsch</em>. La sala da banchetto \"Drei König\" è stata alternativamente parte di un monastero e sede del governo.",
+    "Il primo sistema assicurativo sanitario per i lavoratori forestali dei Grigioni è stato elaborato sotto questo tetto. E da qualche parte nell'edificio — a seconda del corridoio che si prende — si trova la camera d'hotel più antica conservata a Coira."
   ],
   "metaItems": [
     {
       "label": "Sala Drei König",
-      "value": "Un tempo abbazia, un tempo parlamento"
+      "value": "Una volta abbazia, una volta parlamento"
     },
     {
       "label": "Camera più antica",
-      "value": "La più antica camera d'hotel conservata di Coira"
+      "value": "La camera d'hotel più antica conservata a Coira"
     },
     {
       "label": "Location cinematografica",
@@ -20,8 +20,8 @@
     }
   ],
   "cta": {
-    "label": "Leggi tutta la storia",
-    "href": "#heritage"
+    "label": "Scopri le camere",
+    "href": "#rooms"
   },
   "decorativeNumber": "1793"
 }

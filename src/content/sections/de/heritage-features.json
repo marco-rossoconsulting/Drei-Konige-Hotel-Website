@@ -1,27 +1,27 @@
 {
-  "eyebrow": "Im Inneren des Hauses",
+  "eyebrow": "Im Gebäude",
   "headlineHtml": "Zimmer mit <em>eigener Geschichte</em>.",
   "body": [
-    "Lange vor unserer Zeit hatten die Räume dieses Hauses andere Funktionen. Dieses Gebäude diente einst als Pferdewechsel-Station der Post und später als Drehort des Films <em>Jürg Jenatsch</em>. Der Bankettsaal „Drei König\" war abwechselnd Teil eines Klosters und Teil des Regierungssitzes.",
-    "Die erste Krankenversicherung für die Bündner Forstarbeiter wurde unter diesem Dach gegründet. Und irgendwo im Haus — je nachdem, welchen Korridor man nimmt — befindet sich das, was als das älteste erhaltene Hotelzimmer von Chur überliefert ist."
+    "Lange bevor unsere Zeit begann, trugen die Räume dieses Hauses andere Leben. Dieses Gebäude diente einst als Relaisstation der Post und später als Kulisse für den Film <em>Jürg Jenatsch</em>. Der Festsaal \"Drei König\" war abwechselnd Teil eines Klosters und des Regierungssitzes.",
+    "Das erste Krankenkassensystem für die Forstarbeiter Graubündens wurde unter diesem Dach entworfen. Und irgendwo im Gebäude — je nachdem, welchen Gang man nimmt — befindet sich das älteste erhaltene Hotelzimmer Churs."
   ],
   "metaItems": [
     {
       "label": "Drei-König-Saal",
-      "value": "Einst Kloster, einst Parlament"
+      "value": "Einmal Kloster, einmal Parlament"
     },
     {
       "label": "Ältestes Hotelzimmer",
-      "value": "Das älteste erhaltene Hotelzimmer in Chur"
+      "value": "Das älteste erhaltene Hotelzimmer Churs"
     },
     {
-      "label": "Filmdrehort",
+      "label": "Filmlocation",
       "value": "Jürg Jenatsch (1937)"
     }
   ],
   "cta": {
-    "label": "Die ganze Geschichte",
-    "href": "#heritage"
+    "label": "Die Zimmer entdecken",
+    "href": "#rooms"
   },
   "decorativeNumber": "1793"
 }

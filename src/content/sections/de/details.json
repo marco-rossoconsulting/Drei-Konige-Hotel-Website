@@ -1,7 +1,8 @@
 {
   "eyebrow": "Praktisches",
-  "headlineHtml": "Die <em>alltäglichen Dinge</em>, die zählen.",
-  "practicalIntro": "Ein paar stille Dinge, die den Unterschied zwischen einer Nacht und einem Aufenthalt ausmachen. Kostenloses WLAN im ganzen Haus. Abschliessbarer Velo- und Motorradraum gratis. Unsere Réception empfiehlt gerne ein Restaurant für den Abend — über zehn liegen in zwei Gehminuten.",
+  "headlineHtml": "Die <em>alltäglichen</em> Dinge, die zählen.",
+  "practicalIntro": "Gratis WLAN im ganzen Gebäude. Abschliessbarer Velo- und Motorradraum aufs Haus. Frühstückbuffet verfügbar. Rezeption besetzt 6:30–20 Uhr. Wir helfen Ihnen gerne bei der Restaurantsuche — mehr als zehn in nur zwei Gehminuten Entfernung.",
   "mapMarker": "18",
-  "mapCoords": "Reichsgasse 18 · 7000 Chur"
+  "mapCoords": "Reichsgasse 18 · 7000 Chur",
+  "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=9.5289%2C46.8459%2C9.5369%2C46.8539&layer=mapnik&marker=46.8499%2C9.5329"
 }

@@ -1,27 +1,27 @@
 {
-  "eyebrow": "À l'intérieur de la maison",
-  "headlineHtml": "Des pièces avec <em>leur propre histoire</em>.",
+  "eyebrow": "Dans le Bâtiment",
+  "headlineHtml": "Des chambres avec leur <em>propre histoire</em>.",
   "body": [
-    "Bien avant nous, ces pièces ont eu d'autres vies. Ce bâtiment fut autrefois un relais de poste, puis un décor du film <em>Jürg Jenatsch</em>. La salle de banquet « Drei König » fut tour à tour partie d'un monastère et partie du siège du gouvernement.",
-    "Le premier régime d'assurance maladie pour les bûcherons des Grisons fut rédigé sous ce toit. Et quelque part dans le bâtiment — selon le couloir que vous prenez — se trouve ce qui est documenté comme la plus ancienne chambre d'hôtel préservée de Coire."
+    "Bien avant notre époque, les pièces de cette maison portaient d'autres vies. Ce bâtiment a servi de relais postal, puis de décor pour le tournage du film <em>Jürg Jenatsch</em>. La salle de banquet \"Drei König\" a été tour à tour partie d'un monastère et siège du gouvernement.",
+    "Le premier système d'assurance-maladie pour les forestiers des Grisons a été élaboré sous ce toit. Et quelque part dans le bâtiment — selon le couloir que vous empruntez — se trouve la plus ancienne chambre d'hôtel conservée de Coire."
   ],
   "metaItems": [
     {
       "label": "Salle Drei König",
-      "value": "Jadis abbaye, jadis parlement"
+      "value": "Un temps abbaye, un temps parlement"
     },
     {
-      "label": "La plus ancienne chambre",
-      "value": "La plus ancienne chambre d'hôtel préservée de Coire"
+      "label": "Plus ancienne chambre",
+      "value": "La plus ancienne chambre d'hôtel conservée de Coire"
     },
     {
-      "label": "Lieu de tournage",
+      "label": "Location de film",
       "value": "Jürg Jenatsch (1937)"
     }
   ],
   "cta": {
-    "label": "Lire toute l'histoire",
-    "href": "#heritage"
+    "label": "Découvrir les chambres",
+    "href": "#rooms"
   },
   "decorativeNumber": "1793"
 }

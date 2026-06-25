@@ -1,7 +1,8 @@
 {
   "eyebrow": "Practical Matters",
   "headlineHtml": "The <em>everyday</em> things that matter.",
-  "practicalIntro": "A few quiet practicalities that make the difference between a night and a stay. Free Wi-Fi throughout the building. Lockable bike and motorbike storage on the house. Reception is happy to help you find a restaurant for dinner — there are more than ten within a two-minute walk.",
+  "practicalIntro": "Free Wi-Fi throughout the building. Lockable bike and motorbike storage on the house. Breakfast buffet available. Reception staffed 6:30am – 8pm. We are happy to help you find a restaurant for dinner — more than ten within a two-minute walk.",
   "mapMarker": "18",
-  "mapCoords": "Reichsgasse 18 · 7000 Chur"
+  "mapCoords": "Reichsgasse 18 · 7000 Chur",
+  "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=9.5289%2C46.8459%2C9.5369%2C46.8539&layer=mapnik&marker=46.8499%2C9.5329"
 }

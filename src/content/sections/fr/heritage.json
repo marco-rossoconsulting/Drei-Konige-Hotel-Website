@@ -1,23 +1,19 @@
 {
   "yearLabel": "1793",
   "yearMetaLabel": "L'année de fondation",
-  "yearMetaText": "Lorsque le maître de corporation Conrad Bavier ouvrit la maison familiale dont il avait hérité « à la manière allemande, sous l'enseigne des trois rois ».",
+  "yearMetaText": "Lorsque le maître de guilde Conrad Bavier a ouvert la maison familiale héritée comme auberge, avec le blason des trois rois.",
   "eyebrow": "Une chronique vivante",
-  "headlineHtml": "Une <em>part vivante</em> de l'histoire de Coire.",
+  "headlineHtml": "Une <em>partie vivante</em> de l'histoire de Coire.",
   "bodyParagraphs": [
     {
-      "text": "L'hôtel existe dans ce bâtiment depuis 1793. Aux Archives nationales, dans les nouvelles provinciales de cette année-là, on peut lire : « M. le maître de corporation Conrad Bavier annonce par les présentes qu'il a établi la maison héritée de son défunt père, à la manière allemande, en auberge, et lui a donné l'enseigne des trois rois qui lui était déjà associée. »",
+      "text": "L'hôtel existe dans ce bâtiment depuis 1793. Consigné dans les Archives nationales : le maître de guilde Conrad Bavier a transformé la maison héritée en auberge et lui a donné le blason des trois rois. La famille Schällibaum a dirigé la maison pendant plus de trois générations, jusqu'à ce que nous l'achetions en 2005. Depuis, nous la gérons dans le même bâtiment, dans la même vieille ville, sous le même nom au-dessus de la porte.",
       "lede": true
     },
     {
-      "text": "La famille Schällibaum a dirigé la maison pendant plus de trois générations, jusqu'à ce que nous puissions racheter l'hôtel en 2005. Depuis lors, nous continuons à l'exploiter dans le même bâtiment, dans la même vieille ville, avec le même nom au-dessus de la porte.",
-      "lede": false
-    },
-    {
-      "text": "À l'intérieur des murs se cachent des détails que la plupart des hôtes ne remarquent jamais : la plus ancienne chambre d'hôtel préservée de Coire, une salle de banquet qui fut alternativement abbaye et siège du gouvernement, et — selon la légende locale — un passage souterrain qui reliait autrefois la résidence de l'évêque à notre cave.",
+      "text": "Dans les murs se cachent des détails que la plupart des hôtes ne remarquent jamais : la plus ancienne chambre d'hôtel conservée de Coire, une salle de banquet qui a été tour à tour partie d'une abbaye et siège du gouvernement, et — selon la légende locale — un passage souterrain qui reliait jadis le siège épiscopal à notre cave.",
       "lede": false
     }
   ],
-  "quote": "« A établi la maison héritée à la manière allemande en auberge, et lui a donné l'enseigne des trois rois. »",
-  "quoteCite": "— Maître de corporation Conrad Bavier, annonce de fondation, 1793"
+  "quote": "\"Transformé la maison héritée en auberge et lui a donné le blason des trois rois.\"",
+  "quoteCite": "— Zunftmeister Conrad Bavier, annonce de fondation, 1793"
 }
