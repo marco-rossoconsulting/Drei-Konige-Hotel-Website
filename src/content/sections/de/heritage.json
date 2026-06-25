@@ -1,23 +1,19 @@
 {
   "yearLabel": "1793",
   "yearMetaLabel": "Das Gründungsjahr",
-  "yearMetaText": "Als Zunftmeister Conrad Bavier das von seinem Vater geerbte Haus „auf deutsche Art als Gasthof mit dem Schild der drei Könige\" einrichtete.",
+  "yearMetaText": "Als Zunftmeister Conrad Bavier das ererbte Familienhaus als Gasthof eröffnete, mit dem Schild der drei Könige.",
   "eyebrow": "Eine lebendige Chronik",
-  "headlineHtml": "Ein <em>lebendiger Teil</em> der Geschichte Churs.",
+  "headlineHtml": "Ein <em>lebendiger Teil</em> der Churer Geschichte.",
   "bodyParagraphs": [
     {
-      "text": "Seit 1793 besteht das Hotel in diesem Gebäude. In den Bündner Landesarchiven jenes Jahres heisst es: „Herr Zunftmeister Conrad Bavier zeigt hiermit an, dass er das von seinem selig verstorbenen Vater geerbte Haus auf deutsche Art zu einem Gasthof eingerichtet und mit dem Schild der drei Könige versehen hat, welches diesem Haus zuvor bereits zugehörig war.\"",
+      "text": "Das Hotel befindet sich seit 1793 in diesem Gebäude. Im Staatsarchiv verzeichnet: Zunftmeister Conrad Bavier richtete das ererbte Haus als Gasthof ein und gab ihm das Schild mit den drei Königen. Die Familie Schällibaum führte das Haus über drei Generationen, bis wir es 2005 kaufen konnten. Seither führen wir es im selben Gebäude, in derselben Altstadt, unter demselben Namen über der Tür.",
       "lede": true
     },
     {
-      "text": "Die Familie Schällibaum führte das Haus über drei Generationen hinweg, bis wir das Hotel im Jahr 2005 erwerben konnten. Seitdem führen wir es im selben Gebäude, in derselben Altstadt und unter demselben Namen über der Tür weiter.",
-      "lede": false
-    },
-    {
-      "text": "Hinter den Mauern verbergen sich Details, die die meisten Gäste nie bemerken: das älteste erhaltene Hotelzimmer von Chur, ein Bankettsaal, der einst zum Kloster und einst zum Regierungssitz gehörte, und — der Legende nach — ein unterirdischer Gang, der einst vom Bischofssitz in unseren Keller führte.",
+      "text": "In den Mauern finden sich Details, die die meisten Gäste nie bemerken: das älteste erhaltene Hotelzimmer Churs, ein Festsaal, der abwechselnd Teil eines Klosters und des Regierungssitzes war, und — der Legende nach — ein unterirdischer Gang, der einst den Bischofssitz mit unserem Keller verband.",
       "lede": false
     }
   ],
-  "quote": "„Das geerbte Haus auf deutsche Art zu einem Gasthof eingerichtet und mit dem Schild der drei Könige versehen.\"",
+  "quote": "\"Richtete das ererbte Haus als Gasthof ein und gab ihm das Schild mit den drei Königen.\"",
   "quoteCite": "— Zunftmeister Conrad Bavier, Gründungsanzeige, 1793"
 }

@@ -162,6 +162,35 @@ const jsonLdGraph = hotel ? {
           'item': canonicalURL.toString()
         }
       ]
+    },
+    {
+      '@type': 'FAQPage',
+      'mainEntity': [
+        {
+          '@type': 'Question',
+          'name': locale === 'de' ? 'Wie viel kostet eine Übernachtung im Hotel Drei Könige?' : locale === 'fr' ? "Combien coûte une nuitée à l'hôtel Drei Könige ?" : locale === 'it' ? "Quanto costa una notte all'Hotel Drei Könige?" : 'How much is a night at Hotel Drei Könige?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': locale === 'de' ? 'Unsere Zimmerpreise beginnen ab CHF 95 pro Nacht. Die genauen Preise hängen von Saison, Wochentag und Verfügbarkeit ab. Direktbucher erhalten den besten Preis.' : locale === 'fr' ? "Nos tarifs commencent dès CHF 95 par nuit. Les prix exacts dépendent de la saison, du jour de la semaine et de la disponibilité. Les réservations directes bénéficient du meilleur tarif." : locale === 'it' ? 'Le nostre tariffe partono da CHF 95 a notte. I prezzi esatti dipendono dalla stagione, dal giorno della settimana e dalla disponibilità. Chi prenota direttamente ottiene la migliore tariffa.' : 'Our room rates start from CHF 95 per night. Exact prices depend on season, day of the week, and availability. Guests who book direct receive the best rate.'
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': locale === 'de' ? 'Wo liegt das Hotel Drei Könige?' : locale === 'fr' ? "Où se trouve l'hôtel Drei Könige ?" : locale === 'it' ? "Dove si trova l'Hotel Drei Könige?" : 'Where is Hotel Drei Könige located?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': locale === 'de' ? 'Das Hotel liegt in der Reichsgasse 18, im Herzen der Churer Altstadt — der ältesten Stadt der Schweiz. Der Hauptbahnhof ist in 7 Gehminuten erreichbar.' : locale === 'fr' ? "L'hôtel se trouve au Reichsgasse 18, au cœur de la vieille ville de Coire — la plus ancienne ville de Suisse. La gare principale est à 7 minutes à pied." : locale === 'it' ? "L'hotel si trova in Reichsgasse 18, nel cuore del centro storico di Coira — la città più antica della Svizzera. La stazione principale è raggiungibile in 7 minuti a piedi." : 'The hotel is at Reichsgasse 18, in the heart of Chur\'s old town — Switzerland\'s oldest city. The main train station is a 7-minute walk away.'
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': locale === 'de' ? 'Ist Frühstück im Preis inbegriffen?' : locale === 'fr' ? 'Le petit-déjeuner est-il inclus ?' : locale === 'it' ? 'La colazione è inclusa?' : 'Is breakfast included?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': locale === 'de' ? 'Ja, ein reichhaltiges Frühstückbuffet ist für alle Gäste verfügbar. Bitte erfragen Sie die aktuellen Preise bei der Buchung oder an der Rezeption.' : locale === 'fr' ? 'Oui, un buffet de petit-déjeuner généreux est disponible pour tous les hôtes. Veuillez demander les tarifs actuels lors de la réservation ou à la réception.' : locale === 'it' ? 'Sì, un generoso buffet colazione è disponibile per tutti gli ospiti. Si prega di chiedere le tariffe attuali al momento della prenotazione o alla reception.' : 'Yes, a generous breakfast buffet is available for all guests. Please ask about current rates when booking or at reception.'
+          }
+        }
+      ]
     }
   ]
 } : null;

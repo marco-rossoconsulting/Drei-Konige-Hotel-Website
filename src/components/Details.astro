@@ -12,10 +12,11 @@ interface Props {
   practicalIntro: string;
   mapMarker: string;
   mapCoords: string;
+  mapEmbedUrl?: string;
   practical: PracticalItem[];
 }
 
-const { eyebrow, headlineHtml, practicalIntro, mapMarker, mapCoords, practical } = Astro.props;
+const { eyebrow, headlineHtml, practicalIntro, mapMarker, mapCoords, mapEmbedUrl, practical } = Astro.props;
 
 // Icon paths (SVG d-paths and circles), keyed by icon name in CMS enum
 const icons: Record<string, string> = {
@@ -39,8 +40,23 @@ const icons: Record<string, string> = {
         <p>{practicalIntro}</p>
 
         <div class="details-map">
-          <div class="map-marker">{mapMarker}</div>
-          <div class="map-coords">{mapCoords}</div>
+          {mapEmbedUrl ? (
+            <iframe
+              src={mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Hotel location map"
+            ></iframe>
+          ) : (
+            <>
+              <div class="map-marker">{mapMarker}</div>
+              <div class="map-coords">{mapCoords}</div>
+            </>
+          )}
         </div>
       </div>
 

@@ -364,7 +364,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero-meta-top {
   position: absolute;
-  top: 50%;
+  top: 58%;
   right: 32px;
   transform: translateY(-50%) rotate(90deg);
   transform-origin: right center;
@@ -708,6 +708,47 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .detail-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; }
 .detail-text .label { font-family: var(--serif); font-variation-settings: "opsz" 24, "SOFT" 50; font-size: 17px; color: var(--ink); margin-bottom: 4px; }
 .detail-text .desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* ============ TRUST BAR ============ */
+.trust-bar { background: var(--cream-dark); padding: 40px 0; border-bottom: 1px solid var(--hairline); }
+.trust-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+.trust-badge { display: flex; align-items: center; gap: 14px; }
+.trust-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  border: 1px solid var(--hairline-strong); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--wine);
+}
+.trust-icon svg { width: 18px; height: 18px; }
+.trust-text { display: flex; flex-direction: column; gap: 2px; }
+.trust-label { font-family: var(--serif); font-variation-settings: "opsz" 24, "SOFT" 50; font-size: 15px; color: var(--ink); line-height: 1.2; }
+.trust-sublabel { font-size: 11px; color: var(--muted); line-height: 1.3; }
+
+@media (max-width: 1024px) {
+  .trust-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+}
+@media (max-width: 640px) {
+  .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .trust-bar { padding: 28px 0; }
+}
+
+/* ============ MAP IFRAME ============ */
+.details-map iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 0;
+}
+
+/* ============ FOCUS VISIBLE ============ */
+*:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+/* ============ BOOKING BAR ============ */
+.booking-bar { display: none; }
 
 /* ============ CTA STRIP ============ */
 .cta-strip { background: var(--cream-dark); padding: 100px 0; position: relative; overflow: hidden; text-align: center; }
