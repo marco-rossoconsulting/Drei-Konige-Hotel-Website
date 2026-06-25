@@ -1,7 +1,13 @@
 {
   "eyebrow": "Reservieren",
-  "headlineHtml": "Zweihundertdreissig Jahre <em>herzlicher Willkommen.</em> Den nächsten haben wir für Sie aufgehoben.",
+  "headlineHtml": "Zweihundertdreissig Jahre <em>herzlicher Willkommen.</em> Das nächste haben wir für Sie aufgehoben.",
   "subtext": "Direkt buchen für den besten verfügbaren Tarif. Persönliche Angebote auf Anfrage — die Preise können je nach Wochentag, Saison und Veranstaltung variieren.",
-  "primaryCta": { "label": "Jetzt buchen", "href": "https://www.dreikoenige.ch/wbe4/index.html" },
-  "phone": { "label": "+41 81 354 90 90", "href": "tel:+41813549090" }
+  "primaryCta": {
+    "label": "Jetzt buchen",
+    "href": "https://www.dreikoenige.ch/wbe4/index.html"
+  },
+  "phone": {
+    "label": "+41 81 354 90 90",
+    "href": "tel:+41813549090"
+  }
 }
