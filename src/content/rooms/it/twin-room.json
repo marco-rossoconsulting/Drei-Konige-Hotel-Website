@@ -1,9 +1,9 @@
 {
-  "order": 9,
-  "number": "IX",
-  "name": "Camera con Letti Separati",
-  "tag": "Due letti separati",
-  "description": "Due letti separati in una camera confortevole e arredata individualmente. Ideale per amici o colleghi che viaggiano insieme.",
-  "image": "/images/standard-double-room-chur-hotel.jpg",
-  "imageAlt": "Camera con due letti separati all'Hotel Drei Könige a Coira, con biancheria bianca fresca, mobili in legno e illuminazione ambientale calda."
+  "order": 4,
+  "number": "IV",
+  "name": "Camera Doppia Superior",
+  "tag": "Letto queen-size",
+  "description": "Una camera doppia superior spaziosa ed elegante.",
+  "image": "/images/superior-double-room-hotel-drei-koenige..jpg",
+  "imageAlt": "Camera doppia superior premium all'Hotel Drei Könige di Coira, che mostra un letto accogliente con un runner grigio, un guardaroba a giorno in legno su misura, un lavabo integrato e una scrivania accanto alla finestra."
 }

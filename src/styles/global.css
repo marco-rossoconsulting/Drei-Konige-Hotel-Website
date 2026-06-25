@@ -364,7 +364,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero-meta-top {
   position: absolute;
-  top: 50%;
+  top: 58%;
   right: 32px;
   transform: translateY(-50%) rotate(90deg);
   transform-origin: right center;
