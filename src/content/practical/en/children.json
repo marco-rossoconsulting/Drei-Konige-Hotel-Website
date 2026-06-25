@@ -1,1 +1,6 @@
-{ "order": 7, "icon": "building", "label": "Children", "description": "Under 6: free in an existing bed. Under 15: CHF 10 discount per night in own bed. Cot CHF 30/night on request." }
+{
+  "order": 7,
+  "icon": "building",
+  "label": "Children",
+  "description": "Under 6: free in an existing bed. Under 15: CHF 10 discount per night in own bed. Cot CHF 30 per night on request."
+}

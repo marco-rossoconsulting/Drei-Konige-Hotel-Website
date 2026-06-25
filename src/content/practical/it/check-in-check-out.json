@@ -1,1 +1,6 @@
-{ "order": 1, "icon": "clock", "label": "Check-in / Check-out", "description": "Check-in 15:00 – 20:00. Check-out entro le 11:00. Reception aperta 6:30 – 20:00. Arrivo tardivo possibile su accordo (pagamento anticipato richiesto)." }
+{
+  "order": 1,
+  "icon": "clock",
+  "label": "Check-in / Check-out",
+  "description": "Check-in 15:00 – 20:00. Check-out entro le 11:00. Reception aperta 6:30 – 20:00. Arrivo tardivo possibile su accordo."
+}

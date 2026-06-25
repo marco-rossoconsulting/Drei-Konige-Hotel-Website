@@ -1,24 +1,54 @@
 {
-  "brandTagline": "Un hôtel indépendant et familial au cœur de la plus ancienne ville de Suisse. Tenu en formule chambres et petit-déjeuner : un accueil chaleureux, un buffet généreux, et dix restaurants à deux pas.",
+  "brandTagline": "Votre point de départ idéal pour des voyages sur le Bernina Express ou le Glacier Express, pour des tours en moto et à vélo, ainsi que pour des journées de découverte relaxées dans la vieille ville historique.",
   "columns": [
     {
       "heading": "L'hôtel",
       "links": [
-        { "label": "Histoire", "href": "#heritage" },
-        { "label": "Chambres & tarifs", "href": "#rooms" },
-        { "label": "Petit-déjeuner", "href": "#visit" },
-        { "label": "Informations générales", "href": "#visit" },
-        { "label": "Conditions de réservation", "href": "#" }
+        {
+          "label": "Histoire",
+          "href": "#heritage"
+        },
+        {
+          "label": "Chambres & tarifs",
+          "href": "#rooms"
+        },
+        {
+          "label": "Petit-déjeuner",
+          "href": "#visit"
+        },
+        {
+          "label": "Informations générales",
+          "href": "#visit"
+        },
+        {
+          "label": "Conditions de réservation",
+          "href": "#"
+        }
       ]
     },
     {
       "heading": "Nous rendre visite",
       "links": [
-        { "label": "Situation", "href": "#chur" },
-        { "label": "Parking", "href": "#visit" },
-        { "label": "Carte d'hôte de Coire", "href": "https://www.chur.graubuenden.ch/en/guestcard" },
-        { "label": "Informations locales", "href": "#chur" },
-        { "label": "Galerie", "href": "#" }
+        {
+          "label": "Situation",
+          "href": "#chur"
+        },
+        {
+          "label": "Parking",
+          "href": "#visit"
+        },
+        {
+          "label": "Carte d'hôte de Coire",
+          "href": "https://www.chur.graubuenden.ch/en/guestcard"
+        },
+        {
+          "label": "Informations locales",
+          "href": "#chur"
+        },
+        {
+          "label": "Galerie",
+          "href": "#"
+        }
       ]
     },
     {
@@ -31,7 +61,13 @@
   ],
   "copyright": "© 1793 – 2026 Hotel Drei Könige · DC Gastronomie GmbH",
   "legalLinks": [
-    { "label": "Mentions légales", "href": "#" },
-    { "label": "Confidentialité", "href": "#" }
+    {
+      "label": "Mentions légales",
+      "href": "#"
+    },
+    {
+      "label": "Confidentialité",
+      "href": "#"
+    }
   ]
 }

@@ -1,1 +1,6 @@
-{ "order": 7, "icon": "building", "label": "Kinder", "description": "Unter 6 Jahren: gratis im bestehenden Bett. Unter 15 Jahren: CHF 10 Rabatt pro Nacht im eigenen Bett. Kinderbett CHF 30/Nacht auf Anfrage." }
+{
+  "order": 7,
+  "icon": "building",
+  "label": "Kinder",
+  "description": "Unter 6 Jahren: gratis im bestehenden Bett. Unter 15 Jahren: CHF 10 Rabatt pro Nacht im eigenen Bett. Kinderbett CHF 30 pro Nacht auf Anfrage."
+}

@@ -568,19 +568,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   opacity: 0.9;
   letter-spacing: 0.04em;
 }
-.room-tag {
-  position: absolute;
-  bottom: 18px;
-  left: 18px;
-  z-index: 2;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--cream);
-  padding: 6px 10px;
-  background: rgba(28, 25, 22, 0.5);
-  backdrop-filter: blur(6px);
-}
 .room-info { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin-bottom: 8px; }
 .room-name { font-family: var(--serif); font-variation-settings: "opsz" 36, "SOFT" 40; font-weight: 380; font-size: 24px; letter-spacing: -0.01em; color: var(--ink); }
 .room-price { font-size: 13px; color: var(--muted); white-space: nowrap; }
@@ -710,9 +697,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .detail-text .desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
 
 /* ============ TRUST BAR ============ */
-.trust-bar { background: var(--cream-dark); padding: 40px 0; border-bottom: 1px solid var(--hairline); }
 .trust-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
-.trust-badge { display: flex; align-items: center; gap: 14px; }
 .trust-icon {
   width: 40px; height: 40px; flex-shrink: 0;
   border: 1px solid var(--hairline-strong); border-radius: 50%;
@@ -729,8 +714,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 @media (max-width: 640px) {
   .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .trust-bar { padding: 28px 0; }
-}
+  }
 
 /* ============ MAP IFRAME ============ */
 .details-map iframe {

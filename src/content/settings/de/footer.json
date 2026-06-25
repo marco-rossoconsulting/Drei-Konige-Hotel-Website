@@ -1,24 +1,54 @@
 {
-  "brandTagline": "Ein unabhängiges, familiäres Hotel im Herzen der ältesten Stadt der Schweiz. Geführt als Garni-Haus: ein warmer Empfang, ein reichhaltiges Frühstück und zehn Restaurants vor der Tür.",
+  "brandTagline": "Ihr perfekter Ausgangspunkt für Fahrten mit dem Bernina Express oder dem Glacier Express, für Motorrad- und Fahrradtouren sowie für entspannte Entdeckungstage in der historischen Altstadt.",
   "columns": [
     {
       "heading": "Das Hotel",
       "links": [
-        { "label": "Geschichte", "href": "#heritage" },
-        { "label": "Zimmer & Preise", "href": "#rooms" },
-        { "label": "Frühstück", "href": "#visit" },
-        { "label": "Allgemeine Informationen", "href": "#visit" },
-        { "label": "Buchungsbedingungen", "href": "#" }
+        {
+          "label": "Geschichte",
+          "href": "#heritage"
+        },
+        {
+          "label": "Zimmer & Preise",
+          "href": "#rooms"
+        },
+        {
+          "label": "Frühstück",
+          "href": "#visit"
+        },
+        {
+          "label": "Allgemeine Informationen",
+          "href": "#visit"
+        },
+        {
+          "label": "Buchungsbedingungen",
+          "href": "#"
+        }
       ]
     },
     {
       "heading": "Besuchen Sie uns",
       "links": [
-        { "label": "Lage", "href": "#chur" },
-        { "label": "Parkplätze", "href": "#visit" },
-        { "label": "Chur Gästekarte", "href": "https://www.chur.graubuenden.ch/de/gaestekarte" },
-        { "label": "Lokale Informationen", "href": "#chur" },
-        { "label": "Galerie", "href": "#" }
+        {
+          "label": "Lage",
+          "href": "#chur"
+        },
+        {
+          "label": "Parkplätze",
+          "href": "#visit"
+        },
+        {
+          "label": "Chur Gästekarte",
+          "href": "https://www.chur.graubuenden.ch/de/gaestekarte"
+        },
+        {
+          "label": "Lokale Informationen",
+          "href": "#chur"
+        },
+        {
+          "label": "Galerie",
+          "href": "#"
+        }
       ]
     },
     {
@@ -31,7 +61,13 @@
   ],
   "copyright": "© 1793 – 2026 Hotel Drei Könige · DC Gastronomie GmbH",
   "legalLinks": [
-    { "label": "Impressum", "href": "#" },
-    { "label": "Datenschutz", "href": "#" }
+    {
+      "label": "Impressum",
+      "href": "#"
+    },
+    {
+      "label": "Datenschutz",
+      "href": "#"
+    }
   ]
 }
