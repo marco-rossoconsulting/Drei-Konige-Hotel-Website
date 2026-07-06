@@ -68,7 +68,7 @@ const icons: Record<string, string> = {
             </div>
             <div class="detail-text">
               <div class="label">{item.label}</div>
-              <div class="desc">{item.description}</div>
+              <div class="desc" set:html={item.description.replace(/\\n/g, '<br>').replace(/\n/g, '<br>')}></div>
             </div>
           </div>
         ))}
