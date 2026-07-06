@@ -46,7 +46,7 @@ const bottom = experiences.slice(4);
               <span class="eyebrow">{exp.eyebrow}</span>
             )}
             {exp.style === 'image' && (
-              <div class="exp-card-num">{exp.number} / {exp.title.split(' ')[0]}</div>
+              <div class="exp-card-num">{exp.number} / {(exp.eyebrow || exp.title.split(' ')[0])}</div>
             )}
             {exp.style === 'minimal' ? (
               <p class="quote">{exp.quote}</p>
@@ -78,7 +78,7 @@ const bottom = experiences.slice(4);
                 <span class="eyebrow">{exp.eyebrow}</span>
               )}
               {exp.style === 'image' && (
-                <div class="exp-card-num">{exp.number} / {exp.title.split(' ')[0]}</div>
+                <div class="exp-card-num">{exp.number} / {(exp.eyebrow || exp.title.split(' ')[0])}</div>
               )}
               {exp.style === 'minimal' ? (
                 <p class="quote">{exp.quote}</p>
