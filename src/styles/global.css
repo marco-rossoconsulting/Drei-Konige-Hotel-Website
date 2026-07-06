@@ -694,7 +694,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .detail-icon { width: 36px; height: 36px; flex-shrink: 0; border: 1px solid var(--hairline-strong); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--wine); }
 .detail-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; }
 .detail-text .label { font-family: var(--serif); font-variation-settings: "opsz" 24, "SOFT" 50; font-size: 17px; color: var(--ink); margin-bottom: 4px; }
-.detail-text .desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.detail-text .desc { font-size: 13px; color: var(--muted); line-height: 1.5; white-space: pre-line; }
 
 /* ============ TRUST BAR ============ */
 .trust-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
