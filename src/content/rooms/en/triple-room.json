@@ -5,5 +5,7 @@
   "tag": "Three guests",
   "description": "Larger room for three guests — friends, family, small groups.",
   "image": "/images/standard-triple-room-hotel-drei-koenige.jpg",
-  "imageAlt": "Standard triple family room at Hotel Drei Könige, showing a double bed and a separate single bed made up with white linens, featuring curved reading lamps and landscape wall art."
+  "imageAlt": "Standard triple family room at Hotel Drei Könige, showing a double bed and a separate single bed made up with white linens, featuring curved reading lamps and landscape wall art.",
+  "occupancy": 3,
+  "bed": "MultipleBeds"
 }
