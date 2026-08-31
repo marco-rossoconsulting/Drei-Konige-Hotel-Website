@@ -5,5 +5,7 @@
   "tag": "Tre persone",
   "description": "Camera più ampia per tre persone — amici, famiglia, piccoli gruppi.",
   "image": "/images/standard-triple-room-hotel-drei-koenige.jpg",
-  "imageAlt": "Camera tripla standard per famiglie all'Hotel Drei Könige, che mostra un letto matrimoniale e un letto singolo separato preparati con lenzuola bianche, lampade da lettura curve e quadri di paesaggi alle pareti."
+  "imageAlt": "Camera tripla standard per famiglie all'Hotel Drei Könige, che mostra un letto matrimoniale e un letto singolo separato preparati con lenzuola bianche, lampade da lettura curve e quadri di paesaggi alle pareti.",
+  "occupancy": 3,
+  "bed": "MultipleBeds"
 }

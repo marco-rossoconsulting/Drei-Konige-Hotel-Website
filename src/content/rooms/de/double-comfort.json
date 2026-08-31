@@ -5,5 +5,7 @@
   "tag": "Comfort",
   "description": "Ein geräumiges Doppelzimmer mit durchdachter Ausstattung für einen entspannten Aufenthalt.",
   "image": "/images/double-mountainview-room-chur-hotel-switzerland.jpg",
-  "imageAlt": "Modernes Comfort-Doppelzimmer im Hotel Drei Könige in Chur, mit einem komfortablen Bett mit grauem Bettläufer, einem offenen Kleiderschranksystem aus Holz, einem integrierten Waschtisch und hellem Parkettboden."
+  "imageAlt": "Modernes Comfort-Doppelzimmer im Hotel Drei Könige in Chur, mit einem komfortablen Bett mit grauem Bettläufer, einem offenen Kleiderschranksystem aus Holz, einem integrierten Waschtisch und hellem Parkettboden.",
+  "occupancy": 2,
+  "bed": "DoubleBed"
 }

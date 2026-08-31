@@ -5,5 +5,7 @@
   "tag": "Drei Gäste",
   "description": "Geräumiges Zimmer für drei Gäste — Freunde, Familien, kleine Gruppen.",
   "image": "/images/standard-triple-room-hotel-drei-koenige.jpg",
-  "imageAlt": "Standard-Dreibett-Familienzimmer im Hotel Drei Könige, bestehend aus einem Doppelbett und einem separaten Einzelbett mit weißer Bettwäsche, geschwungenen Leselampen und Landschaftsbildern an der Wand."
+  "imageAlt": "Standard-Dreibett-Familienzimmer im Hotel Drei Könige, bestehend aus einem Doppelbett und einem separaten Einzelbett mit weißer Bettwäsche, geschwungenen Leselampen und Landschaftsbildern an der Wand.",
+  "occupancy": 3,
+  "bed": "MultipleBeds"
 }

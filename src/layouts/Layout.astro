@@ -10,6 +10,8 @@ interface Room {
   description: string;
   image: string;
   imageAlt: string;
+  occupancy?: number;
+  bed?: string;
 }
 
 interface Hotel {
@@ -61,7 +63,7 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageAbs = ogImage ? new URL(ogImage, Astro.site).toString() : undefined;
 
-// Hreflang alternates: every page exists at /, /de/, /fr/, /it/
+// Hreflang alternates: DE lives at /, others at /en/, /fr/, /it/
 const alternates: Array<{ hreflang: string; href: string }> = [
   { hreflang: 'de-CH', href: new URL('/',    Astro.site).toString() },
   { hreflang: 'en',    href: new URL('/en/', Astro.site).toString() },
@@ -87,22 +89,26 @@ const ogLocale: Record<Locale, string> = {
 const HOTEL_ID = 'https://www.dreikoenige.ch/#hotel';
 const WEBSITE_ID = 'https://www.dreikoenige.ch/#website';
 
-const hotelRoomEntries = rooms.map((r) => ({
-  '@type': 'HotelRoom',
-  'name': r.name,
-  'description': r.description,
-  'image': r.image,
-  'bed': r.name.toLowerCase().includes('twin') ? 'TwinBed'
-       : r.name.toLowerCase().includes('triple') ? 'MultipleBeds'
-       : r.name.toLowerCase().includes('single') ? 'SingleBed'
-       : 'DoubleBed',
-  'occupancy': {
-    '@type': 'QuantitativeValue',
-    'value': r.name.toLowerCase().includes('triple') ? 3
-           : r.name.toLowerCase().includes('single') ? 1
-           : 2
-  }
-}));
+const hotelRoomEntries = rooms.map((r) => {
+  const occupancyValue = typeof r.occupancy === 'number'
+    ? r.occupancy
+    : r.number === 'I' ? 1
+    : r.number === 'IV' ? 3
+    : 2;
+  const bedValue = r.bed
+    ?? (occupancyValue === 1 ? 'SingleBed' : occupancyValue === 3 ? 'MultipleBeds' : 'DoubleBed');
+  return {
+    '@type': 'HotelRoom',
+    'name': r.name,
+    'description': r.description,
+    'image': r.image ? new URL(r.image, Astro.site).toString() : undefined,
+    'bed': bedValue,
+    'occupancy': {
+      '@type': 'QuantitativeValue',
+      'value': occupancyValue
+    }
+  };
+});
 
 const jsonLdGraph = hotel ? {
   '@context': 'https://schema.org',
@@ -142,7 +148,6 @@ const jsonLdGraph = hotel ? {
       'checkinTime': hotel.checkinTime,
       'checkoutTime': hotel.checkoutTime,
       'petsAllowed': hotel.petsAllowed,
-      'numberOfRooms': rooms.length || undefined,
       'amenityFeature': hotel.amenities?.map((a) => ({
         '@type': 'LocationFeatureSpecification',
         'name': a.name,
@@ -187,7 +192,7 @@ const jsonLdGraph = hotel ? {
           'name': locale === 'de' ? 'Ist Frühstück im Preis inbegriffen?' : locale === 'fr' ? 'Le petit-déjeuner est-il inclus ?' : locale === 'it' ? 'La colazione è inclusa?' : 'Is breakfast included?',
           'acceptedAnswer': {
             '@type': 'Answer',
-            'text': locale === 'de' ? 'Ja, ein reichhaltiges Frühstückbuffet ist für alle Gäste verfügbar. Bitte erfragen Sie die aktuellen Preise bei der Buchung oder an der Rezeption.' : locale === 'fr' ? 'Oui, un buffet de petit-déjeuner généreux est disponible pour tous les hôtes. Veuillez demander les tarifs actuels lors de la réservation ou à la réception.' : locale === 'it' ? 'Sì, un generoso buffet colazione è disponibile per tutti gli ospiti. Si prega di chiedere le tariffe attuali al momento della prenotazione o alla reception.' : 'Yes, a generous breakfast buffet is available for all guests. Please ask about current rates when booking or at reception.'
+            'text': locale === 'de' ? 'Nein. Das Frühstück ist nicht im Zimmerpreis enthalten. Frühstücksbuffet CHF 15, täglich 6:30–10:00 Uhr.' : locale === 'fr' ? "Non. Le petit-déjeuner n'est pas inclus dans le tarif de la chambre. Buffet CHF 15, tous les jours de 6h30 à 10h00." : locale === 'it' ? 'No. La colazione non è inclusa nella tariffa della camera. Buffet colazione CHF 15, tutti i giorni 6:30–10:00.' : 'No. Breakfast is not included in the room rate. Breakfast buffet CHF 15, daily 6:30–10:00.'
           }
         }
       ]
@@ -214,8 +219,8 @@ const jsonLdGraph = hotel ? {
   {/* Geo meta — Chur, Graubünden */}
   <meta name="geo.region" content="CH-GR" />
   <meta name="geo.placename" content="Chur" />
-  <meta name="geo.position" content="46.8499;9.5329" />
-  <meta name="ICBM" content="46.8499, 9.5329" />
+  <meta name="geo.position" content="46.8508;9.5338" />
+  <meta name="ICBM" content="46.8508, 9.5338" />
 
   {/* Hreflang for multi-language */}
   {alternates.map((alt) => (
