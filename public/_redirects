@@ -7,3 +7,235 @@
 
 # SPA fallback for the admin (so refreshing /admin/whatever returns the SPA)
 /admin/*      /admin/index.html    200
+
+# ---------------------------------------------------------------------------
+# Old Contao site → new Astro single-page sections
+#
+# Client (Vanessa, Sep 2026): Google still shows sitelinks for Restaurant,
+# Allgemeine Informationen, Geschichte, History, Frühstück that 404.
+# Those are Search sitelinks from the previous Contao IA — not GBP links.
+#
+# Fix: 301 every still-known Contao path onto the closest live section.
+#   • Stops the dead-end when someone clicks a sitelink / old result
+#   • Lets Google drop or relabel sitelinks after recrawl (days–weeks)
+#   • No Search Console required (helpful later, not blocking)
+#
+# Restaurant specifically: do NOT leave 404 and do NOT invent a restaurant
+# page (hotel has none — Weinstube / Drei-König-Saal are building heritage;
+# dining is “10 restaurants within 2 minutes”). 301 → #building is the
+# honest soft landing. 410 Gone would deindex faster but gives clickers an
+# error page; pure removal is the current broken production state.
+#
+# Specific rules first; locale catch-alls last.
+# ---------------------------------------------------------------------------
+
+# --- German — history / heritage ---
+/de/Home/Geschichte                     /#heritage    301
+/de/Hotel/Geschichte                    /#heritage    301
+/de/Home/Historie                       /#heritage    301
+/de/Hotel/Historie                      /#heritage    301
+
+# --- German — practical info / breakfast / arrival / parking / local ---
+/de/Hotel/Allgemeine-Informationen      /#visit       301
+/de/Hotel/AllgemeineInformationen       /#visit       301
+/de/Home/Allgemeine-Informationen       /#visit       301
+/de/Home/AllgemeineInformationen        /#visit       301
+/de/Hotel/Fruehstueck                   /#visit       301
+/de/Hotel/Frühstück                     /#visit       301
+/de/Home/Fruehstueck                    /#visit       301
+/de/Home/Frühstück                      /#visit       301
+/de/Home/Lage-Anfahrt                   /#visit       301
+/de/Home/Lage                           /#visit       301
+/de/Home/Anfahrt                        /#visit       301
+/de/Hotel/Lage-Anfahrt                  /#visit       301
+/de/Home/Parkplaetze                    /#visit       301
+/de/Home/Parkplätze                     /#visit       301
+/de/Hotel/Parkplaetze                   /#visit       301
+/de/Hotel/Parkplätze                    /#visit       301
+/de/Home/Lokale-Informationen           /#visit       301
+/de/Hotel/Lokale-Informationen          /#visit       301
+/de/Home/Location                       /#visit       301
+
+# --- German — rooms / rates (old per-type pages collapse into #rooms) ---
+/de/Home/Zimmer                         /#rooms       301
+/de/Hotel/Zimmer                        /#rooms       301
+/de/Home/Zimmerpreise                   /#rooms       301
+/de/Hotel/Zimmerpreise                  /#rooms       301
+/de/Hotel/Einzelzimmer                  /#rooms       301
+/de/Hotel/Doppelzimmer                  /#rooms       301
+/de/Hotel/Comfort-Doppelzimmer          /#rooms       301
+/de/Hotel/Economy-Doppelzimmer          /#rooms       301
+/de/Hotel/Standard-Doppelzimmer         /#rooms       301
+/de/Hotel/Superior-Doppelzimmer         /#rooms       301
+/de/Hotel/Classic-Doppelzimmer          /#rooms       301
+/de/Hotel/Historic-Doppelzimmer         /#rooms       301
+/de/Hotel/Dreierzimmer                  /#rooms       301
+/de/Hotel/Twin                          /#rooms       301
+
+# --- German — old restaurant / banquet tree ---
+# No on-site restaurant today. Soft-land on building heritage (Weinstube /
+# Drei-König-Saal). Do not 410: sitelink clickers still need a working page.
+/de/Restaurant                          /#building    301
+/de/Restaurant/                         /#building    301
+/de/Home/Restaurant                     /#building    301
+/de/Hotel/Restaurant                    /#building    301
+/de/Restaurant--Bankett                 /#building    301
+/de/Restaurant--Bankett/                /#building    301
+/de/Restaurant--Bankett/*               /#building    301
+
+# --- German — gallery (Contao image albums; cid=4 was titled "Restaurant") ---
+/de/Gallery                             /             301
+/de/Gallery/                            /             301
+/de/Gallery/*                           /             301
+/de/Home/Bildergalerie                  /             301
+/de/Hotel/Bildergalerie                 /             301
+/de/Bildergalerie                       /             301
+
+# --- German — misc Contao leaves still in the index ---
+/de/Hotel/Buchungsbedingungen           /             301
+/de/Home/Buchungsbedingungen            /             301
+/de/Home/Kontakt                        /             301
+/de/Hotel/Kontakt                       /             301
+/de/Home/Downloads                      /             301
+/de/Hotel/Downloads                     /             301
+/de/Home/Online-buchen                  /             301
+/de/Hotel/Online-buchen                 /             301
+/de/Unsere-Partner                      /             301
+/de/Unsere-Partner/                     /             301
+/de/Unsere-Partner/*                    /             301
+/de/Services                            /             301
+/de/Services/                           /             301
+/de/Services/*                          /             301
+
+# --- German — old home / hotel section roots + catch-alls ---
+/de                                 /             301
+/de/                                /             301
+/de/Home                            /             301
+/de/Home/                           /             301
+/de/Hotel                           /             301
+/de/Hotel/                          /             301
+/de/Home/*                          /             301
+/de/Hotel/*                         /#rooms       301
+
+# --- English ---
+/en/Home/History                        /en/#heritage 301
+/en/Hotel/History                       /en/#heritage 301
+/en/Home/Geschichte                     /en/#heritage 301
+/en/Hotel/Geschichte                    /en/#heritage 301
+/en/Hotel/Allgemeine-Informationen      /en/#visit    301
+/en/Hotel/General-Informations          /en/#visit    301
+/en/Hotel/General-Information           /en/#visit    301
+/en/Home/General-Informations           /en/#visit    301
+/en/Home/General-Information            /en/#visit    301
+/en/Hotel/Breakfast                     /en/#visit    301
+/en/Home/Breakfast                      /en/#visit    301
+/en/Home/Location                       /en/#visit    301
+/en/Hotel/Location                      /en/#visit    301
+/en/Home/Parkplaetze                    /en/#visit    301
+/en/Home/Parking                        /en/#visit    301
+/en/Hotel/Parking                       /en/#visit    301
+/en/Home/Lokale-Informationen           /en/#visit    301
+/en/Home/Local-information              /en/#visit    301
+/en/Home/Local-Information              /en/#visit    301
+/en/Hotel/Local-information             /en/#visit    301
+/en/Hotel/Buchungsbedingungen           /en/          301
+/en/Hotel/Booking-Conditions            /en/          301
+/en/Home/Booking-Conditions             /en/          301
+/en/Home/Rooms                          /en/#rooms    301
+/en/Hotel/Rooms                         /en/#rooms    301
+/en/Home/Room-rates                     /en/#rooms    301
+/en/Hotel/Room-rates                    /en/#rooms    301
+/en/Hotel/Room-Rates                    /en/#rooms    301
+/en/Restaurant                          /en/#building 301
+/en/Restaurant/                         /en/#building 301
+/en/Home/Restaurant                     /en/#building 301
+/en/Hotel/Restaurant                    /en/#building 301
+/en/Restaurant--Bankett                 /en/#building 301
+/en/Restaurant--Bankett/                /en/#building 301
+/en/Restaurant--Bankett/*               /en/#building 301
+/en/Gallery                             /en/          301
+/en/Gallery/                            /en/          301
+/en/Gallery/*                           /en/          301
+/en/Home/Gallery                        /en/          301
+/en/Home/Downloads                      /en/          301
+/en/Home/Kontakt                        /en/          301
+/en/Home/Contact                        /en/          301
+/en/Services                            /en/          301
+/en/Services/                           /en/          301
+/en/Services/*                          /en/          301
+/en/Home                                /en/          301
+/en/Home/                               /en/          301
+/en/Hotel                               /en/          301
+/en/Hotel/                              /en/          301
+/en/Home/*                              /en/          301
+/en/Hotel/*                             /en/#rooms    301
+
+# --- French ---
+/fr/Home/Histoire                       /fr/#heritage 301
+/fr/Hotel/Histoire                      /fr/#heritage 301
+/fr/Home/History                        /fr/#heritage 301
+/fr/Home/Petit-dejeuner                 /fr/#visit    301
+/fr/Home/Petit-déjeuner                 /fr/#visit    301
+/fr/Hotel/Petit-dejeuner                /fr/#visit    301
+/fr/Hotel/Informations-generales        /fr/#visit    301
+/fr/Hotel/Informations-générales        /fr/#visit    301
+/fr/Home/Emplacement                    /fr/#visit    301
+/fr/Home/Chambres                       /fr/#rooms    301
+/fr/Hotel/Chambres                      /fr/#rooms    301
+/fr/Restaurant                          /fr/#building 301
+/fr/Restaurant/                         /fr/#building 301
+/fr/Home/Restaurant                     /fr/#building 301
+/fr/Hotel/Restaurant                    /fr/#building 301
+/fr/Restaurant--Bankett                 /fr/#building 301
+/fr/Restaurant--Bankett/                /fr/#building 301
+/fr/Restaurant--Bankett/*               /fr/#building 301
+/fr/Gallery                             /fr/          301
+/fr/Gallery/                            /fr/          301
+/fr/Gallery/*                           /fr/          301
+/fr/Services                            /fr/          301
+/fr/Services/*                          /fr/          301
+/fr/Home                                /fr/          301
+/fr/Home/                               /fr/          301
+/fr/Hotel                               /fr/          301
+/fr/Hotel/                              /fr/          301
+/fr/Home/*                              /fr/          301
+/fr/Hotel/*                             /fr/#rooms    301
+
+# --- Italian ---
+/it/Home/Storia                         /it/#heritage 301
+/it/Hotel/Storia                        /it/#heritage 301
+/it/Home/History                        /it/#heritage 301
+/it/Home/Colazione                      /it/#visit    301
+/it/Hotel/Colazione                     /it/#visit    301
+/it/Home/Informazioni-generali          /it/#visit    301
+/it/Hotel/Informazioni-generali         /it/#visit    301
+/it/Home/Posizione                      /it/#visit    301
+/it/Home/Camere                         /it/#rooms    301
+/it/Hotel/Camere                        /it/#rooms    301
+/it/Restaurant                          /it/#building 301
+/it/Restaurant/                         /it/#building 301
+/it/Home/Restaurant                     /it/#building 301
+/it/Hotel/Restaurant                    /it/#building 301
+/it/Restaurant--Bankett                 /it/#building 301
+/it/Restaurant--Bankett/                /it/#building 301
+/it/Restaurant--Bankett/*               /it/#building 301
+/it/Gallery                             /it/          301
+/it/Gallery/                            /it/          301
+/it/Gallery/*                           /it/          301
+/it/Services                            /it/          301
+/it/Services/*                          /it/          301
+/it/Home                                /it/          301
+/it/Home/                               /it/          301
+/it/Hotel                               /it/          301
+/it/Hotel/                              /it/          301
+/it/Home/*                              /it/          301
+/it/Hotel/*                             /it/#rooms    301
+
+# --- Locale-less Contao leftovers (rare, but still linked) ---
+/Restaurant                             /#building    301
+/Restaurant/                            /#building    301
+/Restaurant--Bankett                    /#building    301
+/Restaurant--Bankett/*                  /#building    301
+/Gallery                                /             301
+/Gallery/                               /             301
+/Gallery/*                              /             301
