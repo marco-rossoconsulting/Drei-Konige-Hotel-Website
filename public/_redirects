@@ -84,12 +84,12 @@
 /de/Restaurant--Bankett/*               /#building    301
 
 # --- German — gallery (Contao image albums; cid=4 was titled "Restaurant") ---
-/de/Gallery                             /?            301
-/de/Gallery/                            /?            301
-/de/Gallery/*                           /?            301
-/de/Home/Bildergalerie                  /?            301
-/de/Hotel/Bildergalerie                 /?            301
-/de/Bildergalerie                       /?            301
+/de/Gallery                             /             301
+/de/Gallery/                            /             301
+/de/Gallery/*                           /             301
+/de/Home/Bildergalerie                  /             301
+/de/Hotel/Bildergalerie                 /             301
+/de/Bildergalerie                       /             301
 
 # --- German — misc Contao leaves still in the index ---
 /de/Hotel/Buchungsbedingungen           /             301
@@ -153,10 +153,10 @@
 /en/Restaurant--Bankett                 /en/#building 301
 /en/Restaurant--Bankett/                /en/#building 301
 /en/Restaurant--Bankett/*               /en/#building 301
-/en/Gallery                             /en/?         301
-/en/Gallery/                            /en/?         301
-/en/Gallery/*                           /en/?         301
-/en/Home/Gallery                        /en/?         301
+/en/Gallery                             /en/          301
+/en/Gallery/                            /en/          301
+/en/Gallery/*                           /en/          301
+/en/Home/Gallery                        /en/          301
 /en/Home/Downloads                      /en/          301
 /en/Home/Kontakt                        /en/          301
 /en/Home/Contact                        /en/          301
@@ -189,9 +189,9 @@
 /fr/Restaurant--Bankett                 /fr/#building 301
 /fr/Restaurant--Bankett/                /fr/#building 301
 /fr/Restaurant--Bankett/*               /fr/#building 301
-/fr/Gallery                             /fr/?         301
-/fr/Gallery/                            /fr/?         301
-/fr/Gallery/*                           /fr/?         301
+/fr/Gallery                             /fr/          301
+/fr/Gallery/                            /fr/          301
+/fr/Gallery/*                           /fr/          301
 /fr/Services                            /fr/          301
 /fr/Services/*                          /fr/          301
 /fr/Home                                /fr/          301
@@ -219,9 +219,9 @@
 /it/Restaurant--Bankett                 /it/#building 301
 /it/Restaurant--Bankett/                /it/#building 301
 /it/Restaurant--Bankett/*               /it/#building 301
-/it/Gallery                             /it/?         301
-/it/Gallery/                            /it/?         301
-/it/Gallery/*                           /it/?         301
+/it/Gallery                             /it/          301
+/it/Gallery/                            /it/          301
+/it/Gallery/*                           /it/          301
 /it/Services                            /it/          301
 /it/Services/*                          /it/          301
 /it/Home                                /it/          301
@@ -236,6 +236,6 @@
 /Restaurant/                            /#building    301
 /Restaurant--Bankett                    /#building    301
 /Restaurant--Bankett/*                  /#building    301
-/Gallery                                /?            301
-/Gallery/                               /?            301
-/Gallery/*                              /?            301
+/Gallery                                /             301
+/Gallery/                               /             301
+/Gallery/*                              /             301
