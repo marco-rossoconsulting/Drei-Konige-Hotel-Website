@@ -57,6 +57,7 @@ const langs: Array<{ code: 'en' | 'de' | 'fr' | 'it'; label: string; href: strin
 
       {/* Mobile hamburger */}
       <button
+        type="button"
         class="nav-hamburger"
         id="nav-toggle"
         aria-label="Toggle menu"
@@ -97,40 +98,61 @@ const langs: Array<{ code: 'en' | 'de' | 'fr' | 'it'; label: string; href: strin
   </div>
 </nav>
 
-<script>
+<!--
+  Inline (not bundled) so the toggle works the moment the nav is parsed, incl. iOS Safari.
+  Uses one delegated click handler that re-queries the elements on every tap, so it
+  cannot be left holding stale references. Buttons fire `click` reliably on iOS;
+  `touch-action: manipulation` on the button removes the tap delay. We deliberately
+  do not also listen to pointerup/touchend — that would toggle twice per tap.
+-->
+<script is:inline>
   (function () {
-    const toggle = document.getElementById('nav-toggle');
-    const mobile = document.getElementById('nav-mobile');
-    const body = document.body;
-    if (!toggle || !mobile) return;
+    if (window.__dkNavInit) return;
+    window.__dkNavInit = true;
 
-    function openMenu() {
-      toggle.setAttribute('aria-expanded', 'true');
-      mobile.setAttribute('aria-hidden', 'false');
-      body.style.overflow = 'hidden';
+    function getToggle() { return document.getElementById('nav-toggle'); }
+    function getMobile() { return document.getElementById('nav-mobile'); }
+
+    function isOpen() {
+      var toggle = getToggle();
+      return !!toggle && toggle.getAttribute('aria-expanded') === 'true';
     }
 
-    function closeMenu() {
-      toggle.setAttribute('aria-expanded', 'false');
-      mobile.setAttribute('aria-hidden', 'true');
-      body.style.overflow = '';
+    function setOpen(open) {
+      var toggle = getToggle();
+      var mobile = getMobile();
+      if (!toggle || !mobile) return;
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      mobile.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.documentElement.classList.toggle('nav-open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
     }
 
-    toggle.addEventListener('click', () => {
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      isOpen ? closeMenu() : openMenu();
-    });
+    document.addEventListener('click', function (e) {
+      var target = e.target;
+      if (!target || typeof target.closest !== 'function') return;
 
-    // Close on link click
-    mobile.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', closeMenu);
+      if (target.closest('#nav-toggle')) {
+        e.preventDefault();
+        setOpen(!isOpen());
+        return;
+      }
+
+      // Close when a link inside the overlay is tapped (anchors, language, Book Now)
+      if (isOpen() && target.closest('#nav-mobile a')) {
+        setOpen(false);
+      }
     });
 
     // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-        closeMenu();
-      }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) setOpen(false);
+    });
+
+    // Close if the viewport grows past the mobile breakpoint (rotation / resize)
+    window.addEventListener('resize', function () {
+      if (isOpen() && window.innerWidth > 1024) setOpen(false);
     });
   })();
 </script>

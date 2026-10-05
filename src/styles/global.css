@@ -69,12 +69,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 0.98;
   letter-spacing: -0.02em;
   color: var(--ink);
+  /* Real Fraunces italic + weights are loaded — never let the browser fake them */
+  font-synthesis: none;
 }
 .display em {
   font-style: italic;
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  /* WONK 0: the "wonky" italic alternates made words like "Jahre" / "für" look shaken */
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 0;
   font-weight: 340;
   color: var(--wine);
+  font-synthesis: none;
 }
 
 .btn {
@@ -109,10 +113,21 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 16px 0;
+  border-bottom: 1px solid var(--hairline);
+  /* NOTE: no backdrop-filter / filter / transform on .nav itself — any of those
+     turns .nav into the containing block for the fixed .nav-mobile overlay,
+     which then only paints at nav-bar height (~80px) on phones. */
+}
+/* Frosted bar surface lives on a pseudo-element that does NOT wrap .nav-mobile */
+.nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: rgba(245, 240, 230, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--hairline);
+  pointer-events: none;
 }
 .nav-inner {
   display: grid;
@@ -198,18 +213,28 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* Hamburger button */
 .nav-hamburger {
   display: none;
+  position: relative;
+  z-index: 210; /* above .nav-mobile (200) so the X can always close the menu */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  margin-right: -8px;
   padding: 0;
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 110;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
+.nav-hamburger .hamburger-line { pointer-events: none; }
+.nav-hamburger[aria-expanded="true"] { color: var(--cream) !important; }
 .hamburger-line {
   display: block;
   width: 22px;
@@ -233,8 +258,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav-mobile {
   position: fixed;
   inset: 0;
-  top: 0;
-  z-index: 99;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  z-index: 200; /* above the nav bar contents; hamburger sits at 210 */
   background: rgba(28, 25, 22, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -252,6 +281,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
+}
+.nav-mobile a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+/* Overlay is mobile/tablet only */
+@media (min-width: 1025px) {
+  .nav-mobile { display: none; }
 }
 .nav-mobile-inner {
   display: flex;
@@ -421,7 +455,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 1; /* decorative — never above the hero CTAs (.hero-content is z-index 2) */
+  pointer-events: none;
   color: var(--cream);
   font-size: 10px;
   letter-spacing: 0.3em;
@@ -741,6 +776,21 @@ a:focus-visible, button:focus-visible {
 .cta-strip::after { right: 8%; }
 .cta-strip h2 { font-size: clamp(40px, 5vw, 72px); margin-bottom: 24px; max-width: 22ch; margin-left: auto; margin-right: auto; }
 .cta-strip p { font-size: 17px; color: var(--muted); max-width: 48ch; margin: 0 auto 40px; line-height: 1.6; }
+.cta-strip p a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--brass);
+  transition: color 0.3s var(--ease), text-decoration-color 0.3s var(--ease);
+}
+.cta-strip p a:hover,
+.cta-strip p a:focus-visible { color: var(--wine); text-decoration-color: var(--wine); }
+/* The decorative brass side-rules sit at top:50% — on tablets/phones they land on the
+   sub-text line and looked like broken underlines under "Direkt bu…" / "…rfügbaren". */
+@media (max-width: 1024px) {
+  .cta-strip::before, .cta-strip::after { display: none; }
+}
 .cta-strip .btn-group { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
 /* ============ FOOTER ============ */
@@ -795,12 +845,17 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
   .nav-hamburger { display: flex; color: var(--ink); }
   .nav-right { gap: 14px; }
   .nav .btn { flex-shrink: 0; }
+
+  /* Hero: keep CTAs clear of the centred scroll indicator (~100px tall incl. line) */
+  .hero-content { padding-bottom: 128px; }
 }
 @media (max-width: 640px) {
   .container { padding: 0 20px; }
   .nav-logo-sub { display: none; }
   .hero-coords { display: none; }
-  .hero-content { padding: 0 20px 60px; }
+  .hero-content { padding: 0 20px 48px; }
+  /* "SCROLLEN" + line overlapped the "Unsere Geschichte" button on phones */
+  .scroll-indicator { display: none; }
   .hero-row { grid-template-columns: 1fr; gap: 24px; }
   .hero-cta-group { flex-direction: column; align-items: flex-start; }
   .hero .btn { width: 100%; justify-content: center; }
@@ -816,4 +871,9 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
   .booking-field { border-right: none; border-bottom: 1px solid rgba(245, 240, 230, 0.18); }
   .stats-grid { grid-template-columns: 1fr; }
   .heritage-headline { font-size: 38px; }
+  .nav .nav-book-btn { padding: 10px 14px; letter-spacing: 0.12em !important; }
+}
+/* Short / landscape phones: no room for the scroll indicator either */
+@media (max-height: 640px) {
+  .scroll-indicator { display: none; }
 }
