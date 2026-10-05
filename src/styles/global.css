@@ -853,6 +853,8 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
   .container { padding: 0 20px; }
   .nav-logo-sub { display: none; }
   .hero-coords { display: none; }
+  /* Decorative vertical masthead clips under the fixed nav on phones */
+  .hero-meta-top { display: none; }
   .hero-content { padding: 0 20px 48px; }
   /* "SCROLLEN" + line overlapped the "Unsere Geschichte" button on phones */
   .scroll-indicator { display: none; }
@@ -876,4 +878,5 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
 /* Short / landscape phones: no room for the scroll indicator either */
 @media (max-height: 640px) {
   .scroll-indicator { display: none; }
+  .hero-meta-top { display: none; }
 }
