@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { privacyPaths, hreflangs, type Locale as LegalLocale } from '../lib/legal';
 
 // Custom multilingual sitemap with full hreflang annotations.
 // Each <url> entry includes <xhtml:link rel="alternate"> for every locale,
@@ -38,10 +39,28 @@ ${xDefault}
   </url>`;
   }).join('\n');
 
+  // Privacy & Cookie Policy — one localized URL per locale, cross-linked via hreflang
+  const legalLocales = Object.keys(privacyPaths) as LegalLocale[];
+  const legalEntries = legalLocales.map((code) => {
+    const alternates = legalLocales
+      .map((alt) => `    <xhtml:link rel="alternate" hreflang="${hreflangs[alt]}" href="${SITE}${privacyPaths[alt]}" />`)
+      .join('\n');
+    const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${privacyPaths.de}" />`;
+    return `  <url>
+    <loc>${SITE}${privacyPaths[code]}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+${alternates}
+${xDefault}
+  </url>`;
+  }).join('\n');
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urlEntries}
+${legalEntries}
 </urlset>`;
 
   return new Response(xml, {

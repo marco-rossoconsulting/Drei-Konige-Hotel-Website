@@ -11,9 +11,12 @@ interface Props {
   columns: Column[];
   copyright: string;
   legalLinks: Link[];
+  /* On sub-pages: prefix for #anchor links, e.g. '/en/' → '/en/#rooms' */
+  anchorBase?: string;
 }
 
-const { brandTagline, columns, copyright, legalLinks } = Astro.props;
+const { brandTagline, columns, copyright, legalLinks, anchorBase = '' } = Astro.props;
+const fixHref = (href: string) => (anchorBase && href.startsWith('#') && href.length > 1 ? `${anchorBase}${href}` : href);
 ---
 
 <footer>
@@ -28,7 +31,7 @@ const { brandTagline, columns, copyright, legalLinks } = Astro.props;
           {col.links && col.links.length > 0 && (
             <ul>
               {col.links.map((link) => (
-                <li><a href={link.href}>{link.label}</a></li>
+                <li><a href={fixHref(link.href)}>{link.label}</a></li>
               ))}
             </ul>
           )}
@@ -42,7 +45,7 @@ const { brandTagline, columns, copyright, legalLinks } = Astro.props;
       <span>{copyright}</span>
       <div class="footer-bottom-right">
         {legalLinks.map((link) => (
-          <a href={link.href}>{link.label}</a>
+          <a href={fixHref(link.href)}>{link.label}</a>
         ))}
       </div>
     </div>

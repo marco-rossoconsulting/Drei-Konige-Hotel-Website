@@ -880,3 +880,28 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
   .scroll-indicator { display: none; }
   .hero-meta-top { display: none; }
 }
+
+/* ============ LEGAL PAGE (Privacy & Cookie Policy) ============ */
+.legal-page { padding: 160px 0 120px; background: var(--cream); }
+.legal-header { padding-bottom: 40px; margin-bottom: 48px; border-bottom: 1px solid var(--hairline); }
+.legal-header h1 { font-size: clamp(36px, 6vw, 64px); margin-bottom: 28px; }
+.legal-toc { display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; }
+.legal-toc a { color: var(--wine); border-bottom: 1px solid var(--hairline-strong); padding-bottom: 2px; }
+.legal-toc a:hover { color: var(--brass); }
+.legal-note { margin-top: 24px; font-size: 14px; color: var(--muted); font-style: italic; }
+.legal-body { color: var(--ink-soft); font-size: 15px; line-height: 1.7; overflow-wrap: anywhere; scroll-margin-top: 110px; }
+.legal-body + .legal-body { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--hairline); }
+.legal-body h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.15; color: var(--ink); margin: 0 0 20px; }
+.legal-body h2 strong { font-weight: inherit; }
+.legal-body h3 { font-family: var(--serif); font-weight: 400; font-size: 22px; line-height: 1.25; color: var(--ink); margin: 40px 0 12px; }
+.legal-body h4 { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); margin: 28px 0 8px; }
+.legal-body h5 { font-size: 15px; font-weight: 600; color: var(--ink); margin: 20px 0 6px; }
+.legal-body p { margin: 0 0 14px; }
+.legal-body a { color: var(--wine); text-decoration: underline; text-underline-offset: 2px; }
+.legal-body a:hover { color: var(--brass); }
+.legal-body hr { border: 0; border-top: 1px solid var(--hairline); margin: 32px 0; }
+@media (max-width: 640px) {
+  .legal-page { padding: 120px 0 80px; }
+  .container-narrow { padding: 0 20px; }
+  .legal-body { font-size: 14.5px; }
+}

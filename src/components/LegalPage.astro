@@ -1,0 +1,88 @@
+---
+/* Privacy & Cookie Policy page (one per locale).
+ * Text lives in src/content/legal/{locale}/privacy.json (editable in the CMS
+ * under "Legal"). It is copied verbatim from the hotel's SimpleBooking booking
+ * engine policy (hotel 11642), with SimpleBooking's layout markup stripped. */
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import { privacyPaths, homePaths, hreflangs, type Locale } from '../lib/legal';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+
+const htmlLang: Record<Locale, string> = { en: 'en', de: 'de-CH', fr: 'fr-CH', it: 'it-CH' };
+
+const allSingletons = import.meta.glob(
+  '../content/{settings,legal}/*/*.json',
+  { eager: true }
+) as Record<string, { default: any }>;
+
+function get(group: 'settings' | 'legal', name: string): any {
+  const key = Object.keys(allSingletons).find((k) => k.endsWith(`/${group}/${locale}/${name}.json`));
+  if (!key) throw new Error(`Missing singleton: ${group}/${locale}/${name}`);
+  return allSingletons[key].default;
+}
+
+const site = get('settings', 'site');
+const nav = get('settings', 'nav');
+const footer = get('settings', 'footer');
+const policy = get('legal', 'privacy');
+
+const home = homePaths[locale];
+const langHrefs = { ...privacyPaths };
+
+const alternates = [
+  ...(Object.keys(privacyPaths) as Locale[]).map((l) => ({
+    hreflang: hreflangs[l],
+    href: new URL(privacyPaths[l], Astro.site).toString()
+  })),
+  { hreflang: 'x-default', href: new URL(privacyPaths.de, Astro.site).toString() }
+];
+
+const hotelName = 'Hotel Drei Könige';
+---
+
+<Layout
+  title={`${policy.title} · ${hotelName}`}
+  description={policy.description}
+  ogImage={site.ogImage}
+  ogImageAlt={site.ogImageAlt}
+  favicon={site.favicon}
+  htmlLang={htmlLang[locale]}
+  locale={locale}
+  alternates={alternates}
+>
+  <Nav
+    logoImage={nav.logoImage}
+    menu={nav.menu}
+    reserveCta={nav.reserveCta}
+    locale={locale}
+    anchorBase={home}
+    langHrefs={langHrefs}
+  />
+
+  <article class="legal-page">
+    <div class="container-narrow">
+      <header class="legal-header">
+        <h1 class="display">{policy.title}</h1>
+        <nav class="legal-toc" aria-label={policy.title}>
+          <a href="#privacy-policy">{policy.privacyHeading}</a>
+          <a href="#cookie-policy">{policy.cookieHeading}</a>
+        </nav>
+        {policy.languageNote && <p class="legal-note">{policy.languageNote}</p>}
+      </header>
+
+      <section id="privacy-policy" class="legal-body" lang={policy.contentLang} set:html={policy.privacyPolicyHtml} />
+      <section id="cookie-policy" class="legal-body" lang={policy.contentLang} set:html={policy.cookiePolicyHtml} />
+    </div>
+  </article>
+
+  <Footer
+    brandTagline={footer.brandTagline}
+    columns={footer.columns}
+    copyright={footer.copyright}
+    legalLinks={footer.legalLinks}
+    anchorBase={home}
+  />
+</Layout>

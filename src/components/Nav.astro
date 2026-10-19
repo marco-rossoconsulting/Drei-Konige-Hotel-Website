@@ -7,16 +7,24 @@ interface Props {
   menu: MenuItem[];
   reserveCta: Cta;
   locale: 'en' | 'de' | 'fr' | 'it';
+  /* On sub-pages: prefix for #anchor menu links, e.g. '/en/' → '/en/#rooms' */
+  anchorBase?: string;
+  /* On sub-pages: language switch targets the same page in each locale */
+  langHrefs?: Partial<Record<'en' | 'de' | 'fr' | 'it', string>>;
 }
 
-const { logoImage, menu, reserveCta, locale } = Astro.props;
+const { logoImage, menu: rawMenu, reserveCta, locale, anchorBase = '', langHrefs = {} } = Astro.props;
+const menu = rawMenu.map((item) => ({
+  ...item,
+  href: item.href.startsWith('#') ? `${anchorBase}${item.href}` : item.href
+}));
 
 // All 4 locales — Reichsgasse 18 stays the same; ID anchors stay the same; only URL prefix changes.
 const langs: Array<{ code: 'en' | 'de' | 'fr' | 'it'; label: string; href: string }> = [
-  { code: 'de', label: 'DE', href: '/'    },
-  { code: 'en', label: 'EN', href: '/en/' },
-  { code: 'fr', label: 'FR', href: '/fr/' },
-  { code: 'it', label: 'IT', href: '/it/' }
+  { code: 'de', label: 'DE', href: langHrefs.de ?? '/'    },
+  { code: 'en', label: 'EN', href: langHrefs.en ?? '/en/' },
+  { code: 'fr', label: 'FR', href: langHrefs.fr ?? '/fr/' },
+  { code: 'it', label: 'IT', href: langHrefs.it ?? '/it/' }
 ];
 ---
 
