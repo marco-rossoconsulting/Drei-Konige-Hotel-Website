@@ -5,5 +5,7 @@
   "tag": "Trois personnes",
   "description": "Chambre plus grande pour trois personnes — amis, famille, petits groupes.",
   "image": "/images/standard-triple-room-hotel-drei-koenige.jpg",
-  "imageAlt": "Chambre triple standard familiale à l'Hôtel Drei Könige, montrant un lit double et un lit simple séparé avec des draps blancs, des lampes de lecture incurvées et des tableaux de paysages au mur."
+  "imageAlt": "Chambre triple standard familiale à l'Hôtel Drei Könige, montrant un lit double et un lit simple séparé avec des draps blancs, des lampes de lecture incurvées et des tableaux de paysages au mur.",
+  "occupancy": 3,
+  "bed": "MultipleBeds"
 }

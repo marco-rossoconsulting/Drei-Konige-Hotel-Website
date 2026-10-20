@@ -5,5 +5,7 @@
   "tag": "Hofseitig",
   "description": "Ein Doppelzimmer mit Blick auf den ruhigen Innenhof.",
   "image": "/images/double-courtyard-room-hotel-drei-koenige.jpg",
-  "imageAlt": "Ruhiges Standard-Doppelzimmer zum Innenhof im Hotel Drei Könige in Chur, ausgestattet mit einem bequemen Bett mit makellos weißer Bettwäsche, einem dunkelgrauen Läufer, modernem Parkettboden, einem Schreibtisch und einem wandmontierten Fernseher."
+  "imageAlt": "Ruhiges Standard-Doppelzimmer zum Innenhof im Hotel Drei Könige in Chur, ausgestattet mit einem bequemen Bett mit makellos weißer Bettwäsche, einem dunkelgrauen Läufer, modernem Parkettboden, einem Schreibtisch und einem wandmontierten Fernseher.",
+  "occupancy": 2,
+  "bed": "DoubleBed"
 }

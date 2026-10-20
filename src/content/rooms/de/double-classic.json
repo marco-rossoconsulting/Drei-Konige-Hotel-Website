@@ -5,5 +5,7 @@
   "tag": "Classic",
   "description": "Ein klassisches Doppelzimmer, individuell eingerichtet.",
   "image": "/images/classic-double-room-hotel-drei-koenige.jpg",
-  "imageAlt": "Modernes Klassik-Doppelzimmer im Hotel Drei Könige in Chur, mit einem ordentlich gemachten Bett, weißer Bettwäsche, einem grauen Bettläufer, einem Schreibtisch aus Holz und warmer, indirekter Kopfteil-Beleuchtung."
+  "imageAlt": "Modernes Klassik-Doppelzimmer im Hotel Drei Könige in Chur, mit einem ordentlich gemachten Bett, weißer Bettwäsche, einem grauen Bettläufer, einem Schreibtisch aus Holz und warmer, indirekter Kopfteil-Beleuchtung.",
+  "occupancy": 2,
+  "bed": "DoubleBed"
 }

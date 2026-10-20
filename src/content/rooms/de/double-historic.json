@@ -5,5 +5,7 @@
   "tag": "Historischer Charakter",
   "description": "Ein Doppelzimmer im historischen Teil des Hauses — der Charakter bewahrt.",
   "image": "/images/historic-double-room-hotel-chur-switzerland.jpg",
-  "imageAlt": "Traditionelles historisches Hotelzimmer im Hotel Drei Könige mit kunstvoller, edler Holzvertäfelung an Wänden und Decke, einem großen antiken Holzschrank, einem Flachbildfernseher und einem Schreibtisch aus Holz."
+  "imageAlt": "Traditionelles historisches Hotelzimmer im Hotel Drei Könige mit kunstvoller, edler Holzvertäfelung an Wänden und Decke, einem großen antiken Holzschrank, einem Flachbildfernseher und einem Schreibtisch aus Holz.",
+  "occupancy": 2,
+  "bed": "DoubleBed"
 }

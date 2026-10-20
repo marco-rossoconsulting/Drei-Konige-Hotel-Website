@@ -5,5 +5,7 @@
   "tag": "Bergblick",
   "description": "Einzelzimmer mit Bergblick. Eine einfache, komfortable Basis für Alleinreisende.",
   "image": "/images/standard-single-room-chur-hotel.jpg",
-  "imageAlt": "Modernes Standard-Einzelzimmer im Hotel Drei Könige in Chur, ausgestattet mit einem Einzelbett mit grauem Läufer, einem wandmontierten Fernseher, einem langen Holzschreibtisch und warmer LED-Hintergrundbeleuchtung."
+  "imageAlt": "Modernes Standard-Einzelzimmer im Hotel Drei Könige in Chur, ausgestattet mit einem Einzelbett mit grauem Läufer, einem wandmontierten Fernseher, einem langen Holzschreibtisch und warmer LED-Hintergrundbeleuchtung.",
+  "occupancy": 1,
+  "bed": "SingleBed"
 }
