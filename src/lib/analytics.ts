@@ -15,19 +15,27 @@ export const CONSENT_KEY = 'dk-consent';
 export const CONSENT_MAX_AGE_DAYS = 365;
 
 /**
- * Inline <head> script. Runs before anything else:
+ * Inline <head> script. `enabled` is true only for Netlify production builds
+ * (CONTEXT === 'production'); on deploy previews, branch deploys and local
+ * builds the measurement ID is left out of the HTML and load() does nothing,
+ * so testing the banner never sends hits to the live GA4 property.
+ * Runs before anything else:
  *  1. Google Consent Mode v2 defaults: everything denied.
  *  2. Exposes window.dkConsent (read/accept/reject) for the banner.
  *  3. If a stored, unexpired acceptance exists, loads the tag immediately.
  * The Google tag is never part of the static HTML.
  */
-export function consentHeadScript(): string {
+export function consentHeadScript(enabled: boolean): string {
   const cfg = JSON.stringify({
-    id: MEASUREMENT_ID,
-    gtm: GTM_CONTAINER_ID,
+    on: enabled,
+    id: enabled ? MEASUREMENT_ID : '',
+    gtm: enabled ? GTM_CONTAINER_ID : '',
     key: CONSENT_KEY,
     maxAge: CONSENT_MAX_AGE_DAYS * 864e5
   });
+  // When disabled, the loader (and with it every Google URL and the ID) is
+  // left out entirely: load() is a no-op.
+  const loader = enabled ? LOADER : 'function load(){}';
   return `(function(){
 var C=${cfg};
 window.dataLayer=window.dataLayer||[];
@@ -37,7 +45,24 @@ gtag('set','ads_data_redaction',true);
 var loaded=false;
 function read(){try{var s=JSON.parse(localStorage.getItem(C.key)||'null');if(!s||(s.value!=='granted'&&s.value!=='denied'))return null;if(!(Date.now()-new Date(s.date).getTime()<C.maxAge)){localStorage.removeItem(C.key);return null;}return s.value;}catch(e){return null;}}
 function store(v){try{localStorage.setItem(C.key,JSON.stringify({value:v,date:new Date().toISOString()}));}catch(e){}}
-function load(){
+${loader}
+function clearGa(){
+  var names=document.cookie.split(';').map(function(c){return c.split('=')[0].trim();}).filter(function(n){return n==='_ga'||n.indexOf('_ga_')===0||n==='_gid'||n==='_gat';});
+  var parts=location.hostname.split('.'),doms=[''];
+  for(var i=0;i<parts.length-1;i++){var d=parts.slice(i).join('.');doms.push(d,'.'+d);}
+  names.forEach(function(n){doms.forEach(function(d){document.cookie=n+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'+(d?'; domain='+d:'');});});
+}
+window.dkConsent={
+  get:read,
+  accept:function(){store('granted');load();},
+  reject:function(){store('denied');gtag('consent','update',{analytics_storage:'denied'});if(C.id)window['ga-disable-'+C.id]=true;clearGa();}
+};
+if(/^\\/admin(\\/|$)/.test(location.pathname))return;
+if(read()==='granted')load();
+})();`;
+}
+
+const LOADER = `function load(){
   window['ga-disable-'+C.id]=false;
   gtag('consent','update',{analytics_storage:'granted'});
   if(loaded)return;loaded=true;
@@ -51,19 +76,4 @@ function load(){
     gtag('config',C.id,{allow_google_signals:false,allow_ad_personalization_signals:false});
   }
   document.head.appendChild(s);
-}
-function clearGa(){
-  var names=document.cookie.split(';').map(function(c){return c.split('=')[0].trim();}).filter(function(n){return n==='_ga'||n.indexOf('_ga_')===0||n==='_gid'||n==='_gat';});
-  var parts=location.hostname.split('.'),doms=[''];
-  for(var i=0;i<parts.length-1;i++){var d=parts.slice(i).join('.');doms.push(d,'.'+d);}
-  names.forEach(function(n){doms.forEach(function(d){document.cookie=n+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'+(d?'; domain='+d:'');});});
-}
-window.dkConsent={
-  get:read,
-  accept:function(){store('granted');load();},
-  reject:function(){store('denied');gtag('consent','update',{analytics_storage:'denied'});window['ga-disable-'+C.id]=true;clearGa();}
-};
-if(/^\\/admin(\\/|$)/.test(location.pathname))return;
-if(read()==='granted')load();
-})();`;
-}
+}`;

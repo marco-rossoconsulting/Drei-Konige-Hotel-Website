@@ -63,6 +63,10 @@ const {
   alternates: alternatesProp
 } = Astro.props;
 
+// GA4 only fires on the Netlify production deploy (CONTEXT is set by Netlify
+// at build time: production | deploy-preview | branch-deploy | dev).
+const analyticsEnabled = process.env.CONTEXT === 'production';
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageAbs = ogImage ? new URL(ogImage, Astro.site).toString() : undefined;
 
@@ -210,8 +214,9 @@ const jsonLdGraph = hotel ? {
 
   {/* Google tag (GA4 G-TZVSDCQT33), consent-gated: Consent Mode v2 defaults
       (all denied) run first; gtag.js is injected only after the visitor
-      accepts the cookie banner. Config lives in src/lib/analytics.ts. */}
-  <script is:inline set:html={consentHeadScript()}></script>
+      accepts the cookie banner, and only in production builds.
+      Config lives in src/lib/analytics.ts. */}
+  <script is:inline set:html={consentHeadScript(analyticsEnabled)}></script>
   <meta name="generator" content={Astro.generator} />
   <meta name="theme-color" content="#2A3D2E" />
   <meta name="format-detection" content="telephone=yes" />
@@ -289,7 +294,7 @@ const jsonLdGraph = hotel ? {
 </head>
 <body>
   <ConsentBanner locale={locale} />
-  <main id="main">
+  <main id="main" tabindex="-1">
     <slot />
   </main>
 

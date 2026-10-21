@@ -821,6 +821,8 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
 .footer-cookie-btn:hover { color: var(--brass-light); }
 .footer-bottom-right a:focus-visible, .footer-cookie-btn:focus-visible { outline: 1px solid var(--brass-light); outline-offset: 3px; }
 
+#main:focus { outline: none; }
+
 /* ============ COOKIE CONSENT BANNER ============ */
 /* Bottom-left card. z-index 90: above all page content but below the .nav
    stacking context (100), so the open mobile menu and its X button always

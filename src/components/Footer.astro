@@ -50,7 +50,7 @@ const fixHref = (href: string) => (anchorBase && href.startsWith('#') && href.le
         {legalLinks.map((link) => (
           <a href={fixHref(link.href)}>{link.label}</a>
         ))}
-        <button type="button" class="footer-cookie-btn" data-consent-open aria-controls="dk-consent">{cookieSettingsLabel}</button>
+        <button type="button" class="footer-cookie-btn" data-consent-open aria-controls="dk-consent" aria-expanded="false">{cookieSettingsLabel}</button>
       </div>
     </div>
   </div>

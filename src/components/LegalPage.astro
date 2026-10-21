@@ -1,7 +1,7 @@
 ---
 /* Privacy & Cookie Policy page (one per locale).
  * Text lives in src/content/legal/{locale}/privacy.json (editable in the CMS
- * under "Legal"). Custom policy for Hotel Drei Könige (revFADP / GDPR), written
+ * under "Legal"). Custom policy for Hotel Drei Könige (nFADP / GDPR), written
  * in all four languages. Bookings are covered by SimpleBooking's own policy,
  * which the text links to. */
 import Layout from '../layouts/Layout.astro';
@@ -42,6 +42,7 @@ const alternates = [
 ];
 
 const hotelName = 'Hotel Drei Könige';
+const tocLabel: Record<Locale, string> = { de: 'Auf dieser Seite', en: 'On this page', fr: 'Sur cette page', it: 'In questa pagina' };
 ---
 
 <Layout
@@ -67,7 +68,7 @@ const hotelName = 'Hotel Drei Könige';
     <div class="container-narrow">
       <header class="legal-header">
         <h1 class="display">{policy.title}</h1>
-        <nav class="legal-toc" aria-label={policy.title}>
+        <nav class="legal-toc" aria-label={tocLabel[locale]}>
           <a href="#privacy-policy">{policy.privacyHeading}</a>
           <a href="#cookie-policy">{policy.cookieHeading}</a>
         </nav>
