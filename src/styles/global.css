@@ -899,6 +899,8 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
 .legal-body p { margin: 0 0 14px; }
 .legal-body a { color: var(--wine); text-decoration: underline; text-underline-offset: 2px; }
 .legal-body a:hover { color: var(--brass); }
+.legal-body ul { margin: 0 0 14px; padding-left: 1.2em; list-style: disc; }
+.legal-body li { margin: 0 0 6px; }
 .legal-body hr { border: 0; border-top: 1px solid var(--hairline); margin: 32px 0; }
 @media (max-width: 640px) {
   .legal-page { padding: 120px 0 80px; }

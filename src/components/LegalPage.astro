@@ -1,8 +1,9 @@
 ---
 /* Privacy & Cookie Policy page (one per locale).
  * Text lives in src/content/legal/{locale}/privacy.json (editable in the CMS
- * under "Legal"). It is copied verbatim from the hotel's SimpleBooking booking
- * engine policy (hotel 11642), with SimpleBooking's layout markup stripped. */
+ * under "Legal"). Custom policy for Hotel Drei Könige (revFADP / GDPR), written
+ * in all four languages. Bookings are covered by SimpleBooking's own policy,
+ * which the text links to. */
 import Layout from '../layouts/Layout.astro';
 import Nav from './Nav.astro';
 import Footer from './Footer.astro';
@@ -70,11 +71,11 @@ const hotelName = 'Hotel Drei Könige';
           <a href="#privacy-policy">{policy.privacyHeading}</a>
           <a href="#cookie-policy">{policy.cookieHeading}</a>
         </nav>
-        {policy.languageNote && <p class="legal-note">{policy.languageNote}</p>}
+        {policy.asOf && <p class="legal-note">{policy.asOf}</p>}
       </header>
 
-      <section id="privacy-policy" class="legal-body" lang={policy.contentLang} set:html={policy.privacyPolicyHtml} />
-      <section id="cookie-policy" class="legal-body" lang={policy.contentLang} set:html={policy.cookiePolicyHtml} />
+      <section id="privacy-policy" class="legal-body" set:html={policy.privacyPolicyHtml} />
+      <section id="cookie-policy" class="legal-body" set:html={policy.cookiePolicyHtml} />
     </div>
   </article>
 
