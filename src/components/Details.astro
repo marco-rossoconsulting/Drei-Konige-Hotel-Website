@@ -14,9 +14,24 @@ interface Props {
   mapCoords: string;
   mapEmbedUrl?: string;
   practical: PracticalItem[];
+  locale?: 'de' | 'en' | 'fr' | 'it';
 }
 
-const { eyebrow, headlineHtml, practicalIntro, mapMarker, mapCoords, mapEmbedUrl, practical } = Astro.props;
+const { eyebrow, headlineHtml, practicalIntro, mapMarker, mapCoords, mapEmbedUrl, practical, locale = 'de' } = Astro.props;
+
+// Click-to-load map: nothing is requested from OpenStreetMap until the
+// visitor clicks the button; the iframe is only created then.
+const mapText = {
+  de: { load: 'Karte laden', note: 'Beim Laden wird eine Verbindung zu OpenStreetMap hergestellt und Ihre IP-Adresse übermittelt.', open: 'Auf OpenStreetMap öffnen', title: 'Karte: Hotel Drei Könige, Reichsgasse 18, Chur' },
+  en: { load: 'Load map', note: 'Loading the map connects to OpenStreetMap and sends it your IP address.', open: 'Open in OpenStreetMap', title: 'Map: Hotel Drei Könige, Reichsgasse 18, Chur' },
+  fr: { load: 'Charger la carte', note: 'Le chargement de la carte établit une connexion avec OpenStreetMap et lui transmet votre adresse IP.', open: 'Ouvrir dans OpenStreetMap', title: 'Carte : Hotel Drei Könige, Reichsgasse 18, Coire' },
+  it: { load: 'Carica la mappa', note: 'Caricando la mappa ci si collega a OpenStreetMap, che riceve il vostro indirizzo IP.', open: 'Apri in OpenStreetMap', title: 'Mappa: Hotel Drei Könige, Reichsgasse 18, Coira' }
+}[locale];
+
+// Fallback link to openstreetmap.org, built from the embed URL's marker
+const marker = mapEmbedUrl ? new URL(mapEmbedUrl).searchParams.get('marker') : null;
+const [mlat, mlon] = (marker ?? '46.8508,9.5338').split(',');
+const osmLink = `https://www.openstreetmap.org/?mlat=${mlat}&mlon=${mlon}#map=17/${mlat}/${mlon}`;
 
 // Icon paths (SVG d-paths and circles), keyed by icon name in CMS enum
 const icons: Record<string, string> = {
@@ -41,16 +56,13 @@ const icons: Record<string, string> = {
 
         <div class="details-map">
           {mapEmbedUrl ? (
-            <iframe
-              src={mapEmbedUrl}
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Hotel location map"
-            ></iframe>
+            <div class="map-placeholder" data-map-placeholder>
+              <div class="map-coords">{mapCoords}</div>
+              <div class="map-marker" aria-hidden="true">{mapMarker}</div>
+              <button type="button" class="map-load-btn" data-map-load data-map-src={mapEmbedUrl} data-map-title={mapText.title}>{mapText.load}</button>
+              <p class="map-note">{mapText.note}</p>
+              <a class="map-osm-link" href={osmLink} target="_blank" rel="noopener">{mapText.open} ↗</a>
+            </div>
           ) : (
             <>
               <div class="map-marker">{mapMarker}</div>
@@ -76,3 +88,20 @@ const icons: Record<string, string> = {
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-map-load]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const box = btn.closest('.details-map');
+      if (!box || !btn.dataset.mapSrc) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = btn.dataset.mapSrc;
+      iframe.title = btn.dataset.mapTitle || 'Map';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      box.querySelector('[data-map-placeholder]')?.remove();
+      box.appendChild(iframe);
+      iframe.focus();
+    });
+  });
+</script>

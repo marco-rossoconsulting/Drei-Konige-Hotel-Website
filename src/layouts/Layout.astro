@@ -1,4 +1,5 @@
 ---
+import '../styles/fonts.css';
 import '../styles/global.css';
 import ConsentBanner from '../components/ConsentBanner.astro';
 import { consentHeadScript } from '../lib/analytics';
@@ -278,19 +279,20 @@ const jsonLdGraph = hotel ? {
   {ogImageAbs && <meta name="twitter:image" content={ogImageAbs} />}
   {ogImageAlt && <meta name="twitter:image:alt" content={ogImageAlt} />}
 
-  {/* Fonts — preconnect + display:swap for fast render */}
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+  {/* Fonts — self-hosted (public/fonts, @font-face in src/styles/fonts.css,
+      font-display: swap). Preload the two upright latin files used above the fold. */}
+  <link rel="preload" href="/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/hanken-grotesk-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   {/* JSON-LD schema graph */}
   {jsonLdGraph && (
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
   )}
 
-  {/* Netlify Identity widget — handles editor sign-in for the /admin/ CMS.
-      Adds a tiny script; only kicks in when user visits /admin/. */}
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
+  {/* Netlify Identity is loaded only on /admin/ (public/admin/index.html).
+      Editor invite / recovery / confirmation links land on the site root with
+      a token in the hash, so forward those to /admin/ where the widget runs. */}
+  <script is:inline>if(/(invite_token|recovery_token|confirmation_token|email_change_token)=/.test(location.hash))location.replace('/admin/'+location.hash);</script>
 </head>
 <body>
   <ConsentBanner locale={locale} />
@@ -310,18 +312,6 @@ const jsonLdGraph = hotel ? {
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-    // If a logged-in editor lands on the home page, redirect to /admin/
-    // (Netlify Identity convention from the Sveltia/Decap days)
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', (user) => {
-        if (!user) {
-          window.netlifyIdentity.on('login', () => {
-            document.location.href = '/admin/';
-          });
-        }
-      });
-    }
   </script>
 </body>
 </html>

@@ -751,6 +751,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   }
 
+/* ============ MAP: click-to-load placeholder ============ */
+.map-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; padding: 44px 24px 24px; text-align: center;
+}
+.map-placeholder .map-coords { top: 16px; bottom: auto; }
+.map-placeholder .map-marker { margin-bottom: 14px; }
+.map-load-btn {
+  padding: 13px 22px; min-height: 44px;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--ink); color: var(--cream);
+  transition: background 0.3s var(--ease);
+}
+.map-load-btn:hover { background: var(--wine); }
+.details-left .map-note { font-size: 12px; line-height: 1.5; color: var(--muted); max-width: 30ch; margin: 0; }
+.map-osm-link { font-size: 12px; color: var(--wine); text-decoration: underline; text-underline-offset: 2px; }
+.map-osm-link:hover { color: var(--brass); }
+
 /* ============ MAP IFRAME ============ */
 .details-map iframe {
   position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 0;
