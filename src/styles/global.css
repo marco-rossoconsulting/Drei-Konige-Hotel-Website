@@ -766,6 +766,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: background 0.3s var(--ease);
 }
 .map-load-btn:hover { background: var(--wine); }
+.map-load-btn[hidden] { display: none; }
 .details-left .map-note { font-size: 12px; line-height: 1.5; color: var(--muted); max-width: 30ch; margin: 0; }
 .map-osm-link { font-size: 12px; color: var(--wine); text-decoration: underline; text-underline-offset: 2px; }
 .map-osm-link:hover { color: var(--brass); }

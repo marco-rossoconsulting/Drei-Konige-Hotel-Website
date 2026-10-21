@@ -59,9 +59,9 @@ const icons: Record<string, string> = {
             <div class="map-placeholder" data-map-placeholder>
               <div class="map-coords">{mapCoords}</div>
               <div class="map-marker" aria-hidden="true">{mapMarker}</div>
-              <button type="button" class="map-load-btn" data-map-load data-map-src={mapEmbedUrl} data-map-title={mapText.title}>{mapText.load}</button>
+              <button type="button" class="map-load-btn" hidden data-map-load data-map-src={mapEmbedUrl} data-map-title={mapText.title}>{mapText.load}</button>
               <p class="map-note">{mapText.note}</p>
-              <a class="map-osm-link" href={osmLink} target="_blank" rel="noopener">{mapText.open} ↗</a>
+              <a class="map-osm-link" href={osmLink} target="_blank" rel="noopener">{mapText.open} <span aria-hidden="true">↗</span></a>
             </div>
           ) : (
             <>
@@ -91,6 +91,8 @@ const icons: Record<string, string> = {
 
 <script>
   document.querySelectorAll<HTMLButtonElement>('[data-map-load]').forEach((btn) => {
+    // Rendered hidden so it never shows without JS; the OSM link stays as fallback
+    btn.hidden = false;
     btn.addEventListener('click', () => {
       const box = btn.closest('.details-map');
       if (!box || !btn.dataset.mapSrc) return;
@@ -98,7 +100,7 @@ const icons: Record<string, string> = {
       iframe.src = btn.dataset.mapSrc;
       iframe.title = btn.dataset.mapTitle || 'Map';
       iframe.setAttribute('allowfullscreen', '');
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
       box.querySelector('[data-map-placeholder]')?.remove();
       box.appendChild(iframe);
       iframe.focus();
