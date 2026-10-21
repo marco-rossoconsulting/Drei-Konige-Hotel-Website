@@ -13,9 +13,12 @@ interface Props {
   legalLinks: Link[];
   /* On sub-pages: prefix for #anchor links, e.g. '/en/' → '/en/#rooms' */
   anchorBase?: string;
+  /* Page locale, for the "Cookie settings" label */
+  locale?: 'de' | 'en' | 'fr' | 'it';
 }
 
-const { brandTagline, columns, copyright, legalLinks, anchorBase = '' } = Astro.props;
+const { brandTagline, columns, copyright, legalLinks, anchorBase = '', locale = 'de' } = Astro.props;
+const cookieSettingsLabel = { de: 'Cookie-Einstellungen', en: 'Cookie settings', fr: 'Paramètres des cookies', it: 'Impostazioni cookie' }[locale];
 const fixHref = (href: string) => (anchorBase && href.startsWith('#') && href.length > 1 ? `${anchorBase}${href}` : href);
 ---
 
@@ -47,6 +50,7 @@ const fixHref = (href: string) => (anchorBase && href.startsWith('#') && href.le
         {legalLinks.map((link) => (
           <a href={fixHref(link.href)}>{link.label}</a>
         ))}
+        <button type="button" class="footer-cookie-btn" data-consent-open aria-controls="dk-consent">{cookieSettingsLabel}</button>
       </div>
     </div>
   </div>

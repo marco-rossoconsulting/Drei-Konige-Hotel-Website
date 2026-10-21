@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import { consentHeadScript } from '../lib/analytics';
 
 type Locale = 'en' | 'de' | 'fr' | 'it';
 
@@ -205,6 +207,11 @@ const jsonLdGraph = hotel ? {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {/* Google tag (GA4 G-TZVSDCQT33), consent-gated: Consent Mode v2 defaults
+      (all denied) run first; gtag.js is injected only after the visitor
+      accepts the cookie banner. Config lives in src/lib/analytics.ts. */}
+  <script is:inline set:html={consentHeadScript()}></script>
   <meta name="generator" content={Astro.generator} />
   <meta name="theme-color" content="#2A3D2E" />
   <meta name="format-detection" content="telephone=yes" />
@@ -281,6 +288,7 @@ const jsonLdGraph = hotel ? {
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
 </head>
 <body>
+  <ConsentBanner locale={locale} />
   <main id="main">
     <slot />
   </main>

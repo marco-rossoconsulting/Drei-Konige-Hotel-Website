@@ -1,0 +1,84 @@
+---
+/* Cookie consent banner (no third-party CMP). Shown until the visitor
+ * accepts or rejects; reopened by any element with [data-consent-open]
+ * (the "Cookie settings" link in the footer). Logic lives in
+ * window.dkConsent, defined by the inline head script in Layout.astro
+ * (see src/lib/analytics.ts). */
+import { privacyPaths, type Locale } from '../lib/legal';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+
+const t: Record<Locale, { title: string; text: string; link: string; accept: string; reject: string }> = {
+  de: {
+    title: 'Cookies & Statistik',
+    text: 'Mit Ihrer Einwilligung nutzen wir Google Analytics, um zu verstehen, wie unsere Website genutzt wird. Cookies werden nur gesetzt, wenn Sie akzeptieren. Ihre Wahl können Sie jederzeit unter «Cookie-Einstellungen» am Seitenende ändern.',
+    link: 'Datenschutzerklärung',
+    accept: 'Akzeptieren',
+    reject: 'Ablehnen'
+  },
+  en: {
+    title: 'Cookies & statistics',
+    text: 'With your consent, we use Google Analytics to understand how our website is used. Cookies are only set if you accept. You can change your choice at any time via “Cookie settings” at the bottom of the page.',
+    link: 'Privacy policy',
+    accept: 'Accept',
+    reject: 'Reject'
+  },
+  fr: {
+    title: 'Cookies et statistiques',
+    text: 'Avec votre consentement, nous utilisons Google Analytics pour comprendre comment notre site est utilisé. Les cookies ne sont déposés que si vous acceptez. Vous pouvez modifier votre choix à tout moment via « Paramètres des cookies » en bas de page.',
+    link: 'Politique de confidentialité',
+    accept: 'Accepter',
+    reject: 'Refuser'
+  },
+  it: {
+    title: 'Cookie e statistiche',
+    text: 'Con il vostro consenso utilizziamo Google Analytics per capire come viene utilizzato il nostro sito. I cookie vengono installati solo se accettate. Potete modificare la vostra scelta in qualsiasi momento tramite «Impostazioni cookie» in fondo alla pagina.',
+    link: 'Informativa sulla privacy',
+    accept: 'Accetta',
+    reject: 'Rifiuta'
+  }
+};
+const s = t[locale];
+---
+
+<div class="consent" id="dk-consent" role="region" aria-labelledby="dk-consent-title" hidden>
+  <p class="consent-title" id="dk-consent-title">{s.title}</p>
+  <p class="consent-text">
+    {s.text} <a href={`${privacyPaths[locale]}#cookie-policy`}>{s.link}</a>
+  </p>
+  <div class="consent-actions">
+    <button type="button" class="consent-btn" data-consent="reject">{s.reject}</button>
+    <button type="button" class="consent-btn" data-consent="accept">{s.accept}</button>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById('dk-consent');
+  const api = (window as any).dkConsent;
+  if (banner && api) {
+    const show = (focus: boolean) => {
+      banner.hidden = false;
+      if (focus) (banner.querySelector('[data-consent="reject"]') as HTMLElement | null)?.focus();
+    };
+    const hide = () => { banner.hidden = true; };
+
+    if (!api.get()) show(false);
+
+    banner.querySelectorAll<HTMLButtonElement>('[data-consent]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.consent === 'accept') api.accept(); else api.reject();
+        hide();
+      });
+    });
+
+    document.querySelectorAll<HTMLElement>('[data-consent-open]').forEach((el) => {
+      el.addEventListener('click', (e) => { e.preventDefault(); show(true); });
+    });
+
+    banner.addEventListener('keydown', (e) => {
+      // Esc closes a reopened banner without changing the stored choice
+      if (e.key === 'Escape' && api.get()) hide();
+    });
+  }
+</script>
