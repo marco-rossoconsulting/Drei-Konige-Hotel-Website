@@ -835,7 +835,11 @@ footer { background: var(--ink); color: var(--cream); padding: 100px 0 40px; }
 .footer-col p { font-size: 14px; line-height: 1.6; color: rgba(245, 240, 230, 0.75); }
 .footer-col p + p { margin-top: 6px; }
 .footer-bottom { padding-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245, 240, 230, 0.45); }
-.footer-bottom-right { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.footer-bottom-right { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 28px; }
+/* Astia Web credit: label follows the bottom bar's type (size, caps, colour). The credit's built-in
+   clear space is kept, but pulled into the surrounding empty space (bar padding, 28px gaps) so it neither grows the bar nor
+   shifts its edges out of line with the other footer text, on desktop or when it wraps on mobile. */
+.footer-bottom .astia-credit { font-size: inherit; margin: calc(-1 * var(--_x)); }
 .footer-bottom-right a:hover { color: var(--brass-light); }
 .footer-cookie-btn { font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; padding: 0; transition: color 0.3s var(--ease); }
 .footer-cookie-btn:hover { color: var(--brass-light); }
