@@ -419,3 +419,14 @@ collections:
           - { label: "Jump link — cookie policy", name: cookieHeading, widget: string, i18n: true }
           - { label: "Privacy policy (HTML)", name: privacyPolicyHtml, widget: text, i18n: true, hint: "Raw HTML, rendered as-is: trusted editors only. Hotel Drei Könige's own policy. Update the third-party list if the site starts loading new services (maps, fonts, analytics, video)." }
           - { label: "Cookie policy (HTML)", name: cookiePolicyHtml, widget: text, i18n: true, hint: "Raw HTML, rendered as-is: trusted editors only. Only list cookies the site really sets. Google Analytics (_ga, _ga_TZVSDCQT33) loads only after consent via the cookie banner (src/lib/analytics.ts); list any new tracking here and gate it behind the banner too." }
+
+      - name: imprint
+        label: "Impressum"
+        i18n: true
+        file: "src/content/legal/{{locale}}/imprint.json"
+        format: json
+        fields:
+          - { label: "Page title (browser tab / search results)", name: title, widget: string, i18n: true }
+          - { label: "Meta description (~160 chars)", name: description, widget: text, i18n: true }
+          - { label: "Heading", name: heading, widget: string, i18n: true }
+          - { label: "Impressum (HTML)", name: bodyHtml, widget: text, i18n: true, hint: "Raw HTML, rendered as-is: trusted editors only." }
