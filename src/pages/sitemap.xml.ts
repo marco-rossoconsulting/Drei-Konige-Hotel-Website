@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { privacyPaths, hreflangs, type Locale as LegalLocale } from '../lib/legal';
+import { privacyPaths, imprintPaths, hreflangs, type Locale as LegalLocale } from '../lib/legal';
 
 // Custom multilingual sitemap with full hreflang annotations.
 // Each <url> entry includes <xhtml:link rel="alternate"> for every locale,
@@ -39,15 +39,16 @@ ${xDefault}
   </url>`;
   }).join('\n');
 
-  // Privacy & Cookie Policy — one localized URL per locale, cross-linked via hreflang
+  // Legal pages (Privacy & Cookie Policy, Impressum) — one localized URL per
+  // locale, cross-linked via hreflang
   const legalLocales = Object.keys(privacyPaths) as LegalLocale[];
-  const legalEntries = legalLocales.map((code) => {
+  const legalEntry = (paths: Record<LegalLocale, string>) => legalLocales.map((code) => {
     const alternates = legalLocales
-      .map((alt) => `    <xhtml:link rel="alternate" hreflang="${hreflangs[alt]}" href="${SITE}${privacyPaths[alt]}" />`)
+      .map((alt) => `    <xhtml:link rel="alternate" hreflang="${hreflangs[alt]}" href="${SITE}${paths[alt]}" />`)
       .join('\n');
-    const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${privacyPaths.de}" />`;
+    const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${paths.de}" />`;
     return `  <url>
-    <loc>${SITE}${privacyPaths[code]}</loc>
+    <loc>${SITE}${paths[code]}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -55,6 +56,7 @@ ${alternates}
 ${xDefault}
   </url>`;
   }).join('\n');
+  const legalEntries = [legalEntry(privacyPaths), legalEntry(imprintPaths)].join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
