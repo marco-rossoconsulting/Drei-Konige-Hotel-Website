@@ -1,0 +1,101 @@
+---
+/**
+ * AstiaCredit.astro: the "Website by astia·web" footer credit.
+ *
+ * <AstiaCredit site="hotel-bellavista" />                              light footer, English
+ * <AstiaCredit site="hotel-bellavista" lang="de" tone="paper" />       dark footer, German
+ * <AstiaCredit site="hotel-bellavista" tone="auto" background="#1f3d2e" />   picks Ink or Paper by contrast
+ *
+ * Needs no fonts and no JS. The wordmark is drawn as vector outlines of Instrument Serif Italic (OFL).
+ * Brand rules baked in: Ink letters on light, Paper letters on dark, Signal Red dot always,
+ * minimum 18px, clear space equal to the height of the "a", no recolouring on hover.
+ */
+interface Props {
+  /** Short client name for analytics, e.g. "hotel-bellavista". Becomes utm_source. */
+  site: string;
+  /** Label language. */
+  lang?: 'en' | 'de' | 'it' | 'fr';
+  /** 'ink' for light footers, 'paper' for dark footers, 'auto' to choose from `background`. */
+  tone?: 'ink' | 'paper' | 'auto';
+  /** Footer background as #rrggbb. Required when tone="auto". */
+  background?: string;
+  /** Wordmark type size in px. Clamped to a minimum of 18. */
+  size?: number;
+  /** Set true only if you deliberately want the link to pass ranking signals. Default is nofollow. */
+  follow?: boolean;
+  /** Open astiaweb.com in a new tab. Guide default is false (visitors keep their tab). */
+  newTab?: boolean;
+  class?: string;
+}
+
+const { site, lang = 'en', tone = 'ink', background, size = 22, follow = false, newTab = false, class: className } = Astro.props;
+
+const LABELS = { en: 'Website by', de: 'Website von', it: 'Sito web di', fr: 'Site web par' } as const;
+
+const lum = (hex: string) => {
+  const c = hex.replace('#', '').match(/.{2}/g)!.map((h) => parseInt(h, 16) / 255)
+    .map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+};
+const contrast = (a: string, b: string) => {
+  const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+};
+
+let resolved: 'ink' | 'paper' = tone === 'paper' ? 'paper' : 'ink';
+if (tone === 'auto') {
+  if (!background) throw new Error('AstiaCredit: tone="auto" needs a background="#rrggbb".');
+  const ink = contrast('#141414', background);
+  const paper = contrast('#F7F5F0', background);
+  resolved = ink >= paper ? 'ink' : 'paper';
+  if (Math.max(ink, paper) < 4.5) {
+    console.warn(`AstiaCredit: ${background} gives only ${Math.max(ink, paper).toFixed(1)}:1 for the wordmark. Put the credit on a Paper or Ink bottom bar instead.`);
+  }
+}
+
+const href = `https://astiaweb.com/?utm_source=${encodeURIComponent(site)}&utm_medium=footer-credit&utm_campaign=client-footer`;
+const rel = follow ? 'noopener' : 'nofollow noopener';
+// Accessible name: visible label + brand name, so it matches what sighted users read (WCAG 2.5.3).
+const ariaLabel = `${LABELS[lang]} Astia Web`;
+---
+
+<a class:list={['astia-credit', className]} data-tone={resolved === 'paper' ? 'paper' : undefined} href={href} rel={rel} target={newTab ? '_blank' : undefined} aria-label={ariaLabel} style={`--astia-size:${size}px`}>
+  <span class="astia-credit__label">{LABELS[lang]}</span>
+  <svg class="astia-credit__mark" viewBox="13 -743 3275 753" aria-hidden="true" focusable="false">
+    <path class="astia-credit__letters" d="M89 9Q53 9 33 -22Q13 -53 13 -113Q13 -170 29 -227.5Q45 -285 73 -337Q101 -389 136.5 -429Q172 -469 211.5 -492.5Q251 -516 290 -516Q309 -516 326 -508.5Q343 -501 354 -485Q360 -476 366 -476Q372 -476 378 -485Q389 -501 396 -505.5Q403 -510 409 -510Q422 -510 419 -496L330 -113Q315 -48 350 -48Q373 -48 391.5 -79Q410 -110 429 -175Q432 -186 442 -186Q449 -186 451 -180Q453 -174 451 -166Q432 -72 400 -31.5Q368 9 323 9Q284 9 267.5 -24Q251 -57 264 -114L277 -169Q279 -176 274.5 -177Q270 -178 267 -172Q212 -71 169.5 -31Q127 9 89 9ZM114 -42Q138 -42 167 -71Q196 -100 224.5 -146Q253 -192 277 -245Q301 -298 315.5 -347Q330 -396 330 -430Q330 -491 287 -491Q261 -491 232 -467.5Q203 -444 176.5 -404Q150 -364 128.5 -313.5Q107 -263 94 -208.5Q81 -154 81 -102Q81 -67 89.5 -54.5Q98 -42 114 -42ZM590 9Q557 9 520.5 -1Q484 -11 465 -26Q458 -32 459 -44L481 -175Q483 -188 493 -188Q504 -188 504 -174L506 -126Q508 -69 533.5 -42.5Q559 -16 596 -16Q628 -16 651 -36.5Q674 -57 674 -97Q674 -120 667 -139.5Q660 -159 645 -181.5Q630 -204 604 -236Q570 -280 553.5 -311.5Q537 -343 537 -377Q537 -440 576.5 -478Q616 -516 677 -516Q704 -516 729.5 -508Q755 -500 772 -484Q781 -477 778 -466L750 -332Q747 -319 738 -319Q729 -319 727 -333L724 -381Q720 -441 708.5 -467Q697 -493 661 -493Q629 -493 609 -471Q589 -449 589 -418Q589 -385 607 -357.5Q625 -330 656 -288Q697 -234 711.5 -202Q726 -170 726 -137Q726 -95 707.5 -62Q689 -29 658 -10Q627 9 590 9ZM878 9Q844 9 825 -18Q806 -45 819 -105L902 -467Q905 -482 890 -482H852Q838 -482 838 -495Q838 -502 843 -506Q848 -510 855 -510H891Q914 -510 918 -531L942 -638Q945 -649 956 -649H997Q1011 -649 1008 -636L983 -525Q980 -510 995 -510H1052Q1069 -510 1069 -497Q1069 -482 1048 -482H994Q972 -482 967 -461L883 -95Q878 -73 884.5 -60.5Q891 -48 907 -48Q930 -48 949.5 -74Q969 -100 991 -173Q995 -186 1004 -186Q1011 -186 1013 -180Q1015 -174 1010 -158Q991 -90 968.5 -54Q946 -18 923 -4.5Q900 9 878 9ZM1252 -605Q1233 -605 1220.5 -618.5Q1208 -632 1208 -651Q1208 -678 1224.5 -694Q1241 -710 1262 -710Q1282 -710 1295.5 -697.5Q1309 -685 1309 -665Q1309 -637 1292 -621Q1275 -605 1252 -605ZM1170 10Q1137 10 1123 -14.5Q1109 -39 1122 -95L1196 -412Q1201 -434 1197.5 -446.5Q1194 -459 1179 -459Q1161 -459 1139.5 -432.5Q1118 -406 1091 -332Q1087 -319 1077 -319Q1062 -319 1069 -337Q1091 -406 1115.5 -445Q1140 -484 1165 -500Q1190 -516 1211 -516Q1246 -516 1260 -491.5Q1274 -467 1261 -411L1187 -94Q1182 -72 1185.5 -59.5Q1189 -47 1204 -47Q1222 -47 1243.5 -73.5Q1265 -100 1292 -174Q1296 -187 1306 -187Q1321 -187 1314 -169Q1293 -101 1267.5 -61.5Q1242 -22 1217 -6Q1192 10 1170 10ZM1425 9Q1389 9 1369 -22Q1349 -53 1349 -113Q1349 -170 1365 -227.5Q1381 -285 1409 -337Q1437 -389 1472.5 -429Q1508 -469 1547.5 -492.5Q1587 -516 1626 -516Q1645 -516 1662 -508.5Q1679 -501 1690 -485Q1696 -476 1702 -476Q1708 -476 1714 -485Q1725 -501 1732 -505.5Q1739 -510 1745 -510Q1758 -510 1755 -496L1666 -113Q1651 -48 1686 -48Q1709 -48 1727.5 -79Q1746 -110 1765 -175Q1768 -186 1778 -186Q1785 -186 1787 -180Q1789 -174 1787 -166Q1768 -72 1736 -31.5Q1704 9 1659 9Q1620 9 1603.5 -24Q1587 -57 1600 -114L1613 -169Q1615 -176 1610.5 -177Q1606 -178 1603 -172Q1548 -71 1505.5 -31Q1463 9 1425 9ZM1450 -42Q1474 -42 1503 -71Q1532 -100 1560.5 -146Q1589 -192 1613 -245Q1637 -298 1651.5 -347Q1666 -396 1666 -430Q1666 -491 1623 -491Q1597 -491 1568 -467.5Q1539 -444 1512.5 -404Q1486 -364 1464.5 -313.5Q1443 -263 1430 -208.5Q1417 -154 1417 -102Q1417 -67 1425.5 -54.5Q1434 -42 1450 -42ZM2050 9Q2009 9 1987 -23Q1965 -55 1979 -110L2059 -412Q2072 -459 2043 -459Q2022 -459 2001.5 -429Q1981 -399 1957 -331Q1953 -319 1943 -319Q1938 -319 1935 -323.5Q1932 -328 1934 -335Q1992 -516 2079 -516Q2113 -516 2125 -488Q2137 -460 2124 -411L2040 -92Q2031 -58 2039 -42Q2047 -26 2063 -26Q2112 -26 2172.5 -146.5Q2233 -267 2279 -499Q2282 -510 2293 -510H2332Q2346 -510 2343 -497L2263 -92Q2256 -59 2264.5 -42.5Q2273 -26 2292 -26Q2321 -26 2351 -54Q2381 -82 2405.5 -127Q2430 -172 2445 -226Q2460 -280 2460 -332Q2460 -374 2453.5 -398.5Q2447 -423 2440 -440Q2433 -457 2433 -477Q2433 -516 2467 -516Q2491 -516 2498 -489.5Q2505 -463 2505 -410Q2505 -334 2486.5 -259.5Q2468 -185 2436.5 -124.5Q2405 -64 2364.5 -27.5Q2324 9 2279 9Q2236 9 2213 -24.5Q2190 -58 2203 -122Q2205 -129 2200.5 -130Q2196 -131 2193 -125Q2165 -69 2130 -30Q2095 9 2050 9ZM2651 9Q2598 9 2566 -32.5Q2534 -74 2534 -150Q2534 -216 2557.5 -281Q2581 -346 2619 -399Q2657 -452 2702.5 -484Q2748 -516 2791 -516Q2838 -516 2858.5 -493.5Q2879 -471 2879 -433Q2879 -388 2847.5 -343.5Q2816 -299 2759.5 -264Q2703 -229 2627 -212Q2605 -207 2604 -187Q2603 -180 2603 -172.5Q2603 -165 2603 -158Q2603 -101 2622.5 -72Q2642 -43 2676 -43Q2714 -43 2749.5 -78Q2785 -113 2809 -177Q2812 -186 2821 -186Q2827 -186 2828.5 -181Q2830 -176 2828 -169Q2796 -81 2750.5 -36Q2705 9 2651 9ZM2614 -250Q2612 -243 2616.5 -238.5Q2621 -234 2628 -236Q2690 -253 2732 -287.5Q2774 -322 2795.5 -365Q2817 -408 2817 -449Q2817 -491 2784 -491Q2755 -491 2721 -457Q2687 -423 2658 -368Q2629 -313 2614 -250ZM3006 9Q2972 9 2945.5 -9.5Q2919 -28 2908.5 -65.5Q2898 -103 2911 -159L3023 -640Q3028 -658 3023.5 -665Q3019 -672 3005 -673L2975 -676Q2960 -677 2962 -689Q2964 -698 2976 -700Q3012 -706 3040 -714.5Q3068 -723 3085 -737Q3093 -743 3100 -743Q3112 -743 3109 -728L3018 -335Q3017 -328 3021 -327Q3025 -326 3028 -332Q3083 -437 3126.5 -476.5Q3170 -516 3208 -516Q3245 -516 3266.5 -485Q3288 -454 3288 -394Q3288 -337 3271.5 -279.5Q3255 -222 3226.5 -170Q3198 -118 3161.5 -78Q3125 -38 3085 -14.5Q3045 9 3006 9ZM3009 -16Q3035 -16 3064 -39.5Q3093 -63 3120.5 -102.5Q3148 -142 3170 -191.5Q3192 -241 3205 -293.5Q3218 -346 3218 -395Q3218 -433 3210 -448.5Q3202 -464 3182 -464Q3160 -464 3132 -437Q3104 -410 3075 -365.5Q3046 -321 3021 -269Q2996 -217 2981 -166.5Q2966 -116 2966 -77Q2966 -16 3009 -16Z" />
+    <path class="astia-credit__dot" d="M1846 -320Q1825 -320 1812 -333.5Q1799 -347 1799 -367Q1799 -393 1817 -409Q1835 -425 1855 -425Q1875 -425 1888.5 -411.5Q1902 -398 1902 -378Q1902 -352 1884 -336Q1866 -320 1846 -320Z" />
+  </svg>
+</a>
+
+<style is:global>
+.astia-credit {
+  --astia-size: 22px;                 /* wordmark type size. Never below 18px (the dot becomes a comma) */
+  --astia-letters: #141414;           /* Ink. Switch to Paper with data-tone="paper" on dark footers */
+  --_s: max(18px, var(--astia-size));
+  --_x: calc(var(--_s) * 0.516);      /* clear space = height of the lowercase "a" */
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--_x);
+  padding: var(--_x);
+  font-family: inherit;               /* the label follows the client's own footer font */
+  font-size: 0.8125rem;
+  line-height: 1;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.astia-credit[data-tone="paper"] { --astia-letters: #F7F5F0; }  /* Paper letters on Ink */
+.astia-credit__mark {
+  display: block;
+  flex: none;
+  height: calc(var(--_s) * 0.753);
+  width: calc(var(--_s) * 3.275);
+  margin-bottom: calc(var(--_s) * -0.010);   /* sit the baseline on the label's baseline */
+}
+.astia-credit__letters { fill: var(--astia-letters); }
+.astia-credit__dot { fill: #E62127; }          /* Signal Red: the dot, only. Never overridden */
+.astia-credit:hover .astia-credit__label,
+.astia-credit:focus-visible .astia-credit__label { text-decoration: underline; text-underline-offset: 0.2em; }
+.astia-credit:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 2px; }
+@media print { .astia-credit { color: #141414; } }
+</style>

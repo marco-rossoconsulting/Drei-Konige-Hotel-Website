@@ -1,4 +1,6 @@
 ---
+import AstiaCredit from './AstiaCredit.astro';
+
 interface Link { label: string; href: string; }
 interface Column {
   heading: string;
@@ -51,6 +53,8 @@ const fixHref = (href: string) => (anchorBase && href.startsWith('#') && href.le
           <a href={fixHref(link.href)}>{link.label}</a>
         ))}
         <button type="button" class="footer-cookie-btn" data-consent-open aria-controls="dk-consent" aria-expanded="false">{cookieSettingsLabel}</button>
+        {/* Agency credit. Footer background is --ink (#1C1916), so tone="auto" resolves to Paper letters (~16:1). */}
+        <AstiaCredit site="drei-koenige" lang={locale} tone="auto" background="#1C1916" size={20} newTab class="footer-credit" />
       </div>
     </div>
   </div>
